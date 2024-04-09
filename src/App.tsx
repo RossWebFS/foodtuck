@@ -1,8 +1,11 @@
-import React from 'react';
+import { Header } from './features/Header';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <h1>The initialization</h1>
+    <BrowserRouter>
+      <Header/>
+    </BrowserRouter>
   );
 }
 
