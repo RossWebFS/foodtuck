@@ -4,12 +4,13 @@ import { PiTote } from "react-icons/pi";
 import { NavLink } from "react-router-dom";
 import { navRoutes } from "../constants/constants";
 import { NavIcon } from "../components/NavIcon";
+import { PageWrapper } from "../layout/PageWrapper";
 
 export const Header = () => {
   return (
     <header className="bg-black h-20">
-      <div className="max-w-screen-xl h-full mx-auto flex justify-between items-center">
-        <figure className="cursor-pointer">
+      <PageWrapper>
+      <figure className="cursor-pointer">
           <NavLink to="/">
             <h1 className="helvetica text-white py-2 text-2xl">
               Food
@@ -48,7 +49,7 @@ export const Header = () => {
             </NavIcon>
           </ul>
         </section>
-      </div>
+      </PageWrapper>
     </header>
   );
 };
