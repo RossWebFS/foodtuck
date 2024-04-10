@@ -1,10 +1,10 @@
 import React from "react";
 
-type NavIconProps = {
-    children: React.ReactNode;
-}
+type IconProps = {
+  children: React.ReactNode;
+};
 
-export const NavIcon = ({children} : NavIconProps) => {
+export const Icon = ({ children }: IconProps) => {
   return (
     <li className="mx-2 text-gray-100 transition-colors duration-200 hover:text-gray-300 cursor-pointer">
       {children}

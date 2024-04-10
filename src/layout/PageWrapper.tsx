@@ -1,13 +1,14 @@
 import React from "react";
 
-type PageWrapperProps = {
-    children: React.ReactNode;
-}
+interface PageWrapperProps  {
+  children: React.ReactNode,
+  styles?: string
+};
 
-export const PageWrapper = ({children}: PageWrapperProps) => {
-    return (
-        <div className="max-w-screen-xl h-full mx-auto flex justify-between items-center">
-            {children}
-        </div>
-    )
-}
+export const PageWrapper = ({ children, styles }: PageWrapperProps) => {
+  return (
+    <div className={`max-w-screen-xl h-full mx-auto ${styles}`}>
+      {children}
+    </div>
+  );
+};

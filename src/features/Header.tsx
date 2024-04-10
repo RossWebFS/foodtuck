@@ -1,16 +1,31 @@
+import { NavLink } from "react-router-dom";
+import { navRoutes } from "src/constants";
+
+import { PageWrapper } from "src/layout/PageWrapper";
+import { Icon } from "src/components/Icon";
+
 import { RiSearchLine } from "react-icons/ri";
 import { AiOutlineUser } from "react-icons/ai";
 import { PiTote } from "react-icons/pi";
-import { NavLink } from "react-router-dom";
-import { navRoutes } from "../constants/constants";
-import { NavIcon } from "../components/NavIcon";
-import { PageWrapper } from "../layout/PageWrapper";
 
 export const Header = () => {
+  const navLinks = navRoutes.map((r, index) => {
+    return (
+      <li className="mx-3" key={index}>
+        <NavLink
+          className="text-gray-100 hover:text-gray-300 transition-colors duration-200"
+          to={r.path}
+        >
+          {r.routeName}
+        </NavLink>
+      </li>
+    );
+  });
+
   return (
     <header className="bg-black h-20">
-      <PageWrapper>
-      <figure className="cursor-pointer">
+      <PageWrapper styles="flex justify-between items-center">
+        <figure className="cursor-pointer">
           <NavLink to="/">
             <h1 className="helvetica text-white py-2 text-2xl">
               Food
@@ -20,33 +35,20 @@ export const Header = () => {
         </figure>
 
         <nav>
-          <ul className="flex items-center">
-            {navRoutes.map((r, index) => {
-              return (
-                <li className="mx-3" key={index}>
-                  <NavLink
-                    className="text-gray-100 hover:text-gray-300 transition-colors duration-200"
-                    to={r === "home" ? "/" : r}
-                  >
-                    {r[0].toUpperCase() + r.slice(1)}
-                  </NavLink>
-                </li>
-              );
-            })}
-          </ul>
+          <ul className="flex items-center">{[navLinks]}</ul>
         </nav>
 
         <section>
           <ul className="flex">
-            <NavIcon>
+            <Icon>
               <RiSearchLine size={20} />
-            </NavIcon>
-            <NavIcon>
+            </Icon>
+            <Icon>
               <AiOutlineUser size={20} />
-            </NavIcon>
-            <NavIcon>
+            </Icon>
+            <Icon>
               <PiTote size={20} />
-            </NavIcon>
+            </Icon>
           </ul>
         </section>
       </PageWrapper>

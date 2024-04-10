@@ -1,10 +1,12 @@
-import { Header } from './features/Header';
-import { BrowserRouter } from 'react-router-dom';
+import { Header } from "./features/Header";
+import { Footer } from "./features/Footer";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header/>
+      <Header />
+      <Footer />
     </BrowserRouter>
   );
 }
