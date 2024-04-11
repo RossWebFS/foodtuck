@@ -34,7 +34,7 @@ export const navRoutes: TRoutes[] = [
 export const usefulLinkRoutes: TRoutes[] = [
   {
     routeName: "About",
-    path: "/",
+    path: "/about",
   },
   {
     routeName: "News",
@@ -65,7 +65,7 @@ export const helpRoutes: TRoutes[] = [
   },
   {
     routeName: "Term & conditions",
-    path: "/term-and-condition",
+    path: "/term-and-conditions",
   },
   {
     routeName: "Reporting",

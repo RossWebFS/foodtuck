@@ -2,11 +2,14 @@ import React from "react";
 
 type IconProps = {
   children: React.ReactNode;
+  styles?: string;
 };
 
-export const Icon = ({ children }: IconProps) => {
+export const Icon = ({ children, styles }: IconProps) => {
   return (
-    <li className="mx-2 text-gray-100 transition-colors duration-200 hover:text-gray-300 cursor-pointer">
+    <li
+      className={`transition-colors duration-200 hover:text-orange-400 cursor-pointer ${styles}`}
+    >
       {children}
     </li>
   );

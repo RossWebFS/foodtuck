@@ -1,39 +1,43 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { BiLogoFacebook } from "react-icons/bi";
 import { AiOutlineTwitter, AiOutlineInstagram } from "react-icons/ai";
 import { BsYoutube, BsPinterest } from "react-icons/bs";
 
-import Watch from "src/assets/Watch.png";
-import footerLeaves from "src/assets/footerLeaves.png";
+import { Link } from "src/components/Link";
+import { Button } from "src/components/Button";
+import { Icon } from "src/components/Icon";
 import { PageWrapper } from "src/layout/PageWrapper";
-
 import { recentPosts, usefulLinkRoutes, helpRoutes } from "src/constants";
 
-export const Footer = () => {
+import Watch from "src/assets/Watch.png";
+import footerLeaves from "src/assets/footerLeaves.png";
+
+export const Footer: React.FC = () => {
   const footerIcons: React.ReactNode[] = [
     <BiLogoFacebook size={15} />,
     <AiOutlineTwitter size={15} />,
     <AiOutlineInstagram size={15} />,
     <BsYoutube size={15} />,
     <BsPinterest size={15} />,
-  ].map((i) => (
-    <li className="text-gray-600 bg-gray-100 p-1 cursor-pointer">{i}</li>
+  ].map((i, index) => (
+    <Icon key={index} styles="text-gray-600 bg-gray-100 p-1.5">
+      {i}
+    </Icon>
   ));
 
   const usefulLinks = usefulLinkRoutes.map((l) => {
     return (
-      <li className="my-5 hover:text-orange-400 transition-colors duration-200">
-        <Link to={l.path}>{l.routeName}</Link>
-      </li>
+      <Link key={l.path} styles="my-5" path={l.path}>
+        {l.routeName}
+      </Link>
     );
   });
 
   const helpLinks = helpRoutes.map((l) => {
     return (
-      <li className="my-5 hover:text-orange-400 transition-colors duration-200">
-        <Link to={l.path}>{l.routeName}</Link>
-      </li>
+      <Link key={l.path} styles="my-5" path={l.path}>
+        {l.routeName}
+      </Link>
     );
   });
 
@@ -53,7 +57,7 @@ export const Footer = () => {
     <footer className="bg-black text-gray-100 relative">
       <PageWrapper>
         <article className="w-full">
-          <section className="flex justify-between border-b-2 border-orange-400 p-8">
+          <section className="flex justify-between border-b-2 border-orange-400 p-10">
             <div className="">
               <h2 className="text-3xl font-bold">
                 <span className="text-orange-400">Still</span> you need our
@@ -66,17 +70,15 @@ export const Footer = () => {
 
             <div className="h-fit">
               <input
-                className="bg-transparent border-orange-400 border px-3 py-1"
+                className="bg-transparent border-orange-400 border px-3 py-1 mr-3"
                 type="email"
                 placeholder="Enter your email"
               />
-              <button className=" bg-orange-500 px-3 py-1 h-auto border border-orange-400">
-                Subscribe now
-              </button>
+              <Button styles="border border-orange-400">Subscribe now</Button>
             </div>
           </section>
 
-          <section className="flex justify-between mt-6">
+          <section className="flex justify-between mt-10">
             <article className="w-1/4">
               <div>
                 <h3 className="text-lg font-bold mb-4">About Us</h3>
@@ -119,11 +121,11 @@ export const Footer = () => {
         </article>
       </PageWrapper>
 
-      <section className="bg-orange-400 h-16">
+      <section className="bg-orange-400 h-16 mt-2">
         <PageWrapper styles="flex justify-between items-center">
           <p>Copyright © 2022 by Ayeman. All Rights Reserved.</p>
 
-          <ul className="flex gap-x-2">{[footerIcons]}</ul>
+          <ul className="flex gap-x-2 z-10">{[footerIcons]}</ul>
         </PageWrapper>
       </section>
 

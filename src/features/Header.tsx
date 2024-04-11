@@ -1,33 +1,28 @@
 import { NavLink } from "react-router-dom";
-import { navRoutes } from "src/constants";
-
-import { PageWrapper } from "src/layout/PageWrapper";
-import { Icon } from "src/components/Icon";
-
 import { RiSearchLine } from "react-icons/ri";
 import { AiOutlineUser } from "react-icons/ai";
 import { PiTote } from "react-icons/pi";
 
-export const Header = () => {
+import { navRoutes } from "src/constants";
+import { PageWrapper } from "src/layout/PageWrapper";
+import { Icon } from "src/components/Icon";
+import { Link } from "src/components/Link";
+
+export const Header: React.FC = () => {
   const navLinks = navRoutes.map((r, index) => {
     return (
-      <li className="mx-3" key={index}>
-        <NavLink
-          className="text-gray-100 hover:text-gray-300 transition-colors duration-200"
-          to={r.path}
-        >
-          {r.routeName}
-        </NavLink>
-      </li>
+      <Link path={r.path} styles="mx-3" key={index}>
+        {r.routeName}
+      </Link>
     );
   });
 
   return (
-    <header className="bg-black h-20">
+    <header className="bg-black h-20 text-gray-100">
       <PageWrapper styles="flex justify-between items-center">
         <figure className="cursor-pointer">
           <NavLink to="/">
-            <h1 className="helvetica text-white py-2 text-2xl">
+            <h1 className="font-semibold py-2 text-2xl">
               Food
               <span className="text-orange-400">tuck</span>
             </h1>
@@ -39,14 +34,21 @@ export const Header = () => {
         </nav>
 
         <section>
-          <ul className="flex">
-            <Icon>
-              <RiSearchLine size={20} />
+          <ul className="flex items-center">
+            <Icon styles="mx-2">
+              <div className="flex rounded-full border-orange-400 border py-1.5 px-3">
+                <input
+                  className="text-gray-100 bg-transparent focus:outline-none pr-1.5"
+                  type="text"
+                  placeholder="Search..."
+                />
+                <RiSearchLine size={20} />
+              </div>
             </Icon>
-            <Icon>
+            <Icon styles="mx-2">
               <AiOutlineUser size={20} />
             </Icon>
-            <Icon>
+            <Icon styles="mx-2">
               <PiTote size={20} />
             </Icon>
           </ul>
