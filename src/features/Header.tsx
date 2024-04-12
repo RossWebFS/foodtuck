@@ -1,3 +1,5 @@
+import { useSearchInput } from "src/hooks/useSearchInput";
+
 import { NavLink } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
 import { AiOutlineUser } from "react-icons/ai";
@@ -9,6 +11,12 @@ import { Icon } from "src/components/Icon";
 import { Link } from "src/components/Link";
 
 export const Header: React.FC = () => {
+  const { searchValue, setSearchValue } = useSearchInput();
+
+  const onSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+  };
+
   const navLinks = navRoutes.map((r, index) => {
     return (
       <Link path={r.path} styles="mx-3" key={index}>
@@ -41,6 +49,8 @@ export const Header: React.FC = () => {
                   className="text-gray-100 bg-transparent focus:outline-none pr-1.5"
                   type="text"
                   placeholder="Search..."
+                  value={searchValue}
+                  onChange={onSearchInputChange}
                 />
                 <RiSearchLine size={20} />
               </div>

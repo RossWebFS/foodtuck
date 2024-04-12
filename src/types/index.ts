@@ -9,3 +9,13 @@ export interface TRecentPost {
   title: string;
   id: number;
 }
+
+export interface TUseSearchInput {
+  searchValue: string;
+  setSearchValue: (cur: string) => void;
+}
+
+export interface TUseSupportByEmail {
+  emailValue: string;
+  setEmailValue: (cur: string) => void;
+}

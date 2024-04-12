@@ -1,12 +1,13 @@
 import React from "react";
 
 interface IntroSectionProps {
-  children?: React.ReactNode;
-  bgImg?: any;
+  children: React.ReactNode;
+  bgImg?: React.ReactNode;
+  styles?: string;
 }
 
-export const IntroSection = ({ children, bgImg }: IntroSectionProps) => {
+export const IntroSection = ({ children, bgImg, styles }: IntroSectionProps) => {
   return (
-    <article style={{ backgroundImage: `url(${bgImg})` }}>{children}</article>
+    <article className={`${styles}`} style={{ backgroundImage: `url(${bgImg})` }}>{children}</article>
   );
 };

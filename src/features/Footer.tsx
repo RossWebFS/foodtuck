@@ -1,3 +1,5 @@
+import { useSupportByEmail } from "src/hooks/useSupportByEmail";
+
 import React from "react";
 import { BiLogoFacebook } from "react-icons/bi";
 import { AiOutlineTwitter, AiOutlineInstagram } from "react-icons/ai";
@@ -13,6 +15,21 @@ import Watch from "src/assets/Watch.png";
 import footerLeaves from "src/assets/footerLeaves.png";
 
 export const Footer: React.FC = () => {
+  const { emailValue, setEmailValue } = useSupportByEmail();
+
+  const onChangeEmailValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmailValue(e.target.value);
+  };
+
+  const onSentSupportEmail = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if(e.key === "Enter") emailMessageHandler()
+  }
+
+  const emailMessageHandler = () => {
+    alert(emailValue);
+    setEmailValue("")
+  }
+
   const footerIcons: React.ReactNode[] = [
     <BiLogoFacebook size={15} />,
     <AiOutlineTwitter size={15} />,
@@ -73,8 +90,14 @@ export const Footer: React.FC = () => {
                 className="bg-transparent border-orange-400 border px-3 py-1 mr-3"
                 type="email"
                 placeholder="Enter your email"
+                value={emailValue}
+                onChange={onChangeEmailValue}
+                onKeyDown={onSentSupportEmail}
               />
-              <Button styles="border border-orange-400">Subscribe now</Button>
+              <Button 
+              styles="border border-orange-400"
+              handler={emailMessageHandler}
+              >Subscribe now</Button>
             </div>
           </section>
 

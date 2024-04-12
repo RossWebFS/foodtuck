@@ -1,6 +1,7 @@
 import React from "react";
 import { BiLogoFacebook, BiLogoPinterestAlt } from "react-icons/bi";
 import { AiOutlineTwitter } from "react-icons/ai";
+import { BsCheck } from "react-icons/bs";
 
 import { PageWrapper } from "src/layout/PageWrapper";
 import { IntroSection } from "src/layout/IntroSection";
@@ -9,13 +10,16 @@ import { Icon } from "src/components/Icon";
 
 import introSectionBg from "src/assets/introSectionBg.png";
 import HomeIntro from "src/assets/HomeIntro.png";
+import HomeAbout1 from "src/assets/HomeAbout1.png";
+import HomeAbout2 from "src/assets/HomeAbout2.png";
+import HomeAbout3 from "src/assets/HomeAbout3.png";
 
 export const HomePage: React.FC = () => {
   return (
     <main className="text-gray-100">
-      <IntroSection bgImg={introSectionBg}>
-        <div className="bg-black opacity-80">
-          <PageWrapper styles="flex justify-between items-center relative">
+      <IntroSection styles="bg-bottom bg-cover" bgImg={introSectionBg}>
+        <div className="bg-black/90">
+          <PageWrapper styles="flex justify-between items-center relative py-16">
             <ul className="bg-black absolute -left-2">
               <Icon styles="my-3">
                 <BiLogoFacebook size={20} />
@@ -36,7 +40,7 @@ export const HomePage: React.FC = () => {
                 <span className="text-orange-400">The</span> Art of speed food
                 Quality
               </h1>
-              <p className="mb-4">
+              <p className="mb-8">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem
                 unde facere consectetur dolor iure soluta quis reprehenderit
                 adipisci incidunt molestias!
@@ -49,6 +53,53 @@ export const HomePage: React.FC = () => {
             </section>
           </PageWrapper>
         </div>
+      </IntroSection>
+
+      <IntroSection styles="bg-black pt-16 pb-8">
+        <PageWrapper styles="flex justify-evenly items-center">
+          <section className="w-5/12 pl-12">
+            <p className="great-vibes text-orange-400 text-2xl ">About Us</p>
+            <h1 className="w-4/5 text-4xl font-bold mt-2 mb-5">
+              <span className="text-orange-400">We</span> Create the best foody
+              product
+            </h1>
+            <p className="mb-4 w-11/12">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+              expedita tempora, ab eum sequi magnam nisi esse quis ullam ipsum
+              voluptatem excepturi, nemo placeat autem iste necessitatibus minus
+              unde voluptatibus!
+            </p>
+
+            <ul className="mb-8">
+              <li className="flex my-2">
+                <BsCheck size={25} />
+                <p className="pl-3">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </li>
+              <li className="flex my-2">
+                <BsCheck size={25} />
+                <p className="pl-3">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Sequi.
+                </p>
+              </li>
+              <li className="flex my-2">
+                <BsCheck size={25} />
+                <p className="pl-3">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </li>
+            </ul>
+            <OutlinedLink path="/about">Read More</OutlinedLink>
+          </section>
+
+          <section className="w-5/12 grid gap-3 grid-cols-2 box-border">
+            <img className="object-contain w-full col-span-2" src={HomeAbout1} alt="dish" />
+            <img className="object-contain" src={HomeAbout2} alt="dish" />
+            <img className="object-contain" src={HomeAbout3} alt="dish" />
+          </section>
+        </PageWrapper>
       </IntroSection>
     </main>
   );
