@@ -1,18 +1,28 @@
-import React from "react";
+import { VariantProps } from "class-variance-authority";
+import { ButtonHTMLAttributes } from "react";
+
+import { cn } from "src/utils";
+import { buttonVariants } from "src/styles/ButtonStyles";
 
 interface ButtonProps {
-  children: React.ReactNode;
   styles?: string;
-  handler?: () => void
 }
 
-export const Button = ({ children, styles, handler }: ButtonProps) => {
+interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {}
+
+export const Button = ({
+  styles,
+  size,
+  rounded,
+  variant,
+  ...props
+}: ButtonProps) => {
   return (
     <button
-      className={`bg-orange-400 px-3 py-1 hover:bg-orange-500 transition-colors duration-200 ${styles}`}
-      onClick={handler}
-    >
-      {children}
-    </button>
+      className={cn(buttonVariants({ size, variant, rounded }), styles)}
+      {...props}
+    />
   );
 };

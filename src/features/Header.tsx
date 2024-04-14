@@ -1,29 +1,26 @@
 import { useSearchInput } from "src/hooks/useSearchInput";
 
 import { NavLink } from "react-router-dom";
+import { navRoutes } from "src/constants";
+import { TRoutes } from "src/types";
 import { RiSearchLine } from "react-icons/ri";
 import { AiOutlineUser } from "react-icons/ai";
 import { PiTote } from "react-icons/pi";
 
-import { navRoutes } from "src/constants";
-import { PageWrapper } from "src/layout/PageWrapper";
 import { Icon } from "src/components/Icon";
-import { Link } from "src/components/Link";
+import { Input } from "src/components/Input";
+import { IconList } from "src/components/IconList";
+import { PageWrapper } from "src/layout/PageWrapper";
 
-export const Header: React.FC = () => {
-  const { searchValue, setSearchValue } = useSearchInput();
+interface NavbarProps {
+  links: TRoutes[];
+}
 
-  const onSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
-  };
-
-  const navLinks = navRoutes.map((r, index) => {
-    return (
-      <Link path={r.path} styles="mx-3" key={index}>
-        {r.routeName}
-      </Link>
-    );
-  });
+export const Header = () => {
+  const icons: React.ReactNode[] = [
+    <AiOutlineUser size={20} />,
+    <PiTote size={20} />,
+  ];
 
   return (
     <header className="bg-black h-20 text-gray-100">
@@ -37,33 +34,59 @@ export const Header: React.FC = () => {
           </NavLink>
         </figure>
 
-        <nav>
-          <ul className="flex items-center">{[navLinks]}</ul>
-        </nav>
+        <Navbar links={navRoutes} />
 
-        <section>
-          <ul className="flex items-center">
-            <Icon styles="mx-2">
-              <div className="flex rounded-full border-orange-400 border py-1.5 px-3">
-                <input
-                  className="text-gray-100 bg-transparent focus:outline-none pr-1.5"
-                  type="text"
-                  placeholder="Search..."
-                  value={searchValue}
-                  onChange={onSearchInputChange}
-                />
-                <RiSearchLine size={20} />
-              </div>
-            </Icon>
-            <Icon styles="mx-2">
-              <AiOutlineUser size={20} />
-            </Icon>
-            <Icon styles="mx-2">
-              <PiTote size={20} />
-            </Icon>
-          </ul>
-        </section>
+        <IconList listItemStyles="my-auto" icons={icons}>
+          <li className="bg-black flex items-center mx-2 pr-3 border border-orange-400 rounded-full">
+            <SearchInput />
+          </li>
+        </IconList>
       </PageWrapper>
     </header>
+  );
+};
+
+const Navbar = ({ links }: NavbarProps) => {
+  const isActiveStyle = ({ isActive }: any) =>
+    isActive ? " text-orange-400" : "";
+
+  const navLinks:React.ReactNode = links.map((l, index) => {
+    return (
+      <li className="mx-3 hover:text-gray-300 transition-colors duration-200">
+        <NavLink to={l.path} key={index} className={isActiveStyle}>
+          {l.routeName}
+        </NavLink>
+      </li>
+    );
+  });
+
+  return (
+    <nav>
+      <ul className="flex items-center">{navLinks}</ul>
+    </nav>
+  );
+};
+
+
+const SearchInput = () => {
+  const { searchValue, setSearchValue } = useSearchInput();
+
+  const onSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+  };
+
+  return (
+    <>
+      <Input
+        styles="text-gray-100 py-2 px-4 border-none focus:outline-none"
+        type="text"
+        placeholder="Search..."
+        value={searchValue}
+        onChange={onSearchInputChange}
+      />
+      <Icon>
+        <RiSearchLine size={20} />
+      </Icon>
+    </>
   );
 };

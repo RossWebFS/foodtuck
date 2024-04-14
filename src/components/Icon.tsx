@@ -1,4 +1,4 @@
-import React from "react";
+import { twMerge } from "tailwind-merge";
 
 type IconProps = {
   children: React.ReactNode;
@@ -7,10 +7,13 @@ type IconProps = {
 
 export const Icon = ({ children, styles }: IconProps) => {
   return (
-    <li
-      className={`transition-colors duration-200 hover:text-orange-400 cursor-pointer ${styles}`}
+    <span
+      className={twMerge(
+        "inline-block transition-colors duration-200 hover:text-orange-400 cursor-pointer",
+        styles
+      )}
     >
       {children}
-    </li>
+    </span>
   );
 };

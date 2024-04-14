@@ -1,5 +1,8 @@
-import React from "react";
+import { VariantProps } from "class-variance-authority";
 import { Link as L } from "react-router-dom";
+
+import { linkVariants } from "src/styles/LinkStyles";
+import { cn } from "src/utils";
 
 interface LinkProps {
   children: React.ReactNode;
@@ -7,12 +10,12 @@ interface LinkProps {
   styles?: string;
 }
 
-export const Link = ({ children, styles, path }: LinkProps) => {
+interface LinkProps extends VariantProps<typeof linkVariants> {}
+
+export const Link = ({ size, variant, children, styles, path }: LinkProps) => {
   return (
-    <li
-      className={`${styles} hover:text-gray-300 transition-colors duration-200`}
-    >
-      <L to={path}>{children}</L>
-    </li>
+    <L className={cn(linkVariants({ size, variant }), styles)} to={path}>
+      {children}
+    </L>
   );
 };

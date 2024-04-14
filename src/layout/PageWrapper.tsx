@@ -1,4 +1,4 @@
-import React from "react";
+import { twMerge } from "tailwind-merge";
 
 interface PageWrapperProps {
   children: React.ReactNode;
@@ -7,6 +7,8 @@ interface PageWrapperProps {
 
 export const PageWrapper = ({ children, styles }: PageWrapperProps) => {
   return (
-    <div className={`max-w-screen-xl h-full mx-auto ${styles}`}>{children}</div>
+    <div className={twMerge("max-w-screen-xl h-full mx-auto", styles)}>
+      {children}
+    </div>
   );
 };
