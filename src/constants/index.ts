@@ -1,9 +1,13 @@
-import { TRoutes, TRecentPost } from "src/types";
+import { TRoutes, TRecentPost, TFoodCategories } from "src/types";
 import { formDate } from "src/utils";
 
 import RecentPost1 from "src/assets/RecentPost1.png";
 import RecentPost2 from "src/assets/RecentPost2.png";
 import RecentPost3 from "src/assets/RecentPost3.png";
+import HomeFoodCategory1 from "src/assets/HomeFoodCategory1.png";
+import HomeFoodCategory2 from "src/assets/HomeFoodCategory2.png";
+import HomeFoodCategory3 from "src/assets/HomeFoodCategory3.png";
+import HomeFoodCategory4 from "src/assets/HomeFoodCategory4.png";
 
 export const navRoutes: TRoutes[] = [
   {
@@ -104,5 +108,28 @@ export const recentPosts: TRecentPost[] = [
     date: formDate(),
     title: "Recent post 3",
     id: 3,
+  },
+];
+
+export const foodCategories: TFoodCategories[] = [
+  {
+    src: HomeFoodCategory1,
+    alt: "salads",
+    buttonText: "See Healthy Food",
+  },
+  {
+    src: HomeFoodCategory2,
+    alt: "salads",
+    buttonText: "See Fast Food",
+  },
+  {
+    src: HomeFoodCategory3,
+    alt: "salads",
+    buttonText: "See Dessetrs",
+  },
+  {
+    src: HomeFoodCategory4,
+    alt: "salads",
+    buttonText: "See Drinks",
   },
 ];

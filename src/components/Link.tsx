@@ -12,9 +12,9 @@ interface LinkProps {
 
 interface LinkProps extends VariantProps<typeof linkVariants> {}
 
-export const Link = ({ size, variant, children, styles, path }: LinkProps) => {
+export const Link = ({ size, variant, rounded, children, styles, path }: LinkProps) => {
   return (
-    <L className={cn(linkVariants({ size, variant }), styles)} to={path}>
+    <L className={cn(linkVariants({ size, variant, rounded }), styles)} to={path}>
       {children}
     </L>
   );

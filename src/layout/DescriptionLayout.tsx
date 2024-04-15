@@ -24,7 +24,7 @@ export const DescriptionLayout = ({
       className={twMerge("w-1/3 py-16 box-content", styles)}
     >
       <p className="great-vibes text-orange-400 text-2xl ">{cursiveText}</p>
-      <h1 className="text-5xl font-bold mt-2 mb-5">
+      <h1 className="text-5xl font-bold mt-3 mb-6">
         <span className="text-orange-400">{coloredText}</span>
         {title}
       </h1>

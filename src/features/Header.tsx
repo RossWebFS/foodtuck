@@ -23,7 +23,7 @@ export const Header = () => {
   ];
 
   return (
-    <header className="bg-black h-20 text-gray-100">
+    <header className="bg-black h-20 text-gray-100 fixed right-0 left-0 z-20">
       <PageWrapper styles="flex justify-between items-center">
         <figure className="cursor-pointer">
           <NavLink to="/">

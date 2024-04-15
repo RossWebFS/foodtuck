@@ -1,8 +1,17 @@
 import { twMerge } from "tailwind-merge";
 
-type IconProps = {
+interface IconProps {
   children: React.ReactNode;
   styles?: string;
+}
+
+interface IconBoxProps {
+  children: React.ReactNode;
+  styles?: string
+}
+
+export const IconBox = ({children, styles}: IconBoxProps) => {
+  return <div className={twMerge("bg-orange-400 p-4 box-border w-fit rounded", styles)}>{children}</div>;
 };
 
 export const Icon = ({ children, styles }: IconProps) => {

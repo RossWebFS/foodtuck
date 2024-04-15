@@ -5,15 +5,17 @@ import { recentPosts, usefulLinkRoutes, helpRoutes } from "src/constants";
 import { BiLogoFacebook } from "react-icons/bi";
 import { AiOutlineTwitter, AiOutlineInstagram } from "react-icons/ai";
 import { BsYoutube, BsPinterest } from "react-icons/bs";
+import { FaClockRotateLeft } from "react-icons/fa6";
+import { PiClockClockwiseLight } from "react-icons/pi";
 
 import { Link } from "src/components/Link";
 import { Button } from "src/components/Button";
 import { Input } from "src/components/Input";
+import { IconBox } from "src/components/Icon";
 import { IconList } from "src/components/IconList";
 import { RecentPosts } from "src/components/RecentPosts";
 import { PageWrapper } from "src/layout/PageWrapper";
 
-import Watch from "src/assets/Watch.png";
 import footerLeaves from "src/assets/footerLeaves.png";
 
 interface FooterLinksProps {
@@ -102,10 +104,10 @@ const SupportEmail = () => {
 };
 
 const FooterLinks = ({ listTitle, links }: FooterLinksProps) => {
-  const additionLinks:React.ReactNode[] = links.map((l) => {
+  const additionLinks: React.ReactNode[] = links.map((l) => {
     return (
-      <li className="my-5">
-        <Link variant="colored" key={l.path} path={l.path}>
+      <li key={l.path} className="my-5">
+        <Link variant="colored" path={l.path}>
           {l.routeName}
         </Link>
       </li>
@@ -133,7 +135,9 @@ const FooterInfo = () => {
       </div>
 
       <div className="flex">
-        <img className="object-contain" src={Watch} alt="clock" />
+        <IconBox>
+          <PiClockClockwiseLight size={50}/>
+        </IconBox>
         <div className="pl-4">
           <h5>Opening Houres</h5>
           <p>Mon - Sat(8.00 - 6.00)</p>

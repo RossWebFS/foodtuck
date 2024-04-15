@@ -19,3 +19,9 @@ export interface TUseSupportByEmail {
   emailValue: string;
   setEmailValue: (cur: string) => void;
 }
+
+export interface TFoodCategories {
+  src: ImageData;
+  alt: string;
+  buttonText: string;
+}
