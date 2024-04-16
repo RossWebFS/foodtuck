@@ -1,6 +1,5 @@
 import { twMerge } from "tailwind-merge";
-
-import { Icon } from "./Icon";
+import { Icon } from "../../components/Icon";
 
 interface IconListProps {
   icons: React.ReactNode[];
@@ -15,9 +14,9 @@ export const IconList = ({
   listItemStyles,
   listStyles,
 }: IconListProps) => {
-  const listItems:React.ReactNode[] = icons.map((i, index) => (
+  const listItems: React.ReactNode[] = icons.map((i, index) => (
     <li key={index} className={twMerge("mx-2", listItemStyles)}>
-      <Icon styles="pt-1.5">{i}</Icon>
+      <Icon className="pt-1.5">{i}</Icon>
     </li>
   ));
 

@@ -1,11 +1,10 @@
 import { VariantProps } from "class-variance-authority";
 import { ButtonHTMLAttributes } from "react";
-
 import { cn } from "src/utils";
 import { buttonVariants } from "src/styles/ButtonStyles";
 
 interface ButtonProps {
-  styles?: string;
+  className?: string;
 }
 
 interface ButtonProps
@@ -13,15 +12,15 @@ interface ButtonProps
     VariantProps<typeof buttonVariants> {}
 
 export const Button = ({
-  styles,
   size,
   rounded,
   variant,
+  className,
   ...props
 }: ButtonProps) => {
   return (
     <button
-      className={cn(buttonVariants({ size, variant, rounded }), styles)}
+      className={cn(buttonVariants({ size, variant, rounded }), className)}
       {...props}
     />
   );

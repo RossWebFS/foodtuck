@@ -1,28 +1,16 @@
-import { twMerge } from "tailwind-merge";
+import { VariantProps } from "class-variance-authority";
+import { iconVariants } from "src/styles/IconStyles";
+import { cn } from "src/utils";
 
 interface IconProps {
   children: React.ReactNode;
-  styles?: string;
+  className?: string;
 }
 
-interface IconBoxProps {
-  children: React.ReactNode;
-  styles?: string
-}
+interface IconProps extends VariantProps<typeof iconVariants> {}
 
-export const IconBox = ({children, styles}: IconBoxProps) => {
-  return <div className={twMerge("bg-orange-400 p-4 box-border w-fit rounded", styles)}>{children}</div>;
-};
-
-export const Icon = ({ children, styles }: IconProps) => {
+export const Icon = ({ variant, children, className }: IconProps) => {
   return (
-    <span
-      className={twMerge(
-        "inline-block transition-colors duration-200 hover:text-orange-400 cursor-pointer",
-        styles
-      )}
-    >
-      {children}
-    </span>
+    <div className={cn(iconVariants({ variant }), className)}>{children}</div>
   );
 };

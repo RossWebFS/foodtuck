@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-
 import { TRoutes } from "src/types";
 
 interface NavbarProps {
   links: TRoutes[];
+  className?: string;
 }
 
 export const Navbar = ({ links }: NavbarProps) => {
@@ -12,7 +12,10 @@ export const Navbar = ({ links }: NavbarProps) => {
 
   const navLinks = links.map((l, index) => {
     return (
-      <li key={index} className="mx-3 hover:text-gray-300 transition-colors duration-200">
+      <li
+        key={index}
+        className="mx-3 hover:text-gray-300 transition-colors duration-200"
+      >
         <NavLink to={l.path} className={isActiveStyle}>
           {l.routeName}
         </NavLink>

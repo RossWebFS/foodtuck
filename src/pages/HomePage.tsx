@@ -6,8 +6,9 @@ import { buttonVariants } from "src/styles/ButtonStyles";
 import { foodCategories } from "src/constants";
 
 import { Link } from "src/components/Link";
-import { IconBox } from "src/components/Icon";
-import { IconList } from "src/components/IconList";
+import { Icon } from "src/components/Icon";
+// import { IconBox } from "src/components/Icon";
+import { IconList } from "src/features/ui/IconList";
 import { PageWrapper } from "src/layout/PageWrapper";
 import { SectionWrapper } from "src/layout/SectionWrapper";
 import { DescriptionLayout } from "src/layout/DescriptionLayout";
@@ -56,7 +57,7 @@ export const HomePage = () => {
               contentWidth="w-10/12"
             >
               <Link
-                styles={buttonVariants({
+                className={buttonVariants({
                   variant: "outlined",
                   rounded: "full",
                   size: "lg",
@@ -98,7 +99,7 @@ export const HomePage = () => {
 
             <Link
               path="/about"
-              styles={
+              className={
                 buttonVariants({
                   variant: "outlined",
                   rounded: "full",
@@ -213,7 +214,7 @@ const FoodCategoriesList = () => {
           variant="button"
           size="lg"
           path=""
-          styles="duration-500 absolute top-44 -left-40 group-hover:left-0"
+          className="duration-500 absolute top-44 -left-40 group-hover:left-0"
         >
           {c.buttonText}
         </Link>
@@ -243,7 +244,7 @@ const FoodCategoryIconList = () => {
   const categoryItems: React.ReactNode = categories.map((c) => {
     return (
       <li className="text-center">
-        <IconBox styles="p-5 mb-1">{c.icon}</IconBox>
+        <Icon variant="boxed" className="p-5 mb-1">{c.icon}</Icon>
         <span>{c.category}</span>
       </li>
     );
