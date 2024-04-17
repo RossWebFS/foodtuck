@@ -3,9 +3,9 @@ import { recentPosts, usefulLinkRoutes, helpRoutes } from "src/constants";
 import { SupportSection } from "./SupportSection";
 import { FooterInfo } from "./FooterInfo";
 import { MediaFooterSection } from "./MediaFooterSection";
-import { FooterLinkList } from "src/features/ui/FooterLinkList";
-import { RecentPosts } from "src/features/ui/RecentPosts";
-import { PageWrapper } from "src/layout/PageWrapper";
+import { FooterLinkList } from "src/features/FooterLinkList";
+import { RecentPosts } from "src/features/RecentPosts";
+import { PageWrapper } from "src/layouts/PageWrapper";
 
 import footerLeaves from "src/assets/footerLeaves.png";
 

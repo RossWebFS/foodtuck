@@ -1,23 +1,34 @@
 import { NavLink } from "react-router-dom";
 import { TRoutes } from "src/types";
+import { cn } from "src/utils";
 
 interface NavbarProps {
   links: TRoutes[];
-  className?: string;
+  activeLinkStyles?: string;
+  navListItemStyles?: string;
+  navListStyles?: string;
 }
 
-export const Navbar = ({ links }: NavbarProps) => {
-  const isActiveStyle = ({ isActive }: any) =>
-    isActive ? " text-orange-400" : "";
+export const Navbar = ({
+  links,
+  activeLinkStyles,
+  navListItemStyles,
+  navListStyles,
+}: NavbarProps) => {
+  const isActiveLinkStyles = ({ isActive }: any) =>
+    isActive ? cn("text-orange-400", activeLinkStyles) : "";
 
-  const navLinks = links.map((l, index) => {
+  const navLinks = links.map((link, index) => {
     return (
       <li
         key={index}
-        className="mx-3 hover:text-gray-300 transition-colors duration-200"
+        className={cn(
+          "mx-3 hover:text-gray-300 transition-colors duration-200",
+          navListItemStyles
+        )}
       >
-        <NavLink to={l.path} className={isActiveStyle}>
-          {l.routeName}
+        <NavLink className={isActiveLinkStyles} to={link.path}>
+          {link.routeName}
         </NavLink>
       </li>
     );
@@ -25,7 +36,7 @@ export const Navbar = ({ links }: NavbarProps) => {
 
   return (
     <nav>
-      <ul className="flex items-center">{[navLinks]}</ul>
+      <ul className={cn("flex items-center", navListStyles)}>{navLinks}</ul>
     </nav>
   );
 };

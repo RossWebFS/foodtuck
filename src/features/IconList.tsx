@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { Icon } from "../../components/Icon";
+import { Icon } from "../components/Icon";
 
 interface IconListProps {
   icons: React.ReactNode[];

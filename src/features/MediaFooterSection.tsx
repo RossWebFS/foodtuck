@@ -1,5 +1,5 @@
-import { PageWrapper } from "src/layout/PageWrapper";
-import { IconList } from "./ui/IconList";
+import { PageWrapper } from "src/layouts/PageWrapper";
+import { IconList } from "./IconList";
 
 import { BiLogoFacebook } from "react-icons/bi";
 import { AiOutlineTwitter, AiOutlineInstagram } from "react-icons/ai";

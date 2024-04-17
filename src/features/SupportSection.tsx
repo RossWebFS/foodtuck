@@ -1,4 +1,4 @@
-import { SupportEmail } from "./ui/SupportEmail";
+import { SupportEmail } from "./SupportEmail";
 export const SupportSection = () => {
   return (
     <section className="flex justify-between border-b-2 border-orange-400 p-10">
