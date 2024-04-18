@@ -1,34 +1,36 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "src/utils";
 
 interface DescriptionLayoutProps {
-  cursiveText?: string;
+  highlightedText?: string;
   title?: string;
   coloredText?: string;
   description?: string;
   children?: React.ReactNode;
   styles?: string;
-  contentWidth?: string
+  contentWidth?: string;
 }
 
 export const DescriptionLayout = ({
-  cursiveText,
+  highlightedText,
   title,
   coloredText,
   description,
   children,
   styles,
-  contentWidth
+  contentWidth,
 }: DescriptionLayoutProps) => {
   return (
-    <section
-      className={twMerge("w-1/3 py-16 box-content", styles)}
-    >
-      <p className="great-vibes text-orange-400 text-2xl ">{cursiveText}</p>
+    <section className={cn("w-1/3 py-16 box-content", styles)}>
+      {highlightedText && (
+        <span className="great-vibes text-orange-400 text-2xl ">
+          {highlightedText}
+        </span>
+      )}
       <h1 className="text-5xl font-bold mt-3 mb-6">
         <span className="text-orange-400">{coloredText}</span>
         {title}
       </h1>
-      <p className={twMerge("mb-8", contentWidth)}>{description}</p>
+      {description && <p className={cn("mb-8", contentWidth)}>{description}</p>}
       {children}
     </section>
   );

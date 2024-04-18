@@ -1,5 +1,6 @@
 import { VariantProps } from "class-variance-authority";
 import { Link as L } from "react-router-dom";
+
 import { linkVariants } from "src/styles/LinkStyles";
 import { cn } from "src/utils";
 

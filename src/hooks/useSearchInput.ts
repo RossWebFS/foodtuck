@@ -1,19 +1,9 @@
-import { create } from "zustand";
-import { persist, createJSONStorage } from "zustand/middleware";
-import { TUseSearchInput } from "src/types";
+import { useState } from "react";
 
-export const useSearchInput = create(
-  persist<TUseSearchInput>(
-    (set) => ({
-      searchValue: "",
-      setSearchValue: (cur: string) =>
-        set(() => ({
-          searchValue: cur,
-        })),
-    }),
-    {
-      name: "searchValue",
-      storage: createJSONStorage(() => localStorage),
-    }
-  )
-);
+export const useSearchInput = () => {
+  const [searchValue, setSearchValue] = useState<string>("");
+
+  // There'll be calculation
+
+  return { searchValue, setSearchValue };
+};

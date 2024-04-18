@@ -1,7 +1,7 @@
-import { useSupportEmail } from "./useSupportEmail";
+import { useState } from "react";
 
 export const useSupportingByEmail = () => {
-  const { emailValue, setEmailValue } = useSupportEmail();
+  const [ emailValue, setEmailValue ] = useState<string>("");
 
   const onChangeEmailValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmailValue(e.target.value);

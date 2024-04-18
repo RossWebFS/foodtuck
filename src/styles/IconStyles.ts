@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const iconVariants = cva("", {
+export const iconVariants = cva("text-gray-100", {
   variants: {
     variant: {
       default:

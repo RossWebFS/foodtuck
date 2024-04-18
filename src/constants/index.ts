@@ -1,4 +1,10 @@
-import { TRoutes, TRecentPost, TFoodCategories } from "src/types";
+import {
+  TRoutes,
+  TRecentPost,
+  TFoodCategories,
+  TIcons,
+  TStatisticListItem,
+} from "src/types";
 import { formDate } from "src/utils";
 
 import RecentPost1 from "src/assets/RecentPost1.png";
@@ -8,6 +14,15 @@ import HomeFoodCategory1 from "src/assets/HomeFoodCategory1.png";
 import HomeFoodCategory2 from "src/assets/HomeFoodCategory2.png";
 import HomeFoodCategory3 from "src/assets/HomeFoodCategory3.png";
 import HomeFoodCategory4 from "src/assets/HomeFoodCategory4.png";
+import HomeStatisticsIcon1 from "src/assets/HomeStatisticsIcon1.png";
+import HomeStatisticsIcon2 from "src/assets/HomeStatisticsIcon2.png";
+import HomeStatisticsIcon3 from "src/assets/HomeStatisticsIcon3.png";
+import HomeStatisticsIcon4 from "src/assets/HomeStatisticsIcon4.png";
+
+import { BiLogoFacebook, BiLogoPinterestAlt } from "react-icons/bi";
+import { AiOutlineTwitter, AiOutlineInstagram } from "react-icons/ai";
+import { BsYoutube, BsPinterest } from "react-icons/bs";
+import { PiHamburgerLight, PiCookieLight, PiWineLight } from "react-icons/pi";
 
 export const navRoutes: TRoutes[] = [
   {
@@ -131,5 +146,88 @@ export const foodCategories: TFoodCategories[] = [
     src: HomeFoodCategory4,
     alt: "salads",
     buttonText: "See Drinks",
+  },
+];
+
+export const footerIcons: TIcons[] = [
+  {
+    icon: BiLogoFacebook,
+    id: "facebook",
+  },
+  {
+    icon: AiOutlineTwitter,
+    id: "twitter",
+  },
+  {
+    icon: AiOutlineInstagram,
+    id: "outlinedInstragram",
+  },
+  {
+    icon: BsYoutube,
+    id: "youtube",
+  },
+  {
+    icon: BsPinterest,
+    id: "outlinedPinterest",
+  },
+];
+
+export const introSectionIcons: TIcons[] = [
+  {
+    icon: BiLogoFacebook,
+    id: "facebook",
+  },
+  {
+    icon: AiOutlineTwitter,
+    id: "twitter",
+  },
+  {
+    icon: BiLogoPinterestAlt,
+    id: "pinterest",
+  },
+];
+
+export const foodCategoryIcons: {
+  category: string;
+  icon: React.ElementType;
+}[] = [
+  {
+    category: "Fast Food",
+    icon: PiHamburgerLight,
+  },
+  {
+    category: "Lunch",
+    icon: PiCookieLight,
+  },
+  {
+    category: "Dinner",
+    icon: PiWineLight,
+  },
+];
+
+export const statisticListItems: TStatisticListItem[] = [
+  {
+    img: HomeStatisticsIcon1,
+    alt: "chef's icon",
+    content: "Professional Chefs",
+    count: "30",
+  },
+  {
+    img: HomeStatisticsIcon2,
+    alt: "fast food",
+    content: "Items Of Food",
+    count: "320",
+  },
+  {
+    img: HomeStatisticsIcon3,
+    alt: "dishes",
+    content: "Years Of Experienced",
+    count: "30+",
+  },
+  {
+    img: HomeStatisticsIcon4,
+    alt: "pizza",
+    content: "Happy Customers",
+    count: "220",
   },
 ];

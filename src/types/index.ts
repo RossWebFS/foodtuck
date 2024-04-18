@@ -10,18 +10,20 @@ export interface TRecentPost {
   id: number;
 }
 
-export interface TUseSearchInput {
-  searchValue: string;
-  setSearchValue: (cur: string) => void;
-}
-
-export interface TUseSupportByEmail {
-  emailValue: string;
-  setEmailValue: (cur: string) => void;
-}
-
 export interface TFoodCategories {
   src: ImageData;
   alt: string;
   buttonText: string;
+}
+
+export interface TIcons {
+  icon: React.ElementType;
+  id: string;
+}
+
+export interface TStatisticListItem {
+  img: any;
+  alt: string;
+  count: string;
+  content: string;
 }

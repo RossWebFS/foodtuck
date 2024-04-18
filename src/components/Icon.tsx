@@ -1,19 +1,27 @@
 import { VariantProps } from "class-variance-authority";
-import { HTMLAttributes } from "react";
+import { SVGProps } from "react";
+
 import { iconVariants } from "src/styles/IconStyles";
 import { cn } from "src/utils";
 
 interface IconProps {
-  children: React.ReactNode;
-  className?: string;
+  IconComponent: React.ElementType;
 }
 
-interface IconProps extends HTMLAttributes<HTMLDivElement> {}
+interface IconProps
+  extends SVGProps<SVGSVGElement>,
+    VariantProps<typeof iconVariants> {}
 
-interface IconProps extends VariantProps<typeof iconVariants> {}
-
-export const Icon = ({ variant, children, className, ...props }: IconProps) => {
+export const Icon = ({
+  IconComponent,
+  variant,
+  className,
+  ...props
+}: IconProps) => {
   return (
-    <div {...props} className={cn(iconVariants({ variant }), className)}>{children}</div>
+    <IconComponent
+      className={cn(iconVariants({ variant }), className)}
+      {...props}
+    />
   );
 };

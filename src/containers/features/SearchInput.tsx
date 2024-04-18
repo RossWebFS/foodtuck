@@ -1,11 +1,14 @@
 import { useSearchInput } from "src/hooks/useSearchInput";
-import { Input } from "src/components/Input";
-import { Icon } from "src/components/Icon";
-import { RiSearchLine } from "react-icons/ri";
-import { cn } from "src/utils";
+
 import { InputHTMLAttributes } from "react";
 
+import { Input } from "src/components/Input";
+import { Icon } from "src/components/Icon";
+
+import { cn } from "src/utils";
+
 interface SearchInputProps {
+  IconComponent?: React.ElementType;
   inputStyles?: string;
   iconStyles?: string;
 }
@@ -13,9 +16,10 @@ interface SearchInputProps {
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
 export const SearchInput = ({
+  IconComponent,
   inputStyles,
   iconStyles,
-  ...props
+  ...inputProps
 }: SearchInputProps) => {
   const { searchValue, setSearchValue } = useSearchInput();
 
@@ -32,11 +36,14 @@ export const SearchInput = ({
         )}
         value={searchValue}
         onChange={onSearchInputChange}
-        {...props}
+        {...inputProps}
       />
-      <Icon>
-        <RiSearchLine className={iconStyles} size={20} />
-      </Icon>
+      {IconComponent && (
+        <Icon
+          IconComponent={IconComponent}
+          className={cn("w-5 h-5", iconStyles)}
+        />
+      )}
     </>
   );
 };

@@ -1,4 +1,5 @@
-import { SupportEmail } from "./SupportEmail";
+import { SupportEmail } from "./features/SupportEmail";
+
 export const SupportSection = () => {
   return (
     <section className="flex justify-between border-b-2 border-orange-400 p-10">
@@ -11,7 +12,12 @@ export const SupportSection = () => {
         </p>
       </div>
 
-      <SupportEmail />
+      <SupportEmail
+        placeholder="Enter your email"
+        type="email"
+        className="mr-3"
+        buttonContent="Subscribe now"
+      />
     </section>
   );
 };
