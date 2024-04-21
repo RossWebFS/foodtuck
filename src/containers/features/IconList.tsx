@@ -1,4 +1,4 @@
-import { Icon } from "../../components/Icon";
+import { Icon } from "src/components/Icon";
 
 import { TIcons } from "src/types";
 import { cn } from "src/utils";
@@ -18,7 +18,9 @@ export const IconList = ({
 }: IconListProps) => {
   const listItems = icons.map((icon) => (
     <li key={icon.id} className={cn("mx-2", listItemStyles)}>
-      <Icon IconComponent={icon.icon} className={iconStyles} />
+      <a href={icon.src}>
+        <Icon IconComponent={icon.icon} className={iconStyles} />
+      </a>
     </li>
   ));
 

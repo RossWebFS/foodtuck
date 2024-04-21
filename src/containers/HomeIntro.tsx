@@ -1,11 +1,11 @@
-import { PageSectionImageWrapper } from "src/containers/layouts/PageSectionImageWrapper";
+import { PageSectionImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
 import { PageWrapper } from "src/containers/layouts/PageWrapper";
 import { IconList } from "./features/IconList";
-import { DescriptionLayout } from "src/containers/features/DescriptionLayout";
+import { DescriptionLayout } from "src/containers/features/Description";
 import { Link } from "src/components/Link";
 
-import introSectionBg from "src/assets/introSectionBg.png";
-import HomeIntro from "src/assets/HomeIntro.png";
+import introSectionBg from "src/assets/backgrounds/introSectionBg.png";
+import HomeIntro from "src/assets/products/HomeIntro.png";
 
 import { introSectionIcons } from "src/constants";
 import { buttonVariants } from "src/styles/ButtonStyles";

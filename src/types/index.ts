@@ -11,7 +11,7 @@ export interface TRecentPost {
 }
 
 export interface TFoodCategories {
-  src: ImageData;
+  img: string;
   alt: string;
   buttonText: string;
 }
@@ -19,10 +19,11 @@ export interface TFoodCategories {
 export interface TIcons {
   icon: React.ElementType;
   id: string;
+  src: string;
 }
 
 export interface TStatisticListItem {
-  img: any;
+  img: string;
   alt: string;
   count: string;
   content: string;

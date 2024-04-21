@@ -1,4 +1,4 @@
-import { useSearchInput } from "src/hooks/useSearchInput";
+import { useState } from "react";
 
 import { InputHTMLAttributes } from "react";
 
@@ -21,7 +21,7 @@ export const SearchInput = ({
   iconStyles,
   ...inputProps
 }: SearchInputProps) => {
-  const { searchValue, setSearchValue } = useSearchInput();
+  const [searchValue, setSearchValue] = useState<string>("");
 
   const onSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);

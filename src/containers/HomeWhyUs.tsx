@@ -1,17 +1,10 @@
-import { PageSectionImageWrapper } from "src/containers/layouts/PageSectionImageWrapper";
+import { PageSectionImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
 import { PageWrapper } from "src/containers/layouts/PageWrapper";
-import { DescriptionLayout } from "src/containers/features/DescriptionLayout";
-
-import WhyUsHome1 from "src/assets/WhyUsHome1.png";
-import WhyUsHome2 from "src/assets/WhyUsHome2.png";
-import WhyUsHome3 from "src/assets/WhyUsHome3.png";
-import WhyUsHome4 from "src/assets/WhyUsHome4.png";
-import WhyUsHome5 from "src/assets/WhyUsHome5.png";
-import WhyUsHome6 from "src/assets/WhyUsHome6.png";
+import { DescriptionLayout } from "src/containers/features/Description";
 
 import { Icon } from "src/components/Icon";
 
-import { foodCategoryIcons } from "src/constants";
+import { foodCategoryIcons, whyUsImages } from "src/constants";
 
 export const HomeWhyUsSection = () => {
   const categoryItems = foodCategoryIcons.map((category) => {
@@ -32,24 +25,22 @@ export const HomeWhyUsSection = () => {
       <PageWrapper wrapStyles="flex justify-evenly items-center py-16">
         <section className="w-1/2">
           <div className="grid grid-cols-2 items-end gap-4 mb-4">
-            <img width={362 + "px"} src={WhyUsHome1} alt="dish 1" />
-            <img width={270 + "px"} src={WhyUsHome2} alt="dish 1" />
+            <img className="w-[23rem]" src={whyUsImages.img1} alt="dish 1" />
+            <img className="w-[17rem]" src={whyUsImages.img2} alt="dish 2" />
           </div>
           <div className="grid grid-cols-3 grid-rows-2 gap-4">
             <img
-              className="row-span-2"
-              width={244 + "px"}
-              src={WhyUsHome3}
-              alt="dish 1"
+              className="row-span-2 w-[15rem]"
+              src={whyUsImages.img3}
+              alt="dish 3"
             />
             <img
-              className="row-span-2"
-              width={221 + "px"}
-              src={WhyUsHome4}
-              alt="dish 1"
+              className="row-span-2 w-[14rem]"
+              src={whyUsImages.img4}
+              alt="dish 4"
             />
-            <img width={161 + "px"} src={WhyUsHome5} alt="dish 1" />
-            <img width={161 + "px"} src={WhyUsHome6} alt="dish 1" />
+            <img className="w-40" src={whyUsImages.img5} alt="dish 5" />
+            <img className="w-40" src={whyUsImages.img6} alt="dish 6" />
           </div>
         </section>
 

@@ -1,4 +1,4 @@
-import { useSupportingByEmail } from "src/hooks/useSupportByEmail";
+import { useState } from "react";
 
 import { InputHTMLAttributes } from "react";
 
@@ -17,23 +17,21 @@ export const SupportEmail = ({
   buttonContent,
   ...inputProps
 }: SupportEmailProps) => {
-  const {
-    emailValue,
-    onChangeEmailValue,
-    onSentSupportEmail,
-    emailMessageHandler,
-  } = useSupportingByEmail();
+  const [ emailValue, setEmailValue ] = useState<string>("");
+
+  const onChangeEmailValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmailValue(e.target.value);
+  };
 
   return (
     <div>
       <Input
         value={emailValue}
         onChange={onChangeEmailValue}
-        onKeyDown={onSentSupportEmail}
         variant="colored"
         {...inputProps}
       />
-      <Button className={buttonStyles} onClick={emailMessageHandler}>
+      <Button className={buttonStyles}>
         {buttonContent}
       </Button>
     </div>

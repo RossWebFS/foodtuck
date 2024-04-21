@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
 import { PageWrapper } from "src/containers/layouts/PageWrapper";
-import { DescriptionLayout } from "src/containers/features/DescriptionLayout";
+import { DescriptionLayout } from "src/containers/features/Description";
 
 import { BsCheck } from "react-icons/bs";
 
-import HomeAbout1 from "src/assets/HomeAbout1.png";
-import HomeAbout2 from "src/assets/HomeAbout2.png";
-import HomeAbout3 from "src/assets/HomeAbout3.png";
+import HomeAbout1 from "src/assets/products/HomeAbout1.png";
+import HomeAbout2 from "src/assets/products/HomeAbout2.png";
+import HomeAbout3 from "src/assets/products/HomeAbout3.png";
 
 import { buttonVariants } from "src/styles/ButtonStyles";
 

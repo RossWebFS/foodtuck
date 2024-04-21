@@ -7,8 +7,6 @@ import { AiOutlineUser } from "react-icons/ai";
 import { PiTote } from "react-icons/pi";
 import { RiSearchLine } from "react-icons/ri";
 
-//without optimization
-
 export const NavIconList = () => {
   return (
     <ul className="flex">

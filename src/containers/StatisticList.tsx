@@ -1,6 +1,8 @@
-import { PageSectionImageWrapper } from "src/containers/layouts/PageSectionImageWrapper";
+import { PageSectionImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
 import { PageWrapper } from "src/containers/layouts/PageWrapper";
-import HomeStatisticBackground from "src/assets/HomeStatisticBackground.png";
+
+import HomeStatisticBackground from "src/assets/backgrounds/HomeStatisticBackground.png";
+
 import { statisticListItems } from "src/constants";
 
 export const StatisticListSection = () => {

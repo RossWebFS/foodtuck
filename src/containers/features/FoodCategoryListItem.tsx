@@ -18,7 +18,7 @@ export const FoodCategoryListItem = ({
     <>
       <img
         className="w-56 h-60 rounded object-cover"
-        src={`${category.src}`}
+        src={`${category.img}`}
         alt={category.alt}
       />
 

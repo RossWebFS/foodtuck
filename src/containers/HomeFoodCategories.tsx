@@ -1,4 +1,4 @@
-import { PageSectionImageWrapper } from "src/containers/layouts/PageSectionImageWrapper";
+import { PageSectionImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
 import { PageWrapper } from "src/containers/layouts/PageWrapper";
 import { FoodCategoryListItem } from "./features/FoodCategoryListItem";
 
@@ -17,7 +17,10 @@ export const HomeFoodCategorySection = ({
 }: HomeFoodCategorySectionProps) => {
   const categoryListItems = foodCategories.map((category) => {
     return (
-      <li key={category.buttonText} className="group cursor-pointer relative overflow-hidden">
+      <li
+        key={category.buttonText}
+        className="group cursor-pointer relative overflow-hidden"
+      >
         <FoodCategoryListItem category={category} />
       </li>
     );

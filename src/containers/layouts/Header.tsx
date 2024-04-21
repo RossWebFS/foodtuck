@@ -1,23 +1,14 @@
-import { Navbar } from "src/containers/features/Navbar";
-import { NavIconList } from "src/containers/features/NavIconList";
-import { NavLogo } from "src/containers/features/NavLogo";
 import { PageWrapper } from "src/containers/layouts/PageWrapper";
 
-import { navRoutes } from "src/constants";
+interface HeaderProps {
+  children: React.ReactNode;
+}
 
-export const Header = () => {
+export const Header = ({ children }: HeaderProps) => {
   return (
     <header className="bg-black h-20 text-gray-100 fixed right-0 left-0 z-20">
       <PageWrapper wrapStyles="flex justify-between items-center">
-        <NavLogo path="/" logoText="Food" highlightedText="tuck" />
-
-        <Navbar
-          navListItemStyles="mx-4"
-          links={navRoutes}
-          linkStyles="hover:text-gray-300"
-        />
-
-        <NavIconList />
+        {children}
       </PageWrapper>
     </header>
   );
