@@ -4,6 +4,9 @@ import { HomeFoodCategorySection } from "src/containers/HomeFoodCategories";
 import { HomeWhyUsSection } from "src/containers/HomeWhyUs";
 import { StatisticListSection } from "src/containers/StatisticList";
 
+import { FoodCategoryFilter } from "src/containers/FoodCategoryFilter";
+import { ChefsSlider } from "src/containers/ChefsSlider";
+
 export const HomePage = () => {
   return (
     <main className="text-gray-100 bg-black">
@@ -16,6 +19,8 @@ export const HomePage = () => {
       />
       <HomeWhyUsSection />
       <StatisticListSection />
+      <FoodCategoryFilter />
+      <ChefsSlider />
     </main>
   );
 };

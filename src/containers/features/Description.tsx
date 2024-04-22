@@ -22,14 +22,14 @@ export const DescriptionLayout = ({
   return (
     <section className={cn("w-1/3 py-16 box-content", styles)}>
       {highlightedText && (
-        <span className="great-vibes text-orange-400 text-2xl ">
+        <p className="great-vibes text-orange-400 text-2xl">
           {highlightedText}
-        </span>
+        </p>
       )}
-      <h1 className="text-5xl font-bold mt-3 mb-6">
+      <h2 className="text-5xl font-bold mt-3 mb-6">
         <span className="text-orange-400">{coloredText}</span>
         {title}
-      </h1>
+      </h2>
       {description && <p className={cn("mb-8", contentWidth)}>{description}</p>}
       {children}
     </section>

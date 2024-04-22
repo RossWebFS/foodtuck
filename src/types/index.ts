@@ -28,3 +28,8 @@ export interface TStatisticListItem {
   count: string;
   content: string;
 }
+
+export interface TImageInfo {
+  info: string;
+  img: string;
+}
