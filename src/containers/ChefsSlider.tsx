@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { PageWrapper } from "src/containers/layouts/PageWrapper";
-import { Slider } from "./features/Slider";
+import { Slider } from "../components/Slider";
 
 import { chefs } from "src/constants/chefs";
 import { buttonVariants } from "src/styles/ButtonStyles";
@@ -17,7 +17,7 @@ export const ChefsSlider = () => {
           </h2>
         </div>
 
-        <Slider list={chefs} slidesVisibleCount={2}/>
+        <Slider list={chefs} />
 
         <Link
           className={buttonVariants({

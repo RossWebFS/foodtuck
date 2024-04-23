@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 @import url("fonts/fonts.css");
+
+.slick-active div {
+    opacity: 100%
+}
