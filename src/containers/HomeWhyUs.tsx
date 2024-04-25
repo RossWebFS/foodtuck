@@ -1,6 +1,5 @@
-import { PageSectionImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
 import { PageWrapper } from "src/containers/layouts/PageWrapper";
-import { DescriptionLayout } from "src/containers/features/Description";
+import { Description } from "src/containers/features/Description";
 
 import { Icon } from "src/components/Icon";
 
@@ -43,7 +42,7 @@ export const HomeWhyUsSection = () => {
         </div>
       </section>
 
-      <DescriptionLayout
+      <Description
         highlightedText="Why Choose Us"
         coloredText="Extra"
         title=" ordinary taste And Experienced"
@@ -61,7 +60,7 @@ export const HomeWhyUsSection = () => {
             <span className="text-black text-xl font-bold">Experience</span>
           </p>
         </div>
-      </DescriptionLayout>
+      </Description>
     </PageWrapper>
   );
 };

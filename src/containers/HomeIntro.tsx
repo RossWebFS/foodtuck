@@ -1,7 +1,7 @@
-import { PageSectionImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
+import { BackgroundImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
 import { PageWrapper } from "src/containers/layouts/PageWrapper";
 import { IconList } from "./features/IconList";
-import { DescriptionLayout } from "src/containers/features/Description";
+import { Description } from "src/containers/features/Description";
 import { Link } from "src/components/Link";
 
 import introSectionBg from "src/assets/backgrounds/introSectionBg.png";
@@ -12,7 +12,7 @@ import { buttonVariants } from "src/styles/ButtonStyles";
 
 export const HomeIntroSection = () => {
   return (
-    <PageSectionImageWrapper
+    <BackgroundImageWrapper
       imageStyles="bg-bottom bg-cover pt-16"
       bgImg={introSectionBg}
       imageFilter="bg-black/90"
@@ -25,7 +25,7 @@ export const HomeIntroSection = () => {
           listStyles="flex-col bg-black absolute -left-2"
         />
 
-        <DescriptionLayout
+        <Description
           highlightedText="It's Quick & Amusing!"
           title=" Art of speed food Quality"
           coloredText="The"
@@ -44,12 +44,12 @@ export const HomeIntroSection = () => {
           >
             See Menu
           </Link>
-        </DescriptionLayout>
+        </Description>
 
         <section className="w-7/12">
           <img src={HomeIntro} alt="dish" />
         </section>
       </PageWrapper>
-    </PageSectionImageWrapper>
+    </BackgroundImageWrapper>
   );
 };

@@ -6,6 +6,8 @@ import { StatisticListSection } from "src/containers/StatisticList";
 import { FoodCategoryFilter } from "src/containers/FoodCategoryFilter";
 import { ChefsSlider } from "src/containers/ChefsSlider";
 import { FeedBackSlider } from "src/containers/FeedBackSlider";
+import { Activity } from "src/containers/Activity";
+import { RecentBlogList } from "src/containers/RecentBlogList";
 
 export const HomePage = () => {
   return (
@@ -18,6 +20,8 @@ export const HomePage = () => {
       <FoodCategoryFilter />
       <ChefsSlider />
       <FeedBackSlider />
+      <Activity/>
+      <RecentBlogList />
     </main>
   );
 };

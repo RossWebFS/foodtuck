@@ -2,7 +2,7 @@ import { SupportEmail } from "./features/SupportEmail";
 
 export const SupportSection = () => {
   return (
-    <section className="flex justify-between border-b-2 border-orange-400 p-10">
+    <section className="flex justify-between border-b-2 border-orange-400 px-24 py-10">
       <div>
         <h2 className="text-3xl font-bold">
           <span className="text-orange-400">Still</span> you need our support ?

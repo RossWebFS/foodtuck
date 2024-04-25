@@ -10,7 +10,7 @@ interface DescriptionLayoutProps {
   contentWidth?: string;
 }
 
-export const DescriptionLayout = ({
+export const Description = ({
   highlightedText,
   title,
   coloredText,

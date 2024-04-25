@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { PageWrapper } from "src/containers/layouts/PageWrapper";
-import { DescriptionLayout } from "src/containers/features/Description";
+import { Description } from "src/containers/features/Description";
 
 import { BsCheck } from "react-icons/bs";
 
@@ -29,7 +29,7 @@ export const HomeAboutSection = () => {
 
   return (
     <PageWrapper wrapStyles="flex justify-evenly items-center py-16 pb-8">
-      <DescriptionLayout
+      <Description
         styles="w-2/5"
         highlightedText="About Us"
         coloredText="We"
@@ -52,7 +52,7 @@ export const HomeAboutSection = () => {
         >
           Read more
         </Link>
-      </DescriptionLayout>
+      </Description>
 
       <section className="w-5/12 grid gap-3 grid-cols-2 box-border">
         <img

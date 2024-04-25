@@ -1,4 +1,4 @@
-import { PageSectionImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
+import { BackgroundImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
 import { PageWrapper } from "src/containers/layouts/PageWrapper";
 
 import HomeStatisticBackground from "src/assets/backgrounds/HomeStatisticBackground.png";
@@ -17,7 +17,7 @@ export const StatisticListSection = () => {
   });
 
   return (
-    <PageSectionImageWrapper
+    <BackgroundImageWrapper
       bgImg={HomeStatisticBackground}
       imageStyles="bg-cover"
     >
@@ -26,6 +26,6 @@ export const StatisticListSection = () => {
           <ul className="flex justify-around py-10">{statisticlist}</ul>
         </PageWrapper>
       </div>
-    </PageSectionImageWrapper>
+    </BackgroundImageWrapper>
   );
 };

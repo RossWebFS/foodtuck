@@ -7,7 +7,7 @@ export interface TRecentPost {
   img: string;
   date: string;
   title: string;
-  id: number;
+  id?: number;
 }
 
 export interface TFoodCategories {

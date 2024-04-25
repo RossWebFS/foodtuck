@@ -5,7 +5,7 @@ interface IntroSectionProps {
   imageStyles?: string;
 }
 
-export const PageSectionImageWrapper = ({
+export const BackgroundImageWrapper = ({
   children,
   bgImg,
   imageStyles,
