@@ -33,3 +33,16 @@ export interface TImageInfo {
   info: string;
   img: string;
 }
+
+export interface TComments {
+  avatar: string;
+  comment: string;
+  userName: string;
+}
+
+export interface TFoodDescription {
+  img: string;
+  title: string;
+  description: string;
+  price: string;
+}

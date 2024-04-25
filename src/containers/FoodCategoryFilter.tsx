@@ -1,16 +1,17 @@
 import { Tabs } from "src/containers/features/Tabs";
-import { categoryTabs } from "src/constants";
+import { PageWrapper } from "./layouts/PageWrapper";
+
+import { breakfastDishes, categoryTabs } from "src/constants";
+
 import BreakfastCategory from "src/assets/products/BreackfastCategory.png";
 import menuCategoryDill from "src/assets/decorations/menuCategoryDill.png";
-import { PageWrapper } from "./layouts/PageWrapper";
-import { breakfastDishes } from "src/constants";
 
 // non-refactored
 
 export const FoodCategoryFilter = () => {
   const breackfastDishesListItems = breakfastDishes.map((dish) => {
     return (
-      <li key={dish.title} className="flex my-4 gap-2">
+      <li key={dish.title} className="flex m-4 gap-2">
         <img className="object-cover" src={dish.img} alt={dish.title} />
         <div>
           <h5 className="font-semibold text-xl">{dish.title}</h5>
@@ -46,7 +47,7 @@ export const FoodCategoryFilter = () => {
           />
         </div>
 
-        <ul>{breackfastDishesListItems}</ul>
+        <ul className="flex flex-col flex-wrap h-[30rem]">{breackfastDishesListItems}</ul>
       </section>
     </PageWrapper>
   );

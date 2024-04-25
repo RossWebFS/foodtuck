@@ -1,9 +1,14 @@
-import { TFoodCategories, TStatisticListItem } from "src/types";
+import {
+  TFoodCategories,
+  TStatisticListItem,
+  TFoodDescription,
+} from "src/types";
 
 import HomeFoodCategory1 from "src/assets/products/HomeFoodCategory1.png";
 import HomeFoodCategory2 from "src/assets/products/HomeFoodCategory2.png";
 import HomeFoodCategory3 from "src/assets/products/HomeFoodCategory3.png";
 import HomeFoodCategory4 from "src/assets/products/HomeFoodCategory4.png";
+
 import HomeStatisticsIcon1 from "src/assets/products/HomeStatisticsIcon1.png";
 import HomeStatisticsIcon2 from "src/assets/products/HomeStatisticsIcon2.png";
 import HomeStatisticsIcon3 from "src/assets/products/HomeStatisticsIcon3.png";
@@ -62,7 +67,43 @@ export const statisticListItems: TStatisticListItem[] = [
   },
 ];
 
-export const breakfastDishes = [
+export const breakfastDishes: TFoodDescription[] = [
+  {
+    img: BreakfastDish1,
+    title: "Lettuce Leaf",
+    description: "njgfjbnfkjbfbjb hblhvblhvlhvdng;jdgn;djb",
+    price: "12.5$",
+  },
+  {
+    img: BreakfastDish2,
+    title: "Fresh Breakfast",
+    description: "njgfjbnfkhblhvlhhblhvjbfbjb dng;jdgn;djb",
+    price: "14.5$",
+  },
+  {
+    img: BreakfastDish1,
+    title: "Lettuce Leaf",
+    description: "njgfjbnfkjbfbjb hblhvblhvlhvdng;jdgn;djb",
+    price: "12.5$",
+  },
+  {
+    img: BreakfastDish2,
+    title: "Fresh Breakfast",
+    description: "njgfjbnfkhblhvlhhblhvjbfbjb dng;jdgn;djb",
+    price: "14.5$",
+  },
+  {
+    img: BreakfastDish1,
+    title: "Lettuce Leaf",
+    description: "njgfjbnfkjbfbjb hblhvblhvlhvdng;jdgn;djb",
+    price: "12.5$",
+  },
+  {
+    img: BreakfastDish2,
+    title: "Fresh Breakfast",
+    description: "njgfjbnfkhblhvlhhblhvjbfbjb dng;jdgn;djb",
+    price: "14.5$",
+  },
   {
     img: BreakfastDish1,
     title: "Lettuce Leaf",

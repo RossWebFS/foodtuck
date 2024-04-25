@@ -4,17 +4,7 @@ import { FoodCategoryListItem } from "./features/FoodCategoryListItem";
 
 import { foodCategories } from "src/constants";
 
-interface HomeFoodCategorySectionProps {
-  cursiveText?: string;
-  title?: string;
-  highlightedText?: string;
-}
-
-export const HomeFoodCategorySection = ({
-  cursiveText,
-  title,
-  highlightedText,
-}: HomeFoodCategorySectionProps) => {
+export const HomeFoodCategorySection = () => {
   const categoryListItems = foodCategories.map((category) => {
     return (
       <li
@@ -30,10 +20,10 @@ export const HomeFoodCategorySection = ({
     <PageSectionImageWrapper imageFilter="pb-16">
       <PageWrapper>
         <header className="text-center mb-10">
-          <p className="great-vibes text-orange-400 text-2xl ">{cursiveText}</p>
+          <p className="great-vibes text-orange-400 text-2xl ">Food Category</p>
           <h1 className="text-5xl font-bold mt-2 mb-5">
-            <span className="text-orange-400">{highlightedText}</span>
-            {title}
+            <span className="text-orange-400">Choose </span>
+            Food Item
           </h1>
         </header>
 

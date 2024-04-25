@@ -7,3 +7,8 @@
 .slick-active div {
     opacity: 100%
 }
+
+.slick-list {
+    display: flex;
+    align-items: center;
+}
