@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const linkVariants = cva("transition-all duration-200 text-gray-100 inline-block", {
+export const linkVariants = cva("transition-all duration-200 inline-block", {
   variants: {
     variant: {
       default: "hover:text-gray-300",

@@ -1,10 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 
-import { TRoutes } from "src/types";
+import { TRoute } from "src/types";
 import { cn } from "src/utils";
 
 interface NavbarProps {
-  links: TRoutes[];
+  links: TRoute[];
   linkStyles?: string;
   navListItemStyles?: string;
   navListStyles?: string;

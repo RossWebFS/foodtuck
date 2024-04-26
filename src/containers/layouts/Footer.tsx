@@ -1,5 +1,4 @@
 import { Wrapper } from "src/containers/layouts/Wrapper";
-
 import { SupportEmail } from "src/containers/features/SupportEmail";
 import { FooterInfo } from "src/containers/FooterInfo";
 import { FooterLinkList } from "src/containers/features/FooterLinkList";
@@ -17,6 +16,7 @@ import { PiClockClockwiseLight } from "react-icons/pi";
 import footerLeaves from "src/assets/decorations/footerLeaves.png";
 
 export const Footer = () => {
+
   return (
     <footer className="bg-black text-gray-100 relative">
       <Wrapper>

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-import { TRoutes } from "src/types";
+import { TRoute } from "src/types";
 import { cn } from "src/utils";
 
 interface FooterLinksProps {
-  links: TRoutes[];
+  links: TRoute[];
   listTitle?: string;
   listStyles?: string;
   linkStyles?: string

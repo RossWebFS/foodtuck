@@ -1,11 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 
-import { TRoutes } from "src/types";
+import { TRoute } from "src/types";
 import { linkVariants } from "src/styles/LinkStyles";
 import { cn } from "src/utils";
 
 interface BreadCrumbsProps {
-  listItems: TRoutes[];
+  listItems: TRoute[];
 }
 
 export const BreadCrumbs = ({ listItems }: BreadCrumbsProps) => {

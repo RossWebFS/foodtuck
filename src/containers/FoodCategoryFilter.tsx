@@ -26,7 +26,7 @@ export const FoodCategoryFilter = () => {
 
   return (
     <Wrapper>
-      <section className="py-16">
+      <section className="py-10">
         <div className="text-center mb-12">
           <p className="great-vibes text-orange-400 text-2xl">Choose & pick</p>
           <h2 className="text-5xl font-bold mt-3 mb-6">

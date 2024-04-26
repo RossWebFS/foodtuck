@@ -2,7 +2,7 @@ import { Wrapper } from "./layouts/Wrapper";
 import { FeedBackCard } from "./features/FeedBackCard";
 import { Slider } from "./features/Slider";
 
-import { comments } from "src/constants/comments";
+import { comments } from "src/constants";
 
 import FeedBackSliderFlower from "src/assets/decorations/feedBackSliderFlowers.png";
 

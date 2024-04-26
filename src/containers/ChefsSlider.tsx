@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Wrapper } from "src/containers/layouts/Wrapper";
 import { Slider } from "./features/Slider";
 
-import { chefs } from "src/constants/chefs";
+import { chefs } from "src/constants";
 import { buttonVariants } from "src/styles/ButtonStyles";
 
 import ChefDill from "src/assets/decorations/ChefsDill.png";

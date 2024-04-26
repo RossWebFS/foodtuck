@@ -1,12 +1,13 @@
 import { BreadCrumbs } from "src/components/BreadCrumbs";
-import { BackgroundImageWrapper } from "../layouts/BackgroundImageWrapper";
+import { BackgroundImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
+
+import { TRoute } from "src/types";
 
 import PageIntroBackground from "src/assets/backgrounds/PageIntroBackground.png";
-import { TRoutes } from "src/types";
 
 interface PageIntroProps {
   title: string;
-  links: TRoutes[];
+  links: TRoute[];
 }
 
 export const PageIntro = ({ title, links }: PageIntroProps) => {
@@ -15,7 +16,7 @@ export const PageIntro = ({ title, links }: PageIntroProps) => {
       imageStyles="bg-cover bg-bottom"
       bgImg={PageIntroBackground}
     >
-      <section className="h-72 bg flex flex-col justify-center items-center">
+      <section className="h-72 flex flex-col text-gray-100 justify-center items-center mb-10">
         <h1 className="font-semibold text-5xl mb-5">{title}</h1>
         <BreadCrumbs listItems={links} />
       </section>
