@@ -12,8 +12,8 @@ export const BackgroundImageWrapper = ({
   imageFilter = "",
 }: IntroSectionProps) => {
   return (
-    <div className={imageStyles} style={{ backgroundImage: `url(${bgImg})` }}>
+    <section className={imageStyles} style={{ backgroundImage: `url(${bgImg})` }}>
       <div className={imageFilter}>{children}</div>
-    </div>
+    </section>
   );
 };

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { PageWrapper } from "src/containers/layouts/PageWrapper";
+import { Wrapper } from "src/containers/layouts/Wrapper";
 import { Slider } from "./features/Slider";
 
 import { chefs } from "src/constants/chefs";
@@ -21,7 +21,7 @@ export const ChefsSlider = () => {
   });
 
   return (
-    <PageWrapper wrapStyles="py-16 flex flex-col items-center relative">
+    <Wrapper wrapStyles="py-16 flex flex-col items-center relative">
       <div className="text-center">
         <p className="great-vibes text-orange-400 text-2xl">Chefs</p>
         <h2 className="text-5xl font-bold mt-3 mb-6">
@@ -51,6 +51,6 @@ export const ChefsSlider = () => {
         src={ChefDill}
         alt="decoration dill"
       />
-    </PageWrapper>
+    </Wrapper>
   );
 };

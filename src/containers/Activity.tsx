@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { PageWrapper } from "src/containers/layouts/PageWrapper";
+import { Wrapper } from "src/containers/layouts/Wrapper";
 import { BackgroundImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
 import { Description } from "src/containers/features/Description";
 import { Icon } from "src/components/Icon";
@@ -14,7 +14,7 @@ import ActivitySection from "src/assets/backgrounds/ActivitySection.png";
 export const Activity = () => {
   return (
     <BackgroundImageWrapper bgImg={ActivitySection}>
-      <PageWrapper wrapStyles="flex flex-row-reverse">
+      <Wrapper wrapStyles="flex flex-row-reverse">
         <Description
           highlightedText="Restaurant Active Process"
           title=" Document Every Food Bean Process untile it's saved"
@@ -49,7 +49,7 @@ export const Activity = () => {
             </a>
           </div>
         </Description>
-      </PageWrapper>
+      </Wrapper>
     </BackgroundImageWrapper>
   );
 };

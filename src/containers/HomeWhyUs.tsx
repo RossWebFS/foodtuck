@@ -1,4 +1,4 @@
-import { PageWrapper } from "src/containers/layouts/PageWrapper";
+import { Wrapper } from "src/containers/layouts/Wrapper";
 import { Description } from "src/containers/features/Description";
 
 import { Icon } from "src/components/Icon";
@@ -20,7 +20,7 @@ export const HomeWhyUsSection = () => {
   });
 
   return (
-    <PageWrapper wrapStyles="flex justify-evenly items-center py-16">
+    <Wrapper wrapStyles="flex justify-evenly items-center py-16">
       <section className="w-1/2">
         <div className="grid grid-cols-2 items-end gap-4 mb-4">
           <img className="w-[23rem]" src={whyUsImages.img1} alt="dish 1" />
@@ -61,6 +61,6 @@ export const HomeWhyUsSection = () => {
           </p>
         </div>
       </Description>
-    </PageWrapper>
+    </Wrapper>
   );
 };

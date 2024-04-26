@@ -1,5 +1,5 @@
 import { BackgroundImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
-import { PageWrapper } from "src/containers/layouts/PageWrapper";
+import { Wrapper } from "src/containers/layouts/Wrapper";
 
 import HomeStatisticBackground from "src/assets/backgrounds/HomeStatisticBackground.png";
 
@@ -22,9 +22,9 @@ export const StatisticListSection = () => {
       imageStyles="bg-cover"
     >
       <div className="bg-black/75">
-        <PageWrapper>
+        <Wrapper>
           <ul className="flex justify-around py-10">{statisticlist}</ul>
-        </PageWrapper>
+        </Wrapper>
       </div>
     </BackgroundImageWrapper>
   );

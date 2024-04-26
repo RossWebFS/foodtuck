@@ -1,5 +1,5 @@
 import { BackgroundImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
-import { PageWrapper } from "src/containers/layouts/PageWrapper";
+import { Wrapper } from "src/containers/layouts/Wrapper";
 import { FoodCategoryListItem } from "./features/FoodCategoryListItem";
 
 import { foodCategories } from "src/constants";
@@ -18,7 +18,7 @@ export const HomeFoodCategorySection = () => {
 
   return (
     <BackgroundImageWrapper imageFilter="pb-16">
-      <PageWrapper>
+      <Wrapper>
         <header className="text-center mb-10">
           <p className="great-vibes text-orange-400 text-2xl ">Food Category</p>
           <h1 className="text-5xl font-bold mt-2 mb-5">
@@ -28,7 +28,7 @@ export const HomeFoodCategorySection = () => {
         </header>
 
         <ul className="flex gap-6 justify-center h-60">{categoryListItems}</ul>
-      </PageWrapper>
+      </Wrapper>
     </BackgroundImageWrapper>
   );
 };

@@ -1,4 +1,4 @@
-import { PageWrapper } from "./layouts/PageWrapper";
+import { Wrapper } from "./layouts/Wrapper";
 import { FeedBackCard } from "./features/FeedBackCard";
 import { Slider } from "./features/Slider";
 
@@ -17,9 +17,9 @@ export const FeedBackSlider = () => {
       />
     );
   });
-  
+
   return (
-    <PageWrapper wrapStyles="flex flex-col relative">
+    <Wrapper wrapStyles="flex flex-col relative">
       <div className="mb-10">
         <p className=" text-xl great-vibes text-orange-400">Testimonials</p>
         <h2 className="font-semibold text-4xl">What Our Clients are saying</h2>
@@ -37,6 +37,6 @@ export const FeedBackSlider = () => {
         src={FeedBackSliderFlower}
         alt="decoration flowers"
       />
-    </PageWrapper>
+    </Wrapper>
   );
 };

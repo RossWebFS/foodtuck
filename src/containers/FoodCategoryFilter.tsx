@@ -1,5 +1,5 @@
 import { Tabs } from "src/containers/features/Tabs";
-import { PageWrapper } from "./layouts/PageWrapper";
+import { Wrapper } from "./layouts/Wrapper";
 
 import { breakfastDishes, categoryTabs } from "src/constants";
 
@@ -25,7 +25,7 @@ export const FoodCategoryFilter = () => {
   });
 
   return (
-    <PageWrapper>
+    <Wrapper>
       <section className="py-16">
         <div className="text-center mb-12">
           <p className="great-vibes text-orange-400 text-2xl">Choose & pick</p>
@@ -47,8 +47,10 @@ export const FoodCategoryFilter = () => {
           />
         </div>
 
-        <ul className="flex flex-col flex-wrap h-[30rem]">{breackfastDishesListItems}</ul>
+        <ul className="flex flex-col flex-wrap h-[30rem]">
+          {breackfastDishesListItems}
+        </ul>
       </section>
-    </PageWrapper>
+    </Wrapper>
   );
 };

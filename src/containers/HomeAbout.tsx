@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { PageWrapper } from "src/containers/layouts/PageWrapper";
+import { Wrapper } from "src/containers/layouts/Wrapper";
 import { Description } from "src/containers/features/Description";
 
 import { BsCheck } from "react-icons/bs";
@@ -28,7 +28,7 @@ export const HomeAboutSection = () => {
   });
 
   return (
-    <PageWrapper wrapStyles="flex justify-evenly items-center py-16 pb-8">
+    <Wrapper wrapStyles="flex justify-evenly items-center py-16 pb-8">
       <Description
         styles="w-2/5"
         highlightedText="About Us"
@@ -63,6 +63,6 @@ export const HomeAboutSection = () => {
         <img className="object-contain" src={HomeAbout2} alt="dish" />
         <img className="object-contain" src={HomeAbout3} alt="dish" />
       </section>
-    </PageWrapper>
+    </Wrapper>
   );
 };

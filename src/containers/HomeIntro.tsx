@@ -1,5 +1,5 @@
 import { BackgroundImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
-import { PageWrapper } from "src/containers/layouts/PageWrapper";
+import { Wrapper } from "src/containers/layouts/Wrapper";
 import { IconList } from "./features/IconList";
 import { Description } from "src/containers/features/Description";
 import { Link } from "src/components/Link";
@@ -17,7 +17,7 @@ export const HomeIntroSection = () => {
       bgImg={introSectionBg}
       imageFilter="bg-black/90"
     >
-      <PageWrapper wrapStyles="flex justify-between items-center relative py-16">
+      <Wrapper wrapStyles="flex justify-between items-center relative py-16">
         <IconList
           icons={introSectionIcons}
           iconStyles="w-5 h-5"
@@ -49,7 +49,7 @@ export const HomeIntroSection = () => {
         <section className="w-7/12">
           <img src={HomeIntro} alt="dish" />
         </section>
-      </PageWrapper>
+      </Wrapper>
     </BackgroundImageWrapper>
   );
 };
