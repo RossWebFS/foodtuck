@@ -17,7 +17,7 @@ import HomeStatisticsIcon4 from "src/assets/products/HomeStatisticsIcon4.png";
 import BreakfastDish1 from "src/assets/products/BreakfastDish1.png";
 import BreakfastDish2 from "src/assets/products/BreakfastDish2.png";
 
-export const foodCategories: TFoodCategories[] = [
+export const foodCategoryCards: TFoodCategories[] = [
   {
     img: HomeFoodCategory1,
     alt: "salads",

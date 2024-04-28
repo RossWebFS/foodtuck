@@ -28,10 +28,10 @@ export const SearchInput = ({
   };
 
   return (
-    <>
+    <div className="flex items-center group">
       <Input
         className={cn(
-          "text-gray-100 py-2 px-4 border-none focus:outline-none",
+          "text-gray-100 py-2 px-4 border-0 focus:outline-none",
           inputStyles
         )}
         value={searchValue}
@@ -44,6 +44,6 @@ export const SearchInput = ({
           className={cn("w-5 h-5", iconStyles)}
         />
       )}
-    </>
+    </div>
   );
 };

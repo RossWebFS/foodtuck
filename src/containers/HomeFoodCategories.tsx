@@ -2,10 +2,10 @@ import { BackgroundImageWrapper } from "src/containers/layouts/BackgroundImageWr
 import { Wrapper } from "src/containers/layouts/Wrapper";
 import { FoodCategoryListItem } from "./features/FoodCategoryListItem";
 
-import { foodCategories } from "src/constants";
+import { foodCategoryCards } from "src/constants";
 
 export const HomeFoodCategorySection = () => {
-  const categoryListItems = foodCategories.map((category) => {
+  const categoryListItems = foodCategoryCards.map((category) => {
     return (
       <li
         key={category.buttonText}

@@ -10,3 +10,7 @@ export const formDate = (): string => {
     month: "short",
   }).format(new Date())} ${new Date().getFullYear()}`;
 };
+
+export const formPrice = (price: number | null, digitLength: number = 2) => {
+  return price?.toFixed(digitLength);
+};
