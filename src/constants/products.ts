@@ -1,8 +1,4 @@
-import {
-  TFoodCategories,
-  TStatisticListItem,
-  TFoodDescription,
-} from "src/types";
+import { TFoodCategories, TLatestDish, TStatisticListItem } from "src/types";
 
 import HomeFoodCategory1 from "src/assets/products/HomeFoodCategory1.png";
 import HomeFoodCategory2 from "src/assets/products/HomeFoodCategory2.png";
@@ -14,8 +10,7 @@ import HomeStatisticsIcon2 from "src/assets/products/HomeStatisticsIcon2.png";
 import HomeStatisticsIcon3 from "src/assets/products/HomeStatisticsIcon3.png";
 import HomeStatisticsIcon4 from "src/assets/products/HomeStatisticsIcon4.png";
 
-import BreakfastDish1 from "src/assets/products/BreakfastDish1.png";
-import BreakfastDish2 from "src/assets/products/BreakfastDish2.png";
+import LatestDish from "src/assets/menu/LatestDish.png";
 
 export const foodCategoryCards: TFoodCategories[] = [
   {
@@ -67,57 +62,6 @@ export const statisticListItems: TStatisticListItem[] = [
   },
 ];
 
-export const breakfastDishes: TFoodDescription[] = [
-  {
-    img: BreakfastDish1,
-    title: "Lettuce Leaf",
-    description: "njgfjbnfkjbfbjb hblhvblhvlhvdng;jdgn;djb",
-    price: "12.5$",
-  },
-  {
-    img: BreakfastDish2,
-    title: "Fresh Breakfast",
-    description: "njgfjbnfkhblhvlhhblhvjbfbjb dng;jdgn;djb",
-    price: "14.5$",
-  },
-  {
-    img: BreakfastDish1,
-    title: "Lettuce Leaf",
-    description: "njgfjbnfkjbfbjb hblhvblhvlhvdng;jdgn;djb",
-    price: "12.5$",
-  },
-  {
-    img: BreakfastDish2,
-    title: "Fresh Breakfast",
-    description: "njgfjbnfkhblhvlhhblhvjbfbjb dng;jdgn;djb",
-    price: "14.5$",
-  },
-  {
-    img: BreakfastDish1,
-    title: "Lettuce Leaf",
-    description: "njgfjbnfkjbfbjb hblhvblhvlhvdng;jdgn;djb",
-    price: "12.5$",
-  },
-  {
-    img: BreakfastDish2,
-    title: "Fresh Breakfast",
-    description: "njgfjbnfkhblhvlhhblhvjbfbjb dng;jdgn;djb",
-    price: "14.5$",
-  },
-  {
-    img: BreakfastDish1,
-    title: "Lettuce Leaf",
-    description: "njgfjbnfkjbfbjb hblhvblhvlhvdng;jdgn;djb",
-    price: "12.5$",
-  },
-  {
-    img: BreakfastDish2,
-    title: "Fresh Breakfast",
-    description: "njgfjbnfkhblhvlhhblhvjbfbjb dng;jdgn;djb",
-    price: "14.5$",
-  },
-];
-
 export const categoryTabs: string[] = [
   "Breakfast",
   "Lunch",
@@ -126,4 +70,53 @@ export const categoryTabs: string[] = [
   "Drink",
   "Snack",
   "Soups",
+];
+
+export const latestDishes: TLatestDish[] = [
+  {
+    img: LatestDish,
+    title: "Pizza",
+    price: 35,
+    ref: "/",
+  },
+  {
+    img: LatestDish,
+    title: "CupCakes",
+    price: 35,
+    ref: "/",
+  },
+  {
+    img: LatestDish,
+    title: "Burger",
+    price: 35,
+    ref: "/",
+  },
+  {
+    img: LatestDish,
+    title: "Cookies",
+    price: 35,
+    ref: "/",
+  },
+];
+
+export const productTags = [
+  "Services",
+  "Our Menu",
+  "Pizza",
+  "Cupcake",
+  "Burger",
+  "Cookies",
+  "Our Shop",
+  "Tandoori Chicken",
+];
+
+export const foodCategories: string[] = [
+  "Sandwiches",
+  "Burgers",
+  "Chicken Chups",
+  "Drinks",
+  "Pizza",
+  "Thi",
+  "Non Veg",
+  "Uncategorized",
 ];

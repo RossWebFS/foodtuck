@@ -1,53 +1,30 @@
-import { RiSearchLine } from "react-icons/ri";
-import { navRoutes, dishes, foodCategories } from "src/constants";
+import { Link } from "react-router-dom";
+import { TESelect } from "tw-elements-react";
+
+import { Icon } from "src/components/Icon";
 import { PageIntro } from "src/containers/features/PageIntro";
 import { SearchInput } from "src/containers/features/SearchInput";
 import { Wrapper } from "src/containers/layouts/Wrapper";
+import { MultiRange } from "src/containers/features/MultiRange";
+import { Pagination } from "src/containers/features/Pagination";
+import { ProductTags } from "src/containers/features/ProductTags";
+import { LatestDishList } from "src/containers/features/LatestDishList";
+import { CategoryCheckboxList } from "src/containers/features/CategoryCheckboxList";
+import { ProductList } from "src/containers/features/ProductList";
+
+import { RiSearchLine } from "react-icons/ri";
+import { IoArrowForwardCircleOutline } from "react-icons/io5";
+
+import { dishes, foodCategories, latestDishes, navRoutes } from "src/constants";
 import { iconVariants } from "src/styles/IconStyles";
-import { formPrice } from "src/utils";
-import { TESelect } from "tw-elements-react";
+import { linkVariants } from "src/styles/LinkStyles";
+import { cn, formPrice } from "src/utils";
 
 export const ShopPage = () => {
   const links = [navRoutes.HOME, navRoutes.SHOP];
 
-  const shopItems = dishes.map((dish) => {
-    return (
-      <li className="w-[30%]">
-        <img src={dish.img} alt={dish.title} />
-        <div className="w-2/5">
-          <h5 className="text-lg font-semibold my-1">{dish.title}</h5>
-          <span className="text-orange-400 text-lg">
-            $
-            {dish.saledPrice
-              ? formPrice(dish.saledPrice)
-              : formPrice(dish.basicPrice)}
-          </span>
-          {dish.saledPrice && (
-            <span className="text-gray-500 ml-2">
-              <del>${formPrice(dish.basicPrice)}</del>
-            </span>
-          )}
-        </div>
-      </li>
-    );
-  });
-
-  const categoryCheckboxes = foodCategories.map((category) => {
-    return (
-      <li className="flex my-2 items-center">
-        <input
-          id={`${category}-checkbox`}
-          type="checkbox"
-          className=" mr-2 w-4 h-4"
-        />
-        <label htmlFor={`${category}-checkbox`}></label>
-        {category}
-      </li>
-    );
-  });
-
   return (
-    <main className="pt-20">
+    <main className="py-20">
       <PageIntro links={links} title="Our Shop" />
 
       <Wrapper wrapStyles="pt-20">
@@ -71,21 +48,22 @@ export const ShopPage = () => {
             <label htmlFor="#request-filter">Show:</label>
             <TESelect
               id="request-filter"
-              data={[
-                { text: "Newest", value: "newest" },
-                { text: "Popular", value: "popular" },
-              ]}
+              data={[{ text: "Default", value: "default" }]}
               className="w-64 ml-2"
               placeholder="Default"
               multiple
               clearBtn
+              onClick={(e) => console.log(e)}
             />
           </div>
         </section>
 
         <section className="flex">
-          <ul className="flex flex-wrap w-3/4 gap-5">{shopItems}</ul>
           <section>
+            <ProductList dishes={dishes} />
+            <Pagination />
+          </section>
+          <section className="w-[30%] border border-gray-200 p-6 rounded-lg">
             <SearchInput
               IconComponent={RiSearchLine}
               type="text"
@@ -97,9 +75,42 @@ export const ShopPage = () => {
               }
             />
 
-            <div className="mt-6">
-              <h2 className="text-xl font-semibold">Category</h2>
-              <ul>{categoryCheckboxes}</ul>
+            <div className="my-6">
+              <h4 className="font-semibold text-xl mb-4">Category</h4>
+              <CategoryCheckboxList categories={foodCategories} />
+            </div>
+
+            <div className="bg-[url('src/assets/products/ShopAd.png')] w-56 h-64 bg-cover text-gray-100 font-semibold flex flex-col justify-between px-5 py-7">
+              <div>
+                <p>Perfect Taste</p>
+                <h4 className="text-lg mt-1 mb-2">Classic Reastaurant</h4>
+                <span className="text-orange-400">${formPrice(45)}</span>
+              </div>
+              <Link to="/cart" className={linkVariants()}>
+                Shop Now
+                <Icon
+                  IconComponent={IoArrowForwardCircleOutline}
+                  className={cn(
+                    "w-5 h-5 ml-2",
+                    iconVariants({ variant: "light" })
+                  )}
+                />
+              </Link>
+            </div>
+
+            <div className="mt-4 mb-6">
+              <h4 className="font-semibold text-xl mb-4">Filter By Price</h4>
+              <MultiRange />
+            </div>
+
+            <div className="mb-4">
+              <h4 className="font-semibold text-xl mb-4">Latest Products</h4>
+              <LatestDishList dishes={latestDishes} />
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-xl mb-4">Product Tags</h4>
+              <ProductTags />
             </div>
           </section>
         </section>

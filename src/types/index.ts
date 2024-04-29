@@ -37,6 +37,21 @@ export interface TStatisticListItem {
   content: string;
 }
 
+export interface TDishes {
+  img: string;
+  title: string;
+  saledPrice: number | null;
+  basicPrice: number;
+  ref: string;
+}
+
+export interface TLatestDish {
+  img: string;
+  title: string;
+  price: number;
+  ref: string;
+}
+
 // Posts
 export interface TRecentPost {
   img: string;
