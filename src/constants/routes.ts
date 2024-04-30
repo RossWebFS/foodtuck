@@ -61,6 +61,10 @@ export const navRoutes: TRoutes = {
       routeName: "Privacy",
       path: "/privacy",
     },
+    SHOP_DETAILS:{
+      routeName: "Shop Details",
+      path: "/shop-details",
+    },
 };
   
 export const usefulLinkRoutes: TRoute[] = [

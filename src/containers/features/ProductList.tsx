@@ -8,9 +8,9 @@ interface ProductListProps {
 export const ProductList = ({ dishes }: ProductListProps) => {
   const shopItems = dishes.map((dish) => {
     return (
-      <li className="w-[30%]">
+      <li className="w-[30%] border border-gray-100 shadow-md">
         <img src={dish.img} alt={dish.title} />
-        <div className="w-2/5">
+        <div className="p-2">
           <h5 className="text-lg font-semibold my-1">{dish.title}</h5>
           <span className="text-orange-400 text-lg">
             $

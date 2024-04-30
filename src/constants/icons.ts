@@ -10,7 +10,7 @@ import {
   AiOutlineInstagram,
   AiOutlineLike,
 } from "react-icons/ai";
-import { BsYoutube, BsPinterest } from "react-icons/bs";
+import { BsYoutube, BsPinterest, BsInstagram } from "react-icons/bs";
 import { PiHamburgerLight, PiCookieLight, PiWineLight } from "react-icons/pi";
 import { GoShareAndroid } from "react-icons/go";
 
@@ -79,7 +79,14 @@ export const foodCategoryIcons: {
 ];
 
 export const blogIconLinks: TIcons[] = [
-  { icon: AiOutlineLike, id: "Like", src: "/" },
-  { icon: BiCommentDots, id: "Comment", src: "/" },
-  { icon: GoShareAndroid, id: "Share", src: "/" },
+  { icon: AiOutlineLike, id: "like", src: "/" },
+  { icon: BiCommentDots, id: "comment", src: "/" },
+  { icon: GoShareAndroid, id: "share", src: "/" },
+];
+
+export const singlePageLinks: TIcons[] = [
+  { icon: BsYoutube, id: "youtube", src: "/" },
+  { icon: BiLogoFacebook, id: "facebook", src: "/" },
+  { icon: AiOutlineTwitter, id: "twitter", src: "/" },
+  { icon: BsInstagram, id: "instagram", src: "/" },
 ];

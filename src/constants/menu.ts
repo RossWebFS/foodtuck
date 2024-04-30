@@ -1,10 +1,5 @@
 import { TDishes, TFoodDescription, TMenuDishInfo } from "src/types";
 
-import ShopCard from "src/assets/menu/ShopCard.png";
-import ShopCard2 from "src/assets/menu/ShopCard2.png";
-import ShopCard3 from "src/assets/menu/ShopCard3.png";
-import ShopCard4 from "src/assets/menu/ShopCard4.png";
-
 import BreakfastDish1 from "src/assets/products/BreakfastDish1.png";
 import BreakfastDish2 from "src/assets/products/BreakfastDish2.png";
 
@@ -72,28 +67,28 @@ export const mainMenu: TMenuDishInfo[] = [
 
 export const dishes: TDishes[] = [
   {
-    img: ShopCard,
+    img: "https://nowcookthis.com/wp-content/uploads/2019/05/easy-homemade-lime-lemonade-thumbnail.jpg",
     title: "Fresh Lime",
     saledPrice: 38,
     basicPrice: 45,
     ref: "/",
   },
   {
-    img: ShopCard2,
-    title: "Fresh Lime",
+    img: "https://sweetsbyelise.com/wp-content/uploads/2022/08/muffins.jpg",
+    title: "Chocolate Muffin",
     saledPrice: null,
     basicPrice: 28,
     ref: "/",
   },
   {
-    img: ShopCard3,
+    img: "https://recipes.net/wp-content/uploads/2023/05/hardees-double-cheeseburger-recipe_d48b79ef43b714e98a3ad95a7ab9e12e.jpeg",
     title: "Fresh Lime",
     saledPrice: 21,
     basicPrice: 45,
     ref: "/",
   },
   {
-    img: ShopCard4,
+    img: "https://penes.md/wp-content/uploads/2020/10/1-COUNTRY-BURGER.jpg",
     title: "Fresh Lime",
     saledPrice: null,
     basicPrice: 45,
