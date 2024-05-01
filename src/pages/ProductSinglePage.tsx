@@ -1,5 +1,5 @@
 import { Button } from "src/components/Button";
-import { navRoutes, singlePageLinks } from "src/constants";
+import { dishes, navRoutes, singlePageLinks } from "src/constants";
 import { PageIntro } from "src/containers/features/PageIntro";
 
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -7,7 +7,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import { Icon } from "src/components/Icon";
 import { Link } from "react-router-dom";
 import { cn, formPrice } from "src/utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import SinglePageDish1 from "src/assets/menu/SinglePageDish1.png";
 import SinglePageDish2 from "src/assets/menu/SinglePageDish2.png";
@@ -18,6 +18,8 @@ import { Wrapper } from "src/containers/layouts/Wrapper";
 
 import { PiTote } from "react-icons/pi";
 import { IconList } from "src/containers/features/IconList";
+import { dishService } from "src/services/DishService";
+import { ProductList } from "src/containers/features/ProductList";
 
 export const ProductSinglePage = () => {
   const links = [navRoutes.HOME, navRoutes.SHOP_DETAILS];
@@ -28,7 +30,7 @@ export const ProductSinglePage = () => {
     <main className="py-20">
       <PageIntro links={links} title="Shop Details" />
       <Wrapper>
-        <section className="flex justify-around">
+        <section className="flex justify-around mb-10">
           <section className="w-[45%] grid grid-cols-[auto_minmax(auto,_auto)] grid-rows-4 gap-5">
             <img src={SinglePageDish2} alt="dish-2" />
             <img
@@ -136,6 +138,61 @@ export const ProductSinglePage = () => {
               </div>
             </div>
           </section>
+        </section>
+
+        <article>
+          <div className="mb-6">
+            <Button size="lg">Description</Button>
+            <Link to="/" className="ml-4">
+              Reviews (24)
+            </Link>
+          </div>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            eaque hic obcaecati adipisci placeat dicta quia officia ipsa, quae
+            dolor id. Consectetur velit odit doloribus delectus est ut
+            perferendis laboriosam veniam. Rem culpa sint laborum possimus
+            omnis, aspernatur non reprehenderit reiciendis quo maiores dolorem
+            adipisci accusamus quae error recusandae vel ratione ut excepturi
+            illum libero maxime laboriosam magni provident deserunt.
+          </p>
+          <p className="my-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            eaque hic obcaecati adipisci placeat dicta quia officia ipsa, quae
+            dolor id. Consectetur velit odit doloribus delectus est ut
+            perferendis laboriosam veniam. Rem culpa sint laborum possimus
+            omnis, aspernatur non reprehenderit reiciendis quo maiores dolorem
+            adipisci accusamus quae error recusandae vel ratione ut excepturi
+            illum libero maxime laboriosam magni provident deserunt.
+          </p>
+
+          <div>
+            <h3 className="text-xl">Key Benefits</h3>
+            <ul className="list-disc pl-5">
+              <li className="my-2">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi,
+                repellat.
+              </li>
+              <li className="my-2">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi,
+                repellat.
+              </li>
+              <li className="my-2">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi,
+                repellat.
+              </li>
+              <li className="my-2">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi,
+                repellat.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <section className="mt-20 mb-10">
+          <h2 className="text-3xl font-semibold mb-4">Similar Products</h2>
+          <ProductList dishes={dishes} listStyles="grid-cols-4" />
         </section>
       </Wrapper>
     </main>

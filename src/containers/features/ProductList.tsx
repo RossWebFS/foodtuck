@@ -1,14 +1,20 @@
 import { TDishes } from "src/types";
-import { formPrice } from "src/utils";
+import { cn, formPrice } from "src/utils";
 
 interface ProductListProps {
   dishes: TDishes[];
+  itemStyles?: string;
+  listStyles?: string;
 }
 
-export const ProductList = ({ dishes }: ProductListProps) => {
+export const ProductList = ({
+  dishes,
+  itemStyles,
+  listStyles,
+}: ProductListProps) => {
   const shopItems = dishes.map((dish) => {
     return (
-      <li className="w-[30%] border border-gray-100 shadow-md">
+      <li className={cn("border border-gray-100 shadow-md", itemStyles)}>
         <img src={dish.img} alt={dish.title} />
         <div className="p-2">
           <h5 className="text-lg font-semibold my-1">{dish.title}</h5>
@@ -28,5 +34,9 @@ export const ProductList = ({ dishes }: ProductListProps) => {
     );
   });
 
-  return <ul className="flex flex-wrap gap-5 h-fit">{shopItems}</ul>;
+  return (
+    <ul className={cn("grid grid-cols-3 gap-5 h-fit", listStyles)}>
+      {shopItems}
+    </ul>
+  );
 };
