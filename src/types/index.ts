@@ -61,15 +61,23 @@ export interface TRecentPost {
 }
 
 // Icons & Images
-export interface TIcons {
+export interface TIcon {
   icon: React.ElementType;
-  id: string;
-  src: string;
+  src?: string;
+}
+
+export interface TIcons {
+  [key: string]: TIcon;
 }
 
 export interface TImageInfo {
   info: string;
   img: string;
+}
+
+export interface TCategoryIcons {
+  category: string;
+  icon: React.ElementType;
 }
 
 // Comments

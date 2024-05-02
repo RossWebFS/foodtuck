@@ -1,6 +1,6 @@
 import { TRoute, TRoutes } from "src/types";
 
-export const navRoutes: TRoutes = {
+export const routes: TRoutes = {
     HOME: {
       routeName: "Home",
       path: "/",
@@ -68,19 +68,19 @@ export const navRoutes: TRoutes = {
 };
   
 export const usefulLinkRoutes: TRoute[] = [
-  navRoutes.ABOUT,
-  navRoutes.NEWS,
-  navRoutes.PARTNERS,
-  navRoutes.TEAM,
-  navRoutes.MENU,
-  navRoutes.CONTACTS,
+  routes.ABOUT,
+  routes.NEWS,
+  routes.PARTNERS,
+  routes.TEAM,
+  routes.MENU,
+  routes.CONTACTS,
 ];
 
 export const helpRoutes: TRoute[] = [
-  navRoutes.FAQ,
-  navRoutes.TERM_AND_CONDITION,
-  navRoutes.REPORTING,
-  navRoutes.DOCUMENTATION,
-  navRoutes.SUPPORT_POLICY,
-  navRoutes.PRIVACY,
+  routes.FAQ,
+  routes.TERM_AND_CONDITION,
+  routes.REPORTING,
+  routes.DOCUMENTATION,
+  routes.SUPPORT_POLICY,
+  routes.PRIVACY,
 ];  

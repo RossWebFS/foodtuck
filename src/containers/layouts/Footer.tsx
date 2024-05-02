@@ -55,14 +55,14 @@ export const Footer = () => {
             listItemStyles="my-5"
             links={usefulLinkRoutes}
             listTitle="Useful Links"
-            linkStyles="hover:text-orange-400"
+            // linkStyles="hover:text-orange-400"
           />
 
           <FooterLinkList
             listItemStyles="my-5"
             links={helpRoutes}
             listTitle="Help?"
-            linkStyles="hover:text-orange-400"
+            // linkStyles="hover:text-orange-400"
           />
           <RecentPosts listTitle="Recent Post" recentPosts={recentPosts} />
         </section>

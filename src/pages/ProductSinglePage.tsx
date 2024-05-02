@@ -1,5 +1,5 @@
 import { Button } from "src/components/Button";
-import { dishes, navRoutes, singlePageLinks } from "src/constants";
+import { dishes1, routes, singlePageLinks } from "src/constants";
 import { PageIntro } from "src/containers/features/PageIntro";
 
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -22,7 +22,7 @@ import { dishService } from "src/services/DishService";
 import { ProductList } from "src/containers/features/ProductList";
 
 export const ProductSinglePage = () => {
-  const links = [navRoutes.HOME, navRoutes.SHOP_DETAILS];
+  const links = [routes.HOME, routes.SHOP_DETAILS];
 
   const [counterValue, setCounterValue] = useState(0);
 
@@ -192,7 +192,7 @@ export const ProductSinglePage = () => {
 
         <section className="mt-20 mb-10">
           <h2 className="text-3xl font-semibold mb-4">Similar Products</h2>
-          <ProductList dishes={dishes} listStyles="grid-cols-4" />
+          <ProductList dishes={dishes1} listStyles="grid-cols-4" />
         </section>
       </Wrapper>
     </main>

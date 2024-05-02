@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "src/components/Link";
 import { TESelect } from "tw-elements-react";
 
 import { Icon } from "src/components/Icon";
@@ -15,13 +15,18 @@ import { ProductList } from "src/containers/features/ProductList";
 import { RiSearchLine } from "react-icons/ri";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
 
-import { dishes, foodCategories, latestDishes, navRoutes } from "src/constants";
+import {
+  dishes,
+  dishes1,
+  foodCategories,
+  latestDishes,
+  routes,
+} from "src/constants";
 import { iconVariants } from "src/styles/IconStyles";
-import { linkVariants } from "src/styles/LinkStyles";
-import { cn, formPrice } from "src/utils";
+import { formPrice } from "src/utils";
 
 export const ShopPage = () => {
-  const links = [navRoutes.HOME, navRoutes.SHOP];
+  const links = [routes.HOME, routes.SHOP];
 
   return (
     <main className="py-20">
@@ -60,11 +65,12 @@ export const ShopPage = () => {
 
         <section className="flex">
           <section>
-            <ProductList dishes={dishes} />
+            <ProductList dishes={dishes1} />
             <Pagination />
           </section>
           <section className="w-[30%] border border-gray-200 p-6 rounded-lg">
             <SearchInput
+              state={dishes}
               IconComponent={RiSearchLine}
               type="text"
               placeholder="Search..."
@@ -86,14 +92,12 @@ export const ShopPage = () => {
                 <h4 className="text-lg mt-1 mb-2">Classic Reastaurant</h4>
                 <span className="text-orange-400">${formPrice(45)}</span>
               </div>
-              <Link to="/cart" className={linkVariants()}>
+              <Link to="/cart">
                 Shop Now
                 <Icon
                   IconComponent={IoArrowForwardCircleOutline}
-                  className={cn(
-                    "w-5 h-5 ml-2",
-                    iconVariants({ variant: "light" })
-                  )}
+                  className="w-5 h-5 ml-2"
+                  variant="light"
                 />
               </Link>
             </div>

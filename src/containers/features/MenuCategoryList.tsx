@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-
+import { Link } from "src/components/Link";
 import { Wrapper } from "src/containers/layouts/Wrapper";
 
 import { TMenuDishInfo } from "src/types";
@@ -11,6 +10,7 @@ interface MenuCategoryListProps {
   title: string;
   dishes: TMenuDishInfo[];
   direction?: "flex-row" | "flex-row-reverse";
+  id?: string;
 }
 
 export const MenuCategoryList = ({
@@ -18,16 +18,14 @@ export const MenuCategoryList = ({
   title,
   dishes,
   direction = "flex-row",
+  id,
 }: MenuCategoryListProps) => {
   const dishItems = dishes.map((dish) => {
     return (
       <li className="flex justify-between my-8">
         <div>
           <h3 className="text-xl font-semibold">
-            <Link
-              className={linkVariants({ variant: "colored" })}
-              to={dish.ref}
-            >
+            <Link variant="colored" to={dish.ref}>
               {dish.title}
             </Link>
           </h3>
@@ -49,7 +47,7 @@ export const MenuCategoryList = ({
           direction
         )}
       >
-        <img className="w-[35%] size-fit" src={img} alt={title} />
+        <img id={id} className="w-[35%] size-fit" src={img} alt={title} />
         <section className="w-[57%]">
           <h1 className="text-4xl font-semibold">{title}</h1>
           <ul>{dishItems}</ul>

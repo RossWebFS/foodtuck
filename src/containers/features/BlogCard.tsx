@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "src/components/Link";
 
 import { IconList } from "./IconList";
 
@@ -16,7 +16,7 @@ export const BlogCard = ({ img, title, date }: TRecentPost) => {
           <h5 className="font-semibold text-lg mt-4">{title}</h5>
         </div>
         <div className="flex justify-between items-center mt-4">
-          <Link className={linkVariants({ variant: "colored" })} to="/">
+          <Link variant="colored" to="/">
             Learn More
           </Link>
           <IconList

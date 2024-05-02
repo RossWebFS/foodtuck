@@ -6,7 +6,7 @@ import { cn } from "src/utils";
 
 interface LinkProps {
   children: React.ReactNode;
-  path: string;
+  to: string;
   className?: string;
 }
 
@@ -18,12 +18,12 @@ export const Link = ({
   rounded,
   children,
   className,
-  path,
+  to,
 }: LinkProps) => {
   return (
     <L
       className={cn(linkVariants({ size, variant, rounded }), className)}
-      to={path}
+      to={to}
     >
       {children}
     </L>

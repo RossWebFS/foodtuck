@@ -1,4 +1,4 @@
-import { BreadCrumbs } from "src/components/BreadCrumbs";
+import { BreadCrumbs } from "src/containers/features/BreadCrumbs";
 import { BackgroundImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
 
 import { TRoute } from "src/types";

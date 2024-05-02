@@ -5,17 +5,17 @@ import { cn } from "src/utils";
 
 interface FoodCategoryListItemProps {
   category: TFoodCategories;
-  buttonStyles?: string;
+  linkStyles?: string;
   animationBoxStyles?: string;
 }
 
 export const FoodCategoryListItem = ({
   category,
-  buttonStyles,
+  linkStyles,
   animationBoxStyles,
 }: FoodCategoryListItemProps) => {
   return (
-    <>
+    <div>
       <img
         className="w-56 h-60 rounded object-cover"
         src={`${category.img}`}
@@ -26,10 +26,10 @@ export const FoodCategoryListItem = ({
         rounded="default"
         variant="button"
         size="lg"
-        path=""
+        to="/menu#dessert-menu"
         className={cn(
           "duration-500 absolute top-44 z-20 -left-48 group-hover:left-4",
-          buttonStyles
+          linkStyles
         )}
       >
         {category.buttonText}
@@ -41,6 +41,6 @@ export const FoodCategoryListItem = ({
           animationBoxStyles
         )}
       ></div>
-    </>
+    </div>
   );
 };

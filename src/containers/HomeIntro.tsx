@@ -34,14 +34,7 @@ export const HomeIntroSection = () => {
           styles="pl-12 border-l border-gray-100"
           contentWidth="w-10/12"
         >
-          <Link
-            className={buttonVariants({
-              variant: "outlined",
-              rounded: "full",
-              size: "lg",
-            })}
-            path="/menu"
-          >
+          <Link variant="outlined" size="lg" rounded="full" to="/menu">
             See Menu
           </Link>
         </Description>

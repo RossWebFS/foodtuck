@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-
+import { Link } from "src/components/Link";
 import { Wrapper } from "src/containers/layouts/Wrapper";
 import { Description } from "src/containers/features/Description";
 
@@ -8,8 +7,6 @@ import { BsCheck } from "react-icons/bs";
 import HomeAbout1 from "src/assets/products/HomeAbout1.png";
 import HomeAbout2 from "src/assets/products/HomeAbout2.png";
 import HomeAbout3 from "src/assets/products/HomeAbout3.png";
-
-import { buttonVariants } from "src/styles/ButtonStyles";
 
 export const HomeAboutSection = () => {
   const listItemContent = [
@@ -42,14 +39,7 @@ export const HomeAboutSection = () => {
       >
         <ul className="mb-8">{listItems}</ul>
 
-        <Link
-          to="/about"
-          className={buttonVariants({
-            variant: "outlined",
-            rounded: "full",
-            size: "lg",
-          })}
-        >
+        <Link to="/about" variant="outlined" size="lg" rounded="full">
           Read more
         </Link>
       </Description>

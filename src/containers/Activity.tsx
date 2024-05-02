@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-
+import { Link } from "src/components/Link";
 import { Wrapper } from "src/containers/layouts/Wrapper";
 import { BackgroundImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
 import { Description } from "src/containers/features/Description";
@@ -26,14 +25,10 @@ export const Activity = () => {
         >
           <div className="inline-block ">
             <Link
-              className={cn(
-                buttonVariants({
-                  variant: "outlined",
-                  rounded: "full",
-                  size: "lg",
-                }),
-                "py-4 px-9 mr-6"
-              )}
+              className="py-4 px-9 mr-6"
+              variant="outlined"
+              rounded="full"
+              size="lg"
               to="/activity"
             >
               Read More

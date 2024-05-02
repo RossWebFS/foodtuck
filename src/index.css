@@ -5,16 +5,29 @@
 @import url("fonts/fonts.css");
 
 .slick-active div {
-    opacity: 100%
+  opacity: 100%;
 }
 
 .slick-list {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .track-1 {
-    background: #fb923c;
-    height: 6px;
-    border-radius: 4px;
+  background: #fb923c;
+  height: 6px;
+  border-radius: 4px;
+}
+
+.coloredScrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.coloredScrollbar::-webkit-scrollbar-track {
+  background: #f3f4f626;
+}
+
+.coloredScrollbar::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 6px;
 }
