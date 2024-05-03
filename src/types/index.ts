@@ -9,9 +9,20 @@ export interface TRoutes {
 }
 
 // Products
-export interface TFoodCategories {
+export interface TDish {
   img: string;
-  alt: string;
+  calories: number;
+  category: string[];
+  tags: string[];
+  rating: number; // from 0 to 5
+  receipe: string[];
+  description: string;
+  title: string;
+  price: number;
+}
+
+export interface TFoodCategoryCard {
+  img: React.ReactNode;
   buttonText: string;
 }
 
@@ -70,9 +81,10 @@ export interface TIcons {
   [key: string]: TIcon;
 }
 
-export interface TImageInfo {
-  info: string;
+export interface TTeamMember {
+  name: string;
   img: string;
+  status: string;
 }
 
 export interface TCategoryIcons {

@@ -1,12 +1,11 @@
-import { Link } from "src/components/Link";
-
-import { Icon } from "src/components/Icon";
 import { SearchInput } from "./SearchInput";
 
 import { dishes, icons } from "src/constants";
+import { UserModal } from "./UserModal";
+import { CartModal } from "./CartModal";
 
 export const NavIconList = () => {
-  return (
+ return (
     <ul className="flex">
       <li className="bg-black flex items-center mx-2 border border-orange-400 rounded-full">
         <SearchInput
@@ -18,12 +17,10 @@ export const NavIconList = () => {
         />
       </li>
       <li className="mx-2 my-auto">
-        <Icon IconComponent={icons.user.icon} className="w-5 h-5" />
+        <UserModal icon={icons.user.icon} />
       </li>
       <li className="mx-2 my-auto">
-        <Link to="/cart">
-          <Icon IconComponent={icons.cart.icon} className="w-5 h-5" />
-        </Link>
+        <CartModal icon={icons.cart.icon} />
       </li>
     </ul>
   );

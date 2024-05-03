@@ -1,4 +1,4 @@
-import { TFoodCategories, TLatestDish, TStatisticListItem } from "src/types";
+import { TDish, TFoodCategoryCard, TLatestDish, TStatisticListItem } from "src/types";
 
 import HomeFoodCategory1 from "src/assets/products/HomeFoodCategory1.png";
 import HomeFoodCategory2 from "src/assets/products/HomeFoodCategory2.png";
@@ -17,30 +17,26 @@ import { TDishes, TFoodDescription, TMenuDishInfo } from "src/types";
 import BreakfastDish1 from "src/assets/products/BreakfastDish1.png";
 import BreakfastDish2 from "src/assets/products/BreakfastDish2.png";
 
-export const foodCategoryCards: TFoodCategories[] = [
+export const foodCategoryCards: TFoodCategoryCard[] = [
   {
     img: HomeFoodCategory1,
-    alt: "salads",
     buttonText: "See Healthy Food",
   },
   {
     img: HomeFoodCategory2,
-    alt: "fast food",
     buttonText: "See Fast Food",
   },
   {
     img: HomeFoodCategory3,
-    alt: "desserts",
     buttonText: "See Dessetrs",
   },
   {
     img: HomeFoodCategory4,
-    alt: "drinks",
     buttonText: "See Drinks",
   },
 ];
 
-export const statisticListItems: TStatisticListItem[] = [
+export const statisticCards: TStatisticListItem[] = [
   {
     img: HomeStatisticsIcon1,
     alt: "chef's icon",
@@ -73,7 +69,7 @@ export const categoryTabs: string[] = [
   "Dinner",
   "Dessert",
   "Drink",
-  "Snack",
+  "Fast food",
   "Soups",
 ];
 
@@ -219,77 +215,14 @@ export const dishes1: TDishes[] = [
   },
 ];
 
-export const breakfastDishes: TFoodDescription[] = [
-  {
-    img: BreakfastDish1,
-    title: "Lettuce Leaf",
-    description: "njgfjbnfkjbfbjb hblhvblhvlhvdng;jdgn;djb",
-    price: "12.5$",
-  },
-  {
-    img: BreakfastDish2,
-    title: "Fresh Breakfast",
-    description: "njgfjbnfkhblhvlhhblhvjbfbjb dng;jdgn;djb",
-    price: "14.5$",
-  },
-  {
-    img: BreakfastDish1,
-    title: "Lettuce Leaf",
-    description: "njgfjbnfkjbfbjb hblhvblhvlhvdng;jdgn;djb",
-    price: "12.5$",
-  },
-  {
-    img: BreakfastDish2,
-    title: "Fresh Breakfast",
-    description: "njgfjbnfkhblhvlhhblhvjbfbjb dng;jdgn;djb",
-    price: "14.5$",
-  },
-  {
-    img: BreakfastDish1,
-    title: "Lettuce Leaf",
-    description: "njgfjbnfkjbfbjb hblhvblhvlhvdng;jdgn;djb",
-    price: "12.5$",
-  },
-  {
-    img: BreakfastDish2,
-    title: "Fresh Breakfast",
-    description: "njgfjbnfkhblhvlhhblhvjbfbjb dng;jdgn;djb",
-    price: "14.5$",
-  },
-  {
-    img: BreakfastDish1,
-    title: "Lettuce Leaf",
-    description: "njgfjbnfkjbfbjb hblhvblhvlhvdng;jdgn;djb",
-    price: "12.5$",
-  },
-  {
-    img: BreakfastDish2,
-    title: "Fresh Breakfast",
-    description: "njgfjbnfkhblhvlhhblhvjbfbjb dng;jdgn;djb",
-    price: "14.5$",
-  },
-];
-
 // Products data
-
-interface TDish {
-  img: string;
-  calories: number;
-  category: string[];
-  tags: string[];
-  rating: number; // from 0 to 5
-  receipe: string[];
-  description: string;
-  title: string;
-  price: number;
-}
 
 export const dishes: TDish[] = [
   {
     img: "https://nowcookthis.com/wp-content/uploads/2019/05/easy-homemade-lime-lemonade-thumbnail.jpg",
     title: "Lime Lemonade",
     calories: 150,
-    category: ["drink", "vegeterian"],
+    category: ["Drink", "Vegeterian"],
     tags: ["lemonade"],
     rating: 4,
     price: 5.99,
@@ -306,7 +239,7 @@ export const dishes: TDish[] = [
     img: "https://sweetsbyelise.com/wp-content/uploads/2022/08/muffins.jpg",
     title: "Chocolate Muffin",
     calories: 320,
-    category: ["dessert"],
+    category: ["Dessert"],
     tags: ["muffin"],
     rating: 5,
     price: 6.55,
@@ -323,7 +256,7 @@ export const dishes: TDish[] = [
     img: "https://recipes.net/wp-content/uploads/2023/05/hardees-double-cheeseburger-recipe_d48b79ef43b714e98a3ad95a7ab9e12e.jpeg",
     title: "Cheeseburger",
     calories: 540,
-    category: ["fast food", "starter menu"],
+    category: ["Fast food", "Starter menu"],
     tags: ["burger"],
     rating: 5,
     price: 10.99,
@@ -339,7 +272,7 @@ export const dishes: TDish[] = [
     img: "https://nowcookthis.com/wp-content/uploads/2019/05/easy-homemade-lime-lemonade-thumbnail.jpg",
     title: "Lime Lemonade",
     calories: 150,
-    category: ["drink", "vegeterian"],
+    category: ["Drink", "Vegeterian"],
     tags: ["lemonade"],
     rating: 4,
     price: 5.99,
@@ -356,7 +289,7 @@ export const dishes: TDish[] = [
     img: "https://sweetsbyelise.com/wp-content/uploads/2022/08/muffins.jpg",
     title: "Chocolate Muffin",
     calories: 320,
-    category: ["dessert"],
+    category: ["Dessert"],
     tags: ["muffin"],
     rating: 5,
     price: 6.55,
@@ -373,7 +306,7 @@ export const dishes: TDish[] = [
     img: "https://recipes.net/wp-content/uploads/2023/05/hardees-double-cheeseburger-recipe_d48b79ef43b714e98a3ad95a7ab9e12e.jpeg",
     title: "Cheeseburger",
     calories: 540,
-    category: ["fast food", "starter menu"],
+    category: ["Fast food", "Starter menu"],
     tags: ["burger"],
     rating: 5,
     price: 10.99,

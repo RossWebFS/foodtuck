@@ -26,7 +26,7 @@ export const FeedBackSlider = () => {
       </div>
 
       <Slider
-        className="w-[60%] self-center z-20"
+        listStyles="w-[60%] self-center z-20"
         list={feedbackCards}
         isDotted={true}
         arrows={true}

@@ -9,16 +9,19 @@ import {
   AiOutlineTwitter,
   AiOutlineInstagram,
   AiOutlineLike,
+  AiOutlineUser,
 } from "react-icons/ai";
-import { BsYoutube, BsPinterest } from "react-icons/bs";
-import { PiHamburgerLight, PiCookieLight, PiWineLight } from "react-icons/pi";
+import {
+  PiHamburgerLight,
+  PiCookieLight,
+  PiWineLight,
+  PiTote,
+} from "react-icons/pi";
 import { GoShareAndroid } from "react-icons/go";
-
-import { AiOutlineUser } from "react-icons/ai";
-import { PiTote } from "react-icons/pi";
+import { BsYoutube, BsPinterest, BsCheck } from "react-icons/bs";
 import { RiSearchLine } from "react-icons/ri";
 
-export const icons:TIcons = {
+export const icons: TIcons = {
   facebook: {
     icon: BiLogoFacebook,
     src: "https://facebook.com",
@@ -49,6 +52,10 @@ export const icons:TIcons = {
   like: { icon: AiOutlineLike },
   comment: { icon: BiCommentDots },
   share: { icon: GoShareAndroid },
+  check: { icon: BsCheck },
+  burger: { icon: PiHamburgerLight },
+  cookie: { icon: PiCookieLight },
+  wine: { icon: PiWineLight },
 };
 
 export const footerIcons: TIcon[] = [
@@ -68,15 +75,15 @@ export const introSectionIcons: TIcon[] = [
 export const foodCategoryIcons: TCategoryIcons[] = [
   {
     category: "Fast Food",
-    icon: PiHamburgerLight,
+    icon: icons.burger.icon,
   },
   {
     category: "Lunch",
-    icon: PiCookieLight,
+    icon: icons.cookie.icon,
   },
   {
     category: "Dinner",
-    icon: PiWineLight,
+    icon: icons.wine.icon,
   },
 ];
 

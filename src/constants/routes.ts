@@ -65,6 +65,10 @@ export const routes: TRoutes = {
       routeName: "Shop Details",
       path: "/shop-details",
     },
+    CART: {
+      routeName: "Cart",
+      path: "/cart"
+    }
 };
   
 export const usefulLinkRoutes: TRoute[] = [

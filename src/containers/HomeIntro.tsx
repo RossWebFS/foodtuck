@@ -8,7 +8,6 @@ import introSectionBg from "src/assets/backgrounds/introSectionBg.png";
 import HomeIntro from "src/assets/products/HomeIntro.png";
 
 import { introSectionIcons } from "src/constants";
-import { buttonVariants } from "src/styles/ButtonStyles";
 
 export const HomeIntroSection = () => {
   return (

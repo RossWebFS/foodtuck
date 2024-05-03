@@ -5,13 +5,14 @@ import { Input } from "src/components/Input";
 import { Icon } from "src/components/Icon";
 
 import { cn } from "src/utils";
-import { Link } from "react-router-dom";
+import { Link } from "src/components/Link";
+import { TDish } from "src/types";
 
 interface SearchInputProps {
   IconComponent?: React.ElementType;
   iconStyles?: string;
   inputStyles?: string;
-  state: any[];
+  state: TDish[];
   theme?: "dark" | "light";
 }
 
@@ -67,18 +68,19 @@ export const SearchInput = ({
       .split(new RegExp(`(${searchValue})`, "gi"));
     return (
       <li
-        className={cn("my-2 cursor-pointer", {
+        className={cn("my-2 flex", {
           "text-gray-200 hover:bg-gray-100/10": theme === "dark",
           "text-gray-950 hover:bg-gray-200/60": theme === "light",
         })}
       >
-        <Link to="/" className="flex">
-          <img className="w-12 h-12 mr-2" src={data.img} alt={data.title} />
-          <div>
+        {" "}
+        <img className="w-12 h-12 mr-2" src={data.img} alt={data.title} />
+        <div>
+          <Link to="/">
             <h4 className="text-lg">{highlightText(highlightedTitle)}</h4>
-            <p>{highlightText(highlightedTags)}</p>
-          </div>
-        </Link>
+          </Link>
+          <p>{highlightText(highlightedTags)}</p>
+        </div>
       </li>
     );
   });
@@ -98,7 +100,9 @@ export const SearchInput = ({
       {IconComponent && (
         <Icon
           IconComponent={IconComponent}
-          className={cn("w-5 h-5 mr-3", iconStyles)}
+          className={cn("w-5 h-5 mr-3", {
+            "text-orange-400": isActiveModal
+        })}
           onClick={() => setIsActiveModal(!isActiveModal)}
         />
       )}

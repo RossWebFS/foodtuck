@@ -3,14 +3,12 @@ import { Wrapper } from "src/containers/layouts/Wrapper";
 
 import { TMenuDishInfo } from "src/types";
 import { cn } from "src/utils";
-import { linkVariants } from "src/styles/LinkStyles";
 
 interface MenuCategoryListProps {
   img: string;
   title: string;
   dishes: TMenuDishInfo[];
   direction?: "flex-row" | "flex-row-reverse";
-  id?: string;
 }
 
 export const MenuCategoryList = ({
@@ -18,7 +16,6 @@ export const MenuCategoryList = ({
   title,
   dishes,
   direction = "flex-row",
-  id,
 }: MenuCategoryListProps) => {
   const dishItems = dishes.map((dish) => {
     return (
@@ -47,7 +44,7 @@ export const MenuCategoryList = ({
           direction
         )}
       >
-        <img id={id} className="w-[35%] size-fit" src={img} alt={title} />
+        <img className="w-[35%] size-fit" src={img} alt={title} />
         <section className="w-[57%]">
           <h1 className="text-4xl font-semibold">{title}</h1>
           <ul>{dishItems}</ul>

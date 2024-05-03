@@ -41,7 +41,6 @@ export const MenuPage = () => {
         dishes={starterMenu}
         img={DessertMenuImg}
         title="Desserts"
-        id="dessert-menu"
       />
       <MenuCategoryList
         dishes={mainMenu}
