@@ -33,7 +33,7 @@ export const FeedBackSlider = () => {
       />
 
       <img
-        className="absolute -right-28 top-20"
+        className="absolute top-20"
         src={FeedBackSliderFlower}
         alt="decoration flowers"
       />

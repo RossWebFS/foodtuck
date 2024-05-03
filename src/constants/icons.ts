@@ -20,6 +20,10 @@ import {
 import { GoShareAndroid } from "react-icons/go";
 import { BsYoutube, BsPinterest, BsCheck } from "react-icons/bs";
 import { RiSearchLine } from "react-icons/ri";
+import { IoClose } from "react-icons/io5";
+import { CiPlay1 } from "react-icons/ci";
+import { FaPlay } from "react-icons/fa";
+import { FaPause } from "react-icons/fa6";
 
 export const icons: TIcons = {
   facebook: {
@@ -52,6 +56,10 @@ export const icons: TIcons = {
   like: { icon: AiOutlineLike },
   comment: { icon: BiCommentDots },
   share: { icon: GoShareAndroid },
+  close: { icon: IoClose },
+  outlinedPlay: { icon: CiPlay1 },
+  play: { icon: FaPlay },
+  pause: { icon: FaPause },
   check: { icon: BsCheck },
   burger: { icon: PiHamburgerLight },
   cookie: { icon: PiCookieLight },
