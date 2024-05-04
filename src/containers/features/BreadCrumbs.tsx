@@ -1,7 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
+import { Link } from "src/components/Link";
 
 import { TRoute } from "src/types";
-import { linkVariants } from "src/styles/LinkStyles";
 import { cn } from "src/utils";
 
 interface BreadCrumbsProps {
@@ -17,7 +18,7 @@ export const BreadCrumbs = ({ listItems }: BreadCrumbsProps) => {
     return (
       <li className="mx-1 text-lg">
         <Link
-          className={cn(linkVariants(), {
+          className={cn({
             "text-orange-400": isActiveLink,
           })}
           to={item.path}

@@ -26,14 +26,14 @@ export const FeedBackSlider = () => {
       </div>
 
       <Slider
-        className="w-[60%] self-center z-20"
+        listStyles="w-[60%] self-center z-20"
         list={feedbackCards}
         isDotted={true}
         arrows={true}
       />
 
       <img
-        className="absolute -right-28 top-20"
+        className="absolute top-20"
         src={FeedBackSliderFlower}
         alt="decoration flowers"
       />

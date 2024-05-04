@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "src/components/Link";
 
 export const Pagination = () => {
   const pagination = [
@@ -11,7 +11,8 @@ export const Pagination = () => {
     return (
       <li className="border border-gray-200">
         <Link
-          className="block px-3 py-1 text-orange-400 transition-all duration-200 hover:bg-orange-400 hover:text-gray-100"
+          variant="colored"
+          className="text-orange-400 hover:text-gray-100 hover:bg-orange-400 px-3 py-1"
           to={page.ref}
         >
           {page.content}
@@ -25,7 +26,8 @@ export const Pagination = () => {
       <ul className="gap-3 flex justify-center">
         <li className="border border-gray-200">
           <Link
-            className="block px-3 py-1 text-orange-400 transition-all duration-200 hover:bg-orange-400 hover:text-gray-100"
+            variant="colored"
+            className="text-orange-400 hover:text-gray-100 hover:bg-orange-400 px-3 py-1"
             to="/"
             aria-label="Previous"
           >
@@ -35,7 +37,8 @@ export const Pagination = () => {
         {paginationItems}
         <li className="border border-gray-200">
           <Link
-            className="block px-3 py-1 text-orange-400 transition-all duration-200 hover:bg-orange-400 hover:text-gray-100"
+            variant="colored"
+            className="text-orange-400 hover:text-gray-100 hover:bg-orange-400 px-3 py-1"
             to="/"
             aria-label="Next"
           >

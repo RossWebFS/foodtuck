@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
-
+import { Link } from "src/components/Link";
 import { Wrapper } from "src/containers/layouts/Wrapper";
 
 import { TMenuDishInfo } from "src/types";
 import { cn } from "src/utils";
-import { linkVariants } from "src/styles/LinkStyles";
 
 interface MenuCategoryListProps {
   img: string;
@@ -24,10 +22,7 @@ export const MenuCategoryList = ({
       <li className="flex justify-between my-8">
         <div>
           <h3 className="text-xl font-semibold">
-            <Link
-              className={linkVariants({ variant: "colored" })}
-              to={dish.ref}
-            >
+            <Link variant="colored" to={dish.ref}>
               {dish.title}
             </Link>
           </h3>

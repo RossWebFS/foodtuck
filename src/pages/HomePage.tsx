@@ -9,7 +9,7 @@ import { FeedBackSlider } from "src/containers/FeedBackSlider";
 import { Activity } from "src/containers/Activity";
 import { RecentBlogList } from "src/containers/RecentBlogList";
 
-export const HomePage = () => {
+export const HomePage = () => {  
   return (
     <main className="text-gray-100 bg-black">
       <HomeIntroSection />
@@ -20,7 +20,7 @@ export const HomePage = () => {
       <FoodCategoryFilter />
       <ChefsSlider />
       <FeedBackSlider />
-      <Activity/>
+      <Activity />
       <RecentBlogList />
     </main>
   );

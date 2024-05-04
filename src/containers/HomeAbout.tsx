@@ -1,15 +1,12 @@
-import { Link } from "react-router-dom";
-
+import { Link } from "src/components/Link";
 import { Wrapper } from "src/containers/layouts/Wrapper";
 import { Description } from "src/containers/features/Description";
 
-import { BsCheck } from "react-icons/bs";
+import { icons } from "src/constants";
 
 import HomeAbout1 from "src/assets/products/HomeAbout1.png";
 import HomeAbout2 from "src/assets/products/HomeAbout2.png";
 import HomeAbout3 from "src/assets/products/HomeAbout3.png";
-
-import { buttonVariants } from "src/styles/ButtonStyles";
 
 export const HomeAboutSection = () => {
   const listItemContent = [
@@ -21,7 +18,7 @@ export const HomeAboutSection = () => {
   const listItems = listItemContent.map((text) => {
     return (
       <li key={text} className="flex my-2">
-        <BsCheck size={25} />
+        <icons.check.icon size={25}/>
         <p className="pl-3">{text}</p>
       </li>
     );
@@ -42,14 +39,7 @@ export const HomeAboutSection = () => {
       >
         <ul className="mb-8">{listItems}</ul>
 
-        <Link
-          to="/about"
-          className={buttonVariants({
-            variant: "outlined",
-            rounded: "full",
-            size: "lg",
-          })}
-        >
+        <Link to="/about" variant="outlined" size="lg" rounded="full">
           Read more
         </Link>
       </Description>

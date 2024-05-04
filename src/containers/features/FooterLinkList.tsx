@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "src/components/Link";
 
 import { TRoute } from "src/types";
 import { cn } from "src/utils";
@@ -21,7 +21,7 @@ export const FooterLinkList = ({
   const additionLinks = links.map((link) => {
     return (
       <li key={link.path} className={listItemStyles}>
-        <Link className={cn("transition-all duration-200", linkStyles)} to={link.path}>
+        <Link variant="colored" className={cn(linkStyles)} to={link.path}>
           {link.routeName}
         </Link>
       </li>

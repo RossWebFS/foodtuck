@@ -1,20 +1,10 @@
 import { BackgroundImageWrapper } from "src/containers/layouts/BackgroundImageWrapper";
 import { Wrapper } from "src/containers/layouts/Wrapper";
-import { FoodCategoryListItem } from "./features/FoodCategoryListItem";
+import { FoodCategoryList } from "./features/FoodCategoryList";
 
 import { foodCategoryCards } from "src/constants";
 
 export const HomeFoodCategorySection = () => {
-  const categoryListItems = foodCategoryCards.map((category) => {
-    return (
-      <li
-        key={category.buttonText}
-        className="group cursor-pointer relative overflow-hidden"
-      >
-        <FoodCategoryListItem category={category} />
-      </li>
-    );
-  });
 
   return (
     <BackgroundImageWrapper imageFilter="pb-16">
@@ -26,8 +16,7 @@ export const HomeFoodCategorySection = () => {
             Food Item
           </h1>
         </header>
-
-        <ul className="flex gap-6 justify-center h-60">{categoryListItems}</ul>
+        <FoodCategoryList foodCards={foodCategoryCards}/>
       </Wrapper>
     </BackgroundImageWrapper>
   );

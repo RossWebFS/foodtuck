@@ -3,7 +3,7 @@ import { MenuCategoryList } from "src/containers/features/MenuCategoryList";
 import { StatisticList } from "src/containers/StatisticList";
 import { Wrapper } from "src/containers/layouts/Wrapper";
 
-import { navRoutes, partnersLogos, starterMenu, mainMenu } from "src/constants";
+import { routes, partnersLogos, starterMenu, mainMenu } from "src/constants";
 
 import StarterMenuImg from "src/assets/menu/StarterMenuImg.png";
 import MainMenuImg from "src/assets/menu/MainMenuImg.png";
@@ -11,7 +11,7 @@ import DessertMenuImg from "src/assets/menu/DessertMenuImg.png";
 import DrinkMenuImg from "src/assets/menu/DrinkMenuImg.png";
 
 export const MenuPage = () => {
-  const links = [navRoutes.HOME, navRoutes.MENU];
+  const links = [routes.HOME, routes.MENU];
 
   const partners = partnersLogos.map((logo) => {
     return (

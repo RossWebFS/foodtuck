@@ -1,21 +1,20 @@
-import { Link } from "react-router-dom";
-
+import { Link } from "src/components/Link";
 import { Wrapper } from "src/containers/layouts/Wrapper";
 import { Slider } from "./features/Slider";
 
 import { chefs } from "src/constants";
-import { buttonVariants } from "src/styles/ButtonStyles";
 
 import ChefDill from "src/assets/decorations/ChefsDill.png";
 
 export const ChefsSlider = () => {
   const slides = chefs.map((item) => {
     return (
-      <li className="w-60" key={item.info}>
-        <img className="w-60 mx-auto" src={item.img} alt={item.info} />
-        <p className="bg-gray-100 text-black p-4 text-center font-semibold text-lg rounded-b w-60 mx-auto">
-          {item.info}
-        </p>
+      <li className="w-60" key={item.name}>
+        <img className="w-60 mx-auto" src={item.img} alt={item.status} />
+        <div className="bg-gray-100 text-black p-3 rounded-b w-60 mx-auto">
+          <p className="font-semibold text-lg">{item.name}</p>
+          <p>{item.status}</p>
+        </div>
       </li>
     );
   });
@@ -31,18 +30,11 @@ export const ChefsSlider = () => {
 
       <Slider
         list={slides}
-        className="w-[70%] z-20"
+        listStyles="w-[70%] z-20"
         arrows={true}
         visibleSlideCount={3}
       />
-      <Link
-        className={buttonVariants({
-          variant: "outlined",
-          rounded: "full",
-          size: "lg",
-        })}
-        to="/chefs"
-      >
+      <Link variant="outlined" size="lg" rounded="full" to="/chefs">
         See More
       </Link>
 

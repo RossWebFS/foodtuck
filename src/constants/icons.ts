@@ -1,4 +1,4 @@
-import { TIcons } from "src/types";
+import { TCategoryIcons, TIcon, TIcons } from "src/types";
 
 import {
   BiLogoFacebook,
@@ -9,84 +9,97 @@ import {
   AiOutlineTwitter,
   AiOutlineInstagram,
   AiOutlineLike,
+  AiOutlineUser,
 } from "react-icons/ai";
-import { BsYoutube, BsPinterest, BsInstagram } from "react-icons/bs";
-import { PiHamburgerLight, PiCookieLight, PiWineLight } from "react-icons/pi";
+import {
+  PiHamburgerLight,
+  PiCookieLight,
+  PiWineLight,
+  PiTote,
+} from "react-icons/pi";
 import { GoShareAndroid } from "react-icons/go";
+import { BsYoutube, BsPinterest, BsCheck } from "react-icons/bs";
+import { RiSearchLine } from "react-icons/ri";
+import { IoClose } from "react-icons/io5";
+import { CiPlay1 } from "react-icons/ci";
+import { FaPlay } from "react-icons/fa";
+import { FaPause } from "react-icons/fa6";
 
-export const footerIcons: TIcons[] = [
-  {
+export const icons: TIcons = {
+  facebook: {
     icon: BiLogoFacebook,
-    id: "facebook",
     src: "https://facebook.com",
   },
-  {
+  twitter: {
     icon: AiOutlineTwitter,
-    id: "twitter",
     src: "https://twitter.com",
   },
-  {
+  pinterest: {
+    icon: BiLogoPinterestAlt,
+    src: "https://pinterest.com",
+  },
+  outlinedPinterest: {
+    icon: BsPinterest,
+    src: "https://pinterest.com",
+  },
+  instagram: {
     icon: AiOutlineInstagram,
-    id: "outlinedInstragram",
     src: "https://instagram.com",
   },
-  {
+  youtube: {
     icon: BsYoutube,
-    id: "youtube",
     src: "https://youtube.com",
   },
-  {
-    icon: BsPinterest,
-    id: "outlinedPinterest",
-    src: "https://pinterest.com",
-  },
+  search: { icon: RiSearchLine },
+  user: { icon: AiOutlineUser },
+  cart: { icon: PiTote },
+  like: { icon: AiOutlineLike },
+  comment: { icon: BiCommentDots },
+  share: { icon: GoShareAndroid },
+  close: { icon: IoClose },
+  outlinedPlay: { icon: CiPlay1 },
+  play: { icon: FaPlay },
+  pause: { icon: FaPause },
+  check: { icon: BsCheck },
+  burger: { icon: PiHamburgerLight },
+  cookie: { icon: PiCookieLight },
+  wine: { icon: PiWineLight },
+};
+
+export const footerIcons: TIcon[] = [
+  icons.facebook,
+  icons.twitter,
+  icons.instagram,
+  icons.youtube,
+  icons.outlinedPinterest,
 ];
 
-export const introSectionIcons: TIcons[] = [
-  {
-    icon: BiLogoFacebook,
-    id: "facebook",
-    src: "https://facebook.com",
-  },
-  {
-    icon: AiOutlineTwitter,
-    id: "twitter",
-    src: "https://twitter.com",
-  },
-  {
-    icon: BiLogoPinterestAlt,
-    id: "pinterest",
-    src: "https://pinterest.com",
-  },
+export const introSectionIcons: TIcon[] = [
+  icons.facebook,
+  icons.twitter,
+  icons.pinterest,
 ];
 
-export const foodCategoryIcons: {
-  category: string;
-  icon: React.ElementType;
-}[] = [
+export const foodCategoryIcons: TCategoryIcons[] = [
   {
     category: "Fast Food",
-    icon: PiHamburgerLight,
+    icon: icons.burger.icon,
   },
   {
     category: "Lunch",
-    icon: PiCookieLight,
+    icon: icons.cookie.icon,
   },
   {
     category: "Dinner",
-    icon: PiWineLight,
+    icon: icons.wine.icon,
   },
 ];
 
-export const blogIconLinks: TIcons[] = [
-  { icon: AiOutlineLike, id: "like", src: "/" },
-  { icon: BiCommentDots, id: "comment", src: "/" },
-  { icon: GoShareAndroid, id: "share", src: "/" },
-];
+export const blogIconLinks: TIcon[] = [icons.like, icons.comment, icons.share];
 
-export const singlePageLinks: TIcons[] = [
-  { icon: BsYoutube, id: "youtube", src: "/" },
-  { icon: BiLogoFacebook, id: "facebook", src: "/" },
-  { icon: AiOutlineTwitter, id: "twitter", src: "/" },
-  { icon: BsInstagram, id: "instagram", src: "/" },
+export const singlePageLinks: TIcon[] = [
+  icons.youtube,
+  icons.facebook,
+  icons.twitter,
+  icons.instagram,
 ];

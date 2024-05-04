@@ -11,7 +11,7 @@ interface SliderProps {
   visibleSlideCount?: number;
   isDotted?: boolean;
   arrows?: boolean;
-  className?: string;
+  listStyles?: string;
 }
 
 interface CustomArrowProps {
@@ -24,7 +24,7 @@ export const Slider = ({
   visibleSlideCount = 1,
   isDotted = false,
   arrows = false,
-  className,
+  listStyles,
 }: SliderProps) => {
   const sliderOptions = {
     infinite: true,
@@ -50,7 +50,7 @@ export const Slider = ({
   };
 
   return (
-    <ul className={cn("mt-6 mb-10", className)}>
+    <ul className={cn("mt-6 mb-10", listStyles)}>
       <SliderSlick {...sliderOptions}>{list}</SliderSlick>
     </ul>
   );
