@@ -14,19 +14,15 @@ export const CartModal = ({
   activeModal,
   setActiveModal,
 }: CartModalProps) => {
-  // const [isActiveModal, setIsActiveModal] = useState<boolean>(false);
 
   return (
     <div>
       <Icon
         IconComponent={icon}
         className={cn("w-5 h-5", {
-          // "text-orange-400": isActiveModal
           "text-orange-400": activeModal === "cart",
         })}
-        // onClick={() => setIsActiveModal(!isActiveModal)}
         onClick={() => {
-          // setIsActiveModal(!isActiveModal)
           activeModal === "cart"
             ? setActiveModal(null)
             : setActiveModal("cart");
@@ -36,14 +32,10 @@ export const CartModal = ({
         className={cn(
           "absolute w-64 h-72 top-14 bg-black -translate-x-[70%] rounded-xl border p-4 flex",
           {
-            // hidden: !isActiveModal,
             hidden: activeModal !== "cart" || !activeModal,
           }
         )}
       >
-        {/* {isActiveModal && ( */}
-        {/* )} */}
-
         {activeModal === "cart" && <div className="w-full">
           <h4 className="mb-3 text-xl">Cart details</h4>
           <p>Wish list count:</p>

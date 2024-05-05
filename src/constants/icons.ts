@@ -8,7 +8,6 @@ import {
 import {
   AiOutlineTwitter,
   AiOutlineInstagram,
-  AiOutlineLike,
   AiOutlineUser,
 } from "react-icons/ai";
 import {
@@ -22,7 +21,7 @@ import { BsYoutube, BsPinterest, BsCheck } from "react-icons/bs";
 import { RiSearchLine } from "react-icons/ri";
 import { IoClose } from "react-icons/io5";
 import { CiPlay1 } from "react-icons/ci";
-import { FaPlay } from "react-icons/fa";
+import { FaPlay, FaStar } from "react-icons/fa";
 import { FaPause } from "react-icons/fa6";
 
 export const icons: TIcons = {
@@ -63,6 +62,7 @@ export const icons: TIcons = {
   burger: { icon: PiHamburgerLight },
   cookie: { icon: PiCookieLight },
   wine: { icon: PiWineLight },
+  star: { icon: FaStar },
 };
 
 export const footerIcons: TIcon[] = [
@@ -93,8 +93,6 @@ export const foodCategoryIcons: TCategoryIcons[] = [
     icon: icons.wine.icon,
   },
 ];
-
-// export const blogIconLinks: TIcon[] = [icons.like, icons.comment, icons.share];
 
 export const singlePageLinks: TIcon[] = [
   icons.youtube,

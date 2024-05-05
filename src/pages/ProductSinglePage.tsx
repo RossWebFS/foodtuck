@@ -7,7 +7,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import { Icon } from "src/components/Icon";
 import { Link } from "react-router-dom";
 import { cn, formPrice } from "src/utils";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import SinglePageDish1 from "src/assets/menu/SinglePageDish1.png";
 import SinglePageDish2 from "src/assets/menu/SinglePageDish2.png";
@@ -18,7 +18,6 @@ import { Wrapper } from "src/containers/layouts/Wrapper";
 
 import { PiTote } from "react-icons/pi";
 import { IconList } from "src/containers/features/IconList";
-import { dishService } from "src/services/DishService";
 import { ProductList } from "src/containers/features/ProductList";
 
 export const ProductSinglePage = () => {
