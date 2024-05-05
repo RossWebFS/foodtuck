@@ -1,6 +1,6 @@
 import { Wrapper } from "src/containers/layouts/Wrapper";
 import { Navbar } from "src/containers/features/Navbar";
-import { NavIconList } from "src/containers/features/NavIconList";
+import { NavIconList } from "src/containers/NavIconList";
 import { NavLogo } from "src/containers/features/NavLogo";
 
 import { routes } from "src/constants";

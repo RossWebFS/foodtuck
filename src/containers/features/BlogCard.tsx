@@ -1,12 +1,17 @@
 import { Link } from "src/components/Link";
 
-import { IconList } from "./IconList";
-
 import { TRecentPost } from "src/types";
-import { blogIconLinks } from "src/constants";
-import { linkVariants } from "src/styles/LinkStyles";
+import { icons } from "src/constants";
+import { Icon } from "src/components/Icon";
 
 export const BlogCard = ({ img, title, date }: TRecentPost) => {
+  const shareLink = async (link: string) => {
+    await navigator.share({
+      title: "Share this site link",
+      url: link,
+    });
+  };
+
   return (
     <li className="border border-white w-1/4">
       <img src={img} alt={img} />
@@ -19,11 +24,17 @@ export const BlogCard = ({ img, title, date }: TRecentPost) => {
           <Link variant="colored" to="/">
             Learn More
           </Link>
-          <IconList
-            iconStyles="w-5 h-5"
-            listItemStyles="m-1"
-            icons={blogIconLinks}
-          />
+          <ul className="flex gap-2">
+            <li>
+              <Icon IconComponent={icons.comment.icon} />
+            </li>
+            <li>
+              <Icon
+                IconComponent={icons.share.icon}
+                onClick={() => shareLink("https://foodtuck-two.vercel.app")}
+              />
+            </li>
+          </ul>
         </div>
       </section>
     </li>

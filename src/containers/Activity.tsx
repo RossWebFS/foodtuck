@@ -14,11 +14,8 @@ import { cn } from "src/utils";
 
 export const Activity = () => {
   const [isActivePlayer, setIsActivePlayer] = useState(false);
+  const [isPlayed, setIsPlayed] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handlePlayVideo = () => {
-    if (videoRef) videoRef.current?.play();
-  };
 
   return (
     <BackgroundImageWrapper bgImg={ActivitySection}>
@@ -32,7 +29,7 @@ export const Activity = () => {
           styles="w-[55%] flex flex-col items-end text-end pr-5"
           contentWidth="w-10/12"
         >
-          <div className="inline-block ">
+          <div className="inline-block">
             <Link
               className="py-4 px-9 mr-6"
               variant="outlined"
@@ -46,6 +43,7 @@ export const Activity = () => {
             <Button
               className="bg-transparent border-0 hover:bg-transparent"
               onClick={() => {
+                setIsPlayed(true)
                 setIsActivePlayer(true);
                 if (videoRef.current) videoRef.current.currentTime = 0;
                 videoRef.current?.play();
@@ -73,10 +71,31 @@ export const Activity = () => {
             IconComponent={icons.close.icon}
             className="absolute left-[94%] top-10 z-50 w-8 h-8"
             onClick={() => {
+              setIsPlayed(false)
               setIsActivePlayer(false);
               videoRef.current?.pause();
             }}
           />
+
+            {videoRef.current?.paused ? (<Icon
+              variant="light"
+              IconComponent={icons.play.icon}
+              className="w-12 h-12 absolute z-[51]"
+              onClick={() => {
+                setIsPlayed(true)
+                videoRef.current?.play()
+              }}  
+            />) :
+            (<Icon
+              variant="light"
+              IconComponent={icons.pause.icon}
+              className="w-14 h-14 absolute z-[51] duration-300 text-transparent"
+              onClick={() => {
+                setIsPlayed(false)
+                videoRef.current?.pause()
+              }}
+            />)}
+
           <video
             ref={videoRef}
             className="z-50 w-[75%]"

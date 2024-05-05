@@ -14,20 +14,23 @@ interface SearchInputProps {
   inputStyles?: string;
   state: TDish[];
   theme?: "dark" | "light";
+  activeModal?: null | string;
+  setActiveModal: (value: null | string) => void;
 }
 
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-export const SearchInput = ({
+export const SearchInputModal = ({
   IconComponent,
   iconStyles,
   inputStyles,
   state,
   theme = "light",
+  activeModal,
+  setActiveModal,
   ...inputProps
 }: SearchInputProps) => {
   const [searchValue, setSearchValue] = useState<string>("");
-  const [isActiveModal, setIsActiveModal] = useState<boolean>(false);
 
   const highlightText = (text: string[]) => {
     return text.map((part: string) => {
@@ -48,7 +51,7 @@ export const SearchInput = ({
 
   const onSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
-    setIsActiveModal(!!e.target.value);
+    e.target.value && setActiveModal("search");
   };
 
   const searchResult = state.filter((data) => {
@@ -94,29 +97,37 @@ export const SearchInput = ({
         )}
         value={searchValue}
         onChange={onSearchInputChange}
-        onClick={() => setIsActiveModal(!isActiveModal)}
+        onClick={() => {
+          activeModal === "search"
+            ? setActiveModal(null)
+            : setActiveModal("search")
+        }}
         {...inputProps}
       />
       {IconComponent && (
         <Icon
           IconComponent={IconComponent}
           className={cn("w-5 h-5 mr-3", {
-            "text-orange-400": isActiveModal
-        })}
-          onClick={() => setIsActiveModal(!isActiveModal)}
+            "text-orange-400": activeModal === "search",
+          })}
+          onClick={() => {
+            activeModal === "search"
+              ? setActiveModal(null)
+              : setActiveModal("search")
+          }}
         />
       )}
       <div
         className={cn(
           "absolute w-full h-72 top-11 rounded-xl border p-4 flex items-center",
           {
-            hidden: !isActiveModal,
+            hidden: activeModal !== "search" || !activeModal,
             "bg-black": theme === "dark",
             "bg-white text-black": theme === "light",
           }
         )}
       >
-        {isActiveModal && !searchResult.length ? (
+        {activeModal === "search" && !searchResult.length ? (
           <p className="mx-auto">No suggestion..</p>
         ) : (
           <ul className="h-full w-full overflow-y-auto coloredScrollbar text-gray-100/15">

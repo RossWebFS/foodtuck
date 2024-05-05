@@ -53,7 +53,6 @@ export const icons: TIcons = {
   search: { icon: RiSearchLine },
   user: { icon: AiOutlineUser },
   cart: { icon: PiTote },
-  like: { icon: AiOutlineLike },
   comment: { icon: BiCommentDots },
   share: { icon: GoShareAndroid },
   close: { icon: IoClose },
@@ -95,7 +94,7 @@ export const foodCategoryIcons: TCategoryIcons[] = [
   },
 ];
 
-export const blogIconLinks: TIcon[] = [icons.like, icons.comment, icons.share];
+// export const blogIconLinks: TIcon[] = [icons.like, icons.comment, icons.share];
 
 export const singlePageLinks: TIcon[] = [
   icons.youtube,

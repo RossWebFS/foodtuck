@@ -3,7 +3,7 @@ import { TESelect } from "tw-elements-react";
 
 import { Icon } from "src/components/Icon";
 import { PageIntro } from "src/containers/features/PageIntro";
-import { SearchInput } from "src/containers/features/SearchInput";
+import { SearchInputModal } from "src/containers/features/SearchInputModal";
 import { Wrapper } from "src/containers/layouts/Wrapper";
 import { MultiRange } from "src/containers/features/MultiRange";
 import { Pagination } from "src/containers/features/Pagination";
@@ -69,7 +69,8 @@ export const ShopPage = () => {
             <Pagination />
           </section>
           <section className="w-[30%] border border-gray-200 p-6 rounded-lg">
-            <SearchInput
+            <SearchInputModal
+              setActiveModal={() => {}}
               state={dishes}
               IconComponent={RiSearchLine}
               type="text"

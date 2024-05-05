@@ -5,43 +5,58 @@ import { cn } from "src/utils";
 
 interface CartModalProps {
   icon: React.ElementType;
+  activeModal?: null | string;
+  setActiveModal: (value: null | string) => void;
 }
 
-export const CartModal = ({ icon }: CartModalProps) => {
-  const [isActiveModal, setIsActiveModal] = useState<boolean>(false);
+export const CartModal = ({
+  icon,
+  activeModal,
+  setActiveModal,
+}: CartModalProps) => {
+  // const [isActiveModal, setIsActiveModal] = useState<boolean>(false);
 
   return (
     <div>
       <Icon
         IconComponent={icon}
         className={cn("w-5 h-5", {
-            "text-orange-400": isActiveModal
+          // "text-orange-400": isActiveModal
+          "text-orange-400": activeModal === "cart",
         })}
-        onClick={() => setIsActiveModal(!isActiveModal)}
+        // onClick={() => setIsActiveModal(!isActiveModal)}
+        onClick={() => {
+          // setIsActiveModal(!isActiveModal)
+          activeModal === "cart"
+            ? setActiveModal(null)
+            : setActiveModal("cart");
+        }}
       />
       <div
         className={cn(
-          "absolute w-64 h-72 top-14 bg-black -translate-x-[47.5%] rounded-xl border p-4 flex",
+          "absolute w-64 h-72 top-14 bg-black -translate-x-[70%] rounded-xl border p-4 flex",
           {
-            hidden: !isActiveModal,
+            // hidden: !isActiveModal,
+            hidden: activeModal !== "cart" || !activeModal,
           }
         )}
       >
-        {isActiveModal && (
-          <div className="w-full">
-            <h4 className="mb-3 text-xl">Cart details</h4>
-            <p>Wish list count:</p>
-            <p className="mt-1 mb-3">Cart list count</p>
-            <Link
-              to="/cart"
-              variant="button"
-              rounded="default"
-              className="block mx-auto w-fit"
-            >
-              Visit a cart
-            </Link>
-          </div>
-        )}
+        {/* {isActiveModal && ( */}
+        {/* )} */}
+
+        {activeModal === "cart" && <div className="w-full">
+          <h4 className="mb-3 text-xl">Cart details</h4>
+          <p>Wish list count:</p>
+          <p className="mt-1 mb-3">Cart list count</p>
+          <Link
+            to="/cart"
+            variant="button"
+            rounded="default"
+            className="block mx-auto w-fit"
+          >
+            Visit a cart
+          </Link>
+        </div>}
       </div>
     </div>
   );
