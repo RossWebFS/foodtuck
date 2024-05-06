@@ -1,12 +1,12 @@
 import { Button } from "src/components/Button";
-import { dishes1, routes, singlePageLinks } from "src/constants";
+import { dishes, routes, singlePageLinks } from "src/constants";
 import { PageIntro } from "src/containers/features/PageIntro";
 
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Icon } from "src/components/Icon";
 import { Link } from "react-router-dom";
-import { cn, formPrice } from "src/utils";
+import { formPrice } from "src/utils";
 import { useState } from "react";
 
 import SinglePageDish1 from "src/assets/menu/SinglePageDish1.png";
@@ -19,11 +19,12 @@ import { Wrapper } from "src/containers/layouts/Wrapper";
 import { PiTote } from "react-icons/pi";
 import { IconList } from "src/containers/features/IconList";
 import { ProductList } from "src/containers/features/ProductList";
+import { Counter } from "src/containers/features/Counter";
 
 export const ProductSinglePage = () => {
   const links = [routes.HOME, routes.SHOP_DETAILS];
 
-  const [counterValue, setCounterValue] = useState(0);
+  const [counter, setCounter] = useState(0);
 
   return (
     <main className="py-20">
@@ -88,29 +89,7 @@ export const ProductSinglePage = () => {
 
               <div className="flex items-center gap-5 border-b border-b-gray-200 pb-4">
                 <div className="text-xl">
-                  <span
-                    className={cn(
-                      "px-4 py-2 border border-gray-400 cursor-pointer hover:bg-gray-100",
-                      {
-                        "text-gray-400 cursor-default hover:bg-transparent":
-                          counterValue === 0,
-                      }
-                    )}
-                    onClick={() =>
-                      counterValue > 0 && setCounterValue(counterValue - 1)
-                    }
-                  >
-                    -
-                  </span>
-                  <span className="px-4 py-2 border border-gray-400">
-                    {counterValue}
-                  </span>
-                  <span
-                    className="px-4 py-2 border border-gray-400 cursor-pointer hover:bg-gray-100"
-                    onClick={() => setCounterValue(counterValue + 1)}
-                  >
-                    +
-                  </span>
+                  <Counter counter={counter} setCounter={setCounter} />
                 </div>
 
                 <Button className="px-5 py-2 h-auto">
@@ -191,7 +170,7 @@ export const ProductSinglePage = () => {
 
         <section className="mt-20 mb-10">
           <h2 className="text-3xl font-semibold mb-4">Similar Products</h2>
-          <ProductList dishes={dishes1} listStyles="grid-cols-4" />
+          <ProductList listStyles="grid-cols-4" />
         </section>
       </Wrapper>
     </main>

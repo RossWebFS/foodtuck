@@ -3,8 +3,9 @@ import { Icon } from "src/components/Icon";
 import { Rating } from "src/components/Rating";
 import { icons } from "src/constants";
 import { TDish } from "src/types";
-import { cn } from "src/utils";
 import { Counter } from "./Counter";
+import { useProductStore } from "src/hooks/ProductStore";
+import { useBillCalculating } from "src/hooks/BillCalculating";
 
 interface ProductCartItemProps {
   product: TDish;
@@ -12,7 +13,11 @@ interface ProductCartItemProps {
 
 export const ProductCartItem = ({ product }: ProductCartItemProps) => {
   const [counter, setCounter] = useState<number>(0);
+  const removeFromCart = useProductStore((state) => state.removeFromCart);
+//   const [bill, setBill, addBill, subtractBill] = useBillCalculating();
 
+    // const onAdd = () => {addBill(product.price, counter)}
+  
   return (
     <tr className="border-b border-b-gray-200">
       <td className="flex py-2">
@@ -38,7 +43,11 @@ export const ProductCartItem = ({ product }: ProductCartItemProps) => {
         ${(product.price * counter).toFixed(2)}
       </td>
       <td className="text-center py-2">
-        <Icon IconComponent={icons.close.icon} className="text-gray-800" />
+        <Icon
+          IconComponent={icons.close.icon}
+          className="text-gray-800"
+          onClick={() => removeFromCart(product)}
+        />
       </td>
     </tr>
   );

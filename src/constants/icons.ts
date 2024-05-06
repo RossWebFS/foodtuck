@@ -15,14 +15,16 @@ import {
   PiCookieLight,
   PiWineLight,
   PiTote,
+  PiToteSimpleFill,
 } from "react-icons/pi";
 import { GoShareAndroid } from "react-icons/go";
 import { BsYoutube, BsPinterest, BsCheck } from "react-icons/bs";
 import { RiSearchLine } from "react-icons/ri";
 import { IoClose } from "react-icons/io5";
-import { CiPlay1 } from "react-icons/ci";
+import { CiPlay1, CiHeart } from "react-icons/ci";
 import { FaPlay, FaStar } from "react-icons/fa";
 import { FaPause } from "react-icons/fa6";
+import { IoMdHeart } from "react-icons/io";
 
 export const icons: TIcons = {
   facebook: {
@@ -51,7 +53,8 @@ export const icons: TIcons = {
   },
   search: { icon: RiSearchLine },
   user: { icon: AiOutlineUser },
-  cart: { icon: PiTote },
+  outlinedCart: { icon: PiTote },
+  cart: { icon: PiToteSimpleFill },
   comment: { icon: BiCommentDots },
   share: { icon: GoShareAndroid },
   close: { icon: IoClose },
@@ -63,6 +66,8 @@ export const icons: TIcons = {
   cookie: { icon: PiCookieLight },
   wine: { icon: PiWineLight },
   star: { icon: FaStar },
+  outlinedHeart: { icon: CiHeart },
+  heart: { icon: IoMdHeart },
 };
 
 export const footerIcons: TIcon[] = [

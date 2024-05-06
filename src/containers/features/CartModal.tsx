@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { Icon } from "src/components/Icon";
 import { Link } from "src/components/Link";
+import { useProductStore } from "src/hooks/ProductStore";
 import { cn } from "src/utils";
 
 interface CartModalProps {
@@ -14,6 +14,10 @@ export const CartModal = ({
   activeModal,
   setActiveModal,
 }: CartModalProps) => {
+  const [cart, wishList] = useProductStore((state) => [
+    state.cart,
+    state.wishList,
+  ]);
 
   return (
     <div>
@@ -36,19 +40,33 @@ export const CartModal = ({
           }
         )}
       >
-        {activeModal === "cart" && <div className="w-full">
-          <h4 className="mb-3 text-xl">Cart details</h4>
-          <p>Wish list count:</p>
-          <p className="mt-1 mb-3">Cart list count</p>
-          <Link
-            to="/cart"
-            variant="button"
-            rounded="default"
-            className="block mx-auto w-fit"
-          >
-            Visit a cart
-          </Link>
-        </div>}
+        {activeModal === "cart" && (
+          <div className="w-full">
+            <h4 className="mb-3 text-xl">Cart details</h4>
+            <p>Wish list count: {wishList.length}</p>
+            <p className="mt-1 mb-3">Cart list count: {cart.length}</p>
+            <div className="flex">
+              <Link
+                to="/cart"
+                variant="button"
+                rounded="default"
+                size="sm"
+                className="block mx-auto w-fit"
+              >
+                Visit a cart
+              </Link>
+              <Link
+                to="/checkout"
+                variant="button"
+                rounded="default"
+                size="sm"
+                className="block mx-auto w-fit"
+              >
+                Checkout
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

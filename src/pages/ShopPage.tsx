@@ -16,8 +16,6 @@ import { RiSearchLine } from "react-icons/ri";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
 
 import {
-  dishes,
-  dishes1,
   foodCategories,
   latestDishes,
   routes,
@@ -32,7 +30,7 @@ export const ShopPage = () => {
     <main className="py-20">
       <PageIntro links={links} title="Our Shop" />
 
-      <Wrapper wrapStyles="pt-20">
+      <Wrapper wrapStyles="pt-20 max-w-[1100px]">
         <section className="flex items-center py-8 gap-10">
           <div className="flex items-center">
             <label htmlFor="#request-filter">Sort by:</label>
@@ -65,13 +63,12 @@ export const ShopPage = () => {
 
         <section className="flex">
           <section>
-            <ProductList dishes={dishes1} />
+            <ProductList/>
             <Pagination />
           </section>
           <section className="w-[30%] border border-gray-200 p-6 rounded-lg">
             <SearchInputModal
               setActiveModal={() => {}}
-              state={dishes}
               IconComponent={RiSearchLine}
               type="text"
               placeholder="Search..."

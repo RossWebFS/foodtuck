@@ -6,13 +6,12 @@ import { Icon } from "src/components/Icon";
 
 import { cn } from "src/utils";
 import { Link } from "src/components/Link";
-import { TDish } from "src/types";
+import { useProductStore } from "src/hooks/ProductStore";
 
 interface SearchInputProps {
   IconComponent?: React.ElementType;
   iconStyles?: string;
   inputStyles?: string;
-  state: TDish[];
   theme?: "dark" | "light";
   activeModal?: null | string;
   setActiveModal: (value: null | string) => void;
@@ -24,13 +23,13 @@ export const SearchInputModal = ({
   IconComponent,
   iconStyles,
   inputStyles,
-  state,
   theme = "light",
   activeModal,
   setActiveModal,
   ...inputProps
 }: SearchInputProps) => {
   const [searchValue, setSearchValue] = useState<string>("");
+  const products = useProductStore((state) => state.products);
 
   const highlightText = (text: string[]) => {
     return text.map((part: string) => {
@@ -54,7 +53,7 @@ export const SearchInputModal = ({
     e.target.value && setActiveModal("search");
   };
 
-  const searchResult = state.filter((data) => {
+  const searchResult = products.filter((data) => {
     const value = searchValue.toLowerCase();
     return (
       data.title.toLowerCase().includes(value) ||
@@ -100,7 +99,7 @@ export const SearchInputModal = ({
         onClick={() => {
           activeModal === "search"
             ? setActiveModal(null)
-            : setActiveModal("search")
+            : setActiveModal("search");
         }}
         {...inputProps}
       />
@@ -113,7 +112,7 @@ export const SearchInputModal = ({
           onClick={() => {
             activeModal === "search"
               ? setActiveModal(null)
-              : setActiveModal("search")
+              : setActiveModal("search");
           }}
         />
       )}
