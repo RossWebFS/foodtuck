@@ -16,6 +16,7 @@ import {
   PiWineLight,
   PiTote,
   PiToteSimpleFill,
+  PiCheckSquareOffset,
 } from "react-icons/pi";
 import { GoShareAndroid } from "react-icons/go";
 import { BsYoutube, BsPinterest, BsCheck } from "react-icons/bs";
@@ -62,6 +63,7 @@ export const icons: TIcons = {
   play: { icon: FaPlay },
   pause: { icon: FaPause },
   check: { icon: BsCheck },
+  boxedCheck: { icon: PiCheckSquareOffset },
   burger: { icon: PiHamburgerLight },
   cookie: { icon: PiCookieLight },
   wine: { icon: PiWineLight },

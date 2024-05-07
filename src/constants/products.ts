@@ -1,4 +1,4 @@
-import { TDish, TFoodCategoryCard, TLatestDish, TStatisticListItem } from "src/types";
+import { TDish, TDishCount, TFoodCategoryCard, TLatestDish, TStatisticListItem } from "src/types";
 
 import HomeFoodCategory1 from "src/assets/products/HomeFoodCategory1.png";
 import HomeFoodCategory2 from "src/assets/products/HomeFoodCategory2.png";
@@ -12,10 +12,8 @@ import HomeStatisticsIcon4 from "src/assets/products/HomeStatisticsIcon4.png";
 
 import LatestDish from "src/assets/menu/LatestDish.png";
 
-import { TDishes, TFoodDescription, TMenuDishInfo } from "src/types";
+import { TDishes, TMenuDishInfo } from "src/types";
 
-import BreakfastDish1 from "src/assets/products/BreakfastDish1.png";
-import BreakfastDish2 from "src/assets/products/BreakfastDish2.png";
 
 export const foodCategoryCards: TFoodCategoryCard[] = [
   {
@@ -217,7 +215,7 @@ export const dishes1: TDishes[] = [
 
 // Products data
 
-export const dishes: TDish[] = [
+export const dishes: TDishCount[] = [
   {
     img: "https://nowcookthis.com/wp-content/uploads/2019/05/easy-homemade-lime-lemonade-thumbnail.jpg",
     title: "Lime Lemonade",
@@ -234,6 +232,7 @@ export const dishes: TDish[] = [
     Please take a moment to remember and honor all the courageous souls who died while 
     serving this country and made the ultimate sacrifice to protect our freedoms – and 
     also to thank and honor all the brave men and women who are serving today.`,
+    count: 0
   },
   {
     img: "https://sweetsbyelise.com/wp-content/uploads/2022/08/muffins.jpg",
@@ -251,6 +250,7 @@ export const dishes: TDish[] = [
     The muffins are incredibly rich, mega chocolate-y, and loaded with chocolate chips 
     in every single bite. Sour cream helps guarantee a soft and moist muffin that has 
     a denser texture than chocolate cupcakes.`,
+    count: 0
   },
   {
     img: "https://recipes.net/wp-content/uploads/2023/05/hardees-double-cheeseburger-recipe_d48b79ef43b714e98a3ad95a7ab9e12e.jpeg",
@@ -267,5 +267,6 @@ export const dishes: TDish[] = [
     of two or more patties follows the same basic pattern as hamburgers: with two 
     patties will be called a double cheeseburger; a triple cheeseburger has three, 
     and while much less common, a quadruple has four.`,
+    count: 0
   },
 ];

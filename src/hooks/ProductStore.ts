@@ -1,27 +1,33 @@
 import { dishes } from "src/constants";
-import { TDish } from "src/types";
+import { TDish, TDishCount } from "src/types";
 import { create } from "zustand";
-// import { createJSONStorage, persist } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 interface TProductStore {
-  products: TDish[];
-  cart: TDish[];
+  products: TDishCount[];
+  cart: TDishCount[];
   wishList: TDish[];
-  addToCart: (value: TDish) => void;
+  bill: number;
+  addToCart: (value: TDishCount) => void;
   addToWishList: (value: TDish) => void;
-  removeFromCart: (value: TDish) => void;
+  removeFromCart: (value: TDishCount) => void;
   removeFromWishList: (value: TDish) => void;
+  increaseCartDish: (dish: TDishCount) => void;
+  decreaseCartDish: (dish: TDishCount) => void;
+  addBill: (price: TDishCount) => void;
+  subtractBill: (price: TDishCount) => void;
 }
 
-export const useProductStore = create<TProductStore>(
-//   persist<TProductStore>(
+export const useProductStore = create(
+  persist<TProductStore>(
     (set, get) => ({
+      bill: 0,
       products: dishes,
       cart: [],
       wishList: [],
       addToCart: (dish) => {
         const { cart } = get();
-
+        dish.count = 0
         set({
           cart: [...cart, dish],
         });
@@ -34,23 +40,58 @@ export const useProductStore = create<TProductStore>(
         });
       },
       removeFromCart: (dish) => {
-        const { cart } = get();
+        const { cart, bill } = get();
 
         set({
-          cart: cart.filter((item) => item !== dish),
+          bill: bill - dish.price * dish.count,
+          cart: cart.filter((item) => item.title !== dish.title),
         });
       },
       removeFromWishList: (dish) => {
         const { wishList } = get();
 
         set({
-          wishList: wishList.filter((item) => item !== dish),
+          wishList: wishList.filter((item) => item.title !== dish.title),
+        });
+      },
+      increaseCartDish: (dish) => {
+        const { cart } = get();
+
+        set({
+          cart: cart.map((item) => {
+            if (item.title === dish.title) item.count++;
+            return item;
+          }),
+        });
+      },
+      decreaseCartDish: (dish) => {
+        const { cart } = get();
+
+        set({
+          cart: cart.map((item) => {
+            if (item.title === dish.title) item.count--;
+            return item;
+          }),
+        });
+      },
+      addBill: (dish) => {
+        const { bill } = get();
+
+        set({
+          bill: Math.abs(bill + dish.price),
+        });
+      },
+      subtractBill: (dish) => {
+        const { bill } = get();
+
+        set({
+          bill: Math.abs(bill - dish.price),
         });
       },
     }),
-//     {
-//       name: "Products",
-//       storage: createJSONStorage(() => localStorage),
-//     }
-//   )
+    {
+      name: "Products",
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
 );

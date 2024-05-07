@@ -89,7 +89,7 @@ export const ProductSinglePage = () => {
 
               <div className="flex items-center gap-5 border-b border-b-gray-200 pb-4">
                 <div className="text-xl">
-                  <Counter counter={counter} setCounter={setCounter} />
+                  <Counter counter={counter}/>
                 </div>
 
                 <Button className="px-5 py-2 h-auto">

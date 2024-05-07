@@ -21,6 +21,10 @@ export interface TDish {
   price: number;
 }
 
+export interface TDishCount extends TDish {
+  count: number
+}
+
 export interface TFoodCategoryCard {
   img: React.ReactNode;
   buttonText: string;

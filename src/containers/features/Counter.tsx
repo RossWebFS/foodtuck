@@ -2,26 +2,21 @@ import { cn } from "src/utils";
 
 interface CounterProps {
   counter: number;
-  setCounter: (value: number) => void;
   downStyles?: string;
   counterStyle?: string;
   upStyles?: string;
-    // onSubract?: (value: number) => void;
-    // onAdd?: (value: number) => void;
+  onSubract?: () => void;
+  onAdd?: () => void;
 }
 
 export const Counter = ({
   counter,
-  setCounter,
   downStyles,
   counterStyle,
   upStyles,
-//   onSubract,
-//   onAdd,
+  onSubract,
+  onAdd,
 }: CounterProps) => {
-    // const handleSubtract = () => onSubract && onSubract(counter)
-    // const handleAdd = () => onAdd && onAdd(counter)
-
   return (
     <div>
       <span
@@ -33,8 +28,7 @@ export const Counter = ({
           }
         )}
         onClick={() => {
-          counter > 0 && setCounter(counter - 1);
-          
+          if (onSubract && counter > 0) onSubract();
         }}
       >
         -
@@ -48,8 +42,7 @@ export const Counter = ({
           upStyles
         )}
         onClick={() => {
-          setCounter(counter + 1);
-          
+          if (onAdd) onAdd();
         }}
       >
         +

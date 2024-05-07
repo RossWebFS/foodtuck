@@ -1,45 +1,42 @@
 import { Button } from "src/components/Button";
+import { Icon } from "src/components/Icon";
 import { Input } from "src/components/Input";
-import { useBillCalculating } from "src/hooks/BillCalculating";
+import { Link } from "src/components/Link";
+import { icons } from "src/constants";
+import { useProductStore } from "src/hooks/ProductStore";
 
 export const ShopBill = () => {
-  const [bill] = useBillCalculating();
+  const bill = useProductStore((state) => state.bill);
 
   return (
-    <section className="flex gap-5">
-      <div className="w-1/2">
-        <h2 className="font-semibold text-3xl mb-6">Coupon Code</h2>
-        <div className="border border-gray-300 rounded p-4">
-          <p className="text-gray-500 w-4/5 mb-4">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae esse
-            a, fugit voluptatibus blanditiis tenetur eum incidunt enim
-          </p>
-          <form>
-            <Input
-              className="outline-orange-400 w-96 h-12"
-              placeholder="Enter Here Code.."
-            />
-            <Button
-              rounded="default"
-              className="z-10 mt-0.5 -translate-x-2 h-12"
-            >
-              Apply
-            </Button>
-          </form>
-        </div>
-      </div>
+    <section className="flex justify-center gap-5">
       <div className="w-1/2">
         <h2 className="font-semibold text-3xl mb-6">Total Bill</h2>
-        <div className="border border-gray-300 rounded p-4 flex justify-between">
+        <div className="border border-gray-300 rounded-t p-4 flex justify-between text-lg">
           <div>
-            <p className="font-semibold text-lg">Total Amount:</p>
+            <p>Cart Subtotal:</p>
             <p>Shipping:</p>
           </div>
-          <div>
-            <p className="font-semibold text-lg">{`$${bill}`}</p>
+          <div className="text-end">
+            <p>{`$${bill.toFixed(2)}`}</p>
             <p>free</p>
           </div>
         </div>
+        <div className="font-semibold text-lg border border-gray-300 rounded-b flex justify-between p-4">
+          <p>Total Amount:</p>
+          <p>{`$${bill.toFixed(2)}`}</p>
+        </div>
+        <Link
+          to="/checkout"
+          variant="button"
+          className="text-gray-100 text-center mt-6 py-3 w-full"
+        >
+          Proceed to Checkout{" "}
+          <Icon
+            IconComponent={icons.boxedCheck.icon}
+            className="text-gray-100 hover:text-gray-100"
+          />
+        </Link>
       </div>
     </section>
   );

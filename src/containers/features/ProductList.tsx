@@ -4,6 +4,7 @@ import { icons } from "src/constants";
 import { cn } from "src/utils";
 import { useProductStore } from "src/hooks/ProductStore";
 import { useEffect } from "react";
+import { TDish } from "src/types";
 
 interface ProductListProps {
   itemStyles?: string;
@@ -29,14 +30,11 @@ export const ProductList = ({ itemStyles, listStyles }: ProductListProps) => {
     state.removeFromWishList,
   ]);
 
-useEffect(() => {
-   console.log(wishList.includes(products[0]))
-}, [])
-
   const shopItems = products.map((dish) => {
-    const hasDishInWishList = wishList.includes(dish);
-    const hasDishInCart = cart.includes(dish);
-
+    const hasDishInCart = cart.some((item) => item.title === dish.title);
+    const hasDishInWishList = wishList.some(
+      (item) => item.title === dish.title
+    );
     return (
       <li
         className={cn(
