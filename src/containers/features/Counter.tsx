@@ -2,18 +2,20 @@ import { cn } from "src/utils";
 
 interface CounterProps {
   counter: number;
-  setCounter: (value: number) => void;
   downStyles?: string;
   counterStyle?: string;
   upStyles?: string;
+  onSubract?: () => void;
+  onAdd?: () => void;
 }
 
 export const Counter = ({
   counter,
-  setCounter,
   downStyles,
   counterStyle,
   upStyles,
+  onSubract,
+  onAdd,
 }: CounterProps) => {
   return (
     <div>
@@ -25,7 +27,9 @@ export const Counter = ({
             "text-gray-400 cursor-default hover:bg-transparent": counter === 0,
           }
         )}
-        onClick={() => counter > 0 && setCounter(counter - 1)}
+        onClick={() => {
+          if (onSubract && counter > 0) onSubract();
+        }}
       >
         -
       </span>
@@ -37,7 +41,9 @@ export const Counter = ({
           "px-4 py-2 border border-gray-400 cursor-pointer hover:bg-gray-100",
           upStyles
         )}
-        onClick={() => setCounter(counter + 1)}
+        onClick={() => {
+          if (onAdd) onAdd();
+        }}
       >
         +
       </span>

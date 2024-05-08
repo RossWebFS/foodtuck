@@ -1,6 +1,6 @@
 import { SearchInputModal } from "./features/SearchInputModal";
 
-import { dishes, icons } from "src/constants";
+import { icons } from "src/constants";
 import { UserModal } from "./features/UserModal";
 import { CartModal } from "./features/CartModal";
 import { useState } from "react";
@@ -12,7 +12,6 @@ export const NavIconList = () => {
     <ul className="flex">
       <li className="bg-black flex items-center mx-2 border border-orange-400 rounded-full">
         <SearchInputModal
-          state={dishes}
           IconComponent={icons.search.icon}
           type="text"
           placeholder="Search..."
@@ -30,7 +29,7 @@ export const NavIconList = () => {
       </li>
       <li className="mx-2 my-auto">
         <CartModal
-          icon={icons.cart.icon}
+          icon={icons.outlinedCart.icon}
           activeModal={activeModal}
           setActiveModal={setActiveModal}
         />

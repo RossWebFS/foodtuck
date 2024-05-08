@@ -2,16 +2,35 @@ import { useState } from "react";
 import { Icon } from "src/components/Icon";
 import { Rating } from "src/components/Rating";
 import { icons } from "src/constants";
-import { TDish } from "src/types";
-import { cn } from "src/utils";
+import { TDishCount } from "src/types";
 import { Counter } from "./Counter";
+import { useProductStore } from "src/hooks/ProductStore";
 
 interface ProductCartItemProps {
-  product: TDish;
+  product: TDishCount;
 }
 
 export const ProductCartItem = ({ product }: ProductCartItemProps) => {
-  const [counter, setCounter] = useState<number>(0);
+  const [removeFromCart, increaseCartDish, decreaseCartDish] = useProductStore(
+    (state) => [
+      state.removeFromCart,
+      state.increaseCartDish,
+      state.decreaseCartDish,
+    ]
+  );
+  const [addBill, subtractBill] = useProductStore((state) => [
+    state.addBill,
+    state.subtractBill,
+  ]);
+
+  const onAdd = () => {
+    addBill(product);
+    increaseCartDish(product);
+  };
+  const onSubtract = () => {
+    subtractBill(product);
+    decreaseCartDish(product);
+  };
 
   return (
     <tr className="border-b border-b-gray-200">
@@ -27,18 +46,23 @@ export const ProductCartItem = ({ product }: ProductCartItemProps) => {
       <td className="py-2 text-center">${product.price}</td>
       <td className="py-2 text-center">
         <Counter
-          counter={counter}
-          setCounter={setCounter}
+          onAdd={onAdd}
+          onSubract={onSubtract}
+          counter={product.count}
           downStyles="text-lg py-0.5 px-3 rounded-l-3xl"
           counterStyle="text-lg py-0.5 px-3"
           upStyles="text-lg py-0.5 px-3 rounded-r-3xl"
         />
       </td>
       <td className="py-2 text-center">
-        ${(product.price * counter).toFixed(2)}
+        ${(product.price * product.count).toFixed(2)}
       </td>
       <td className="text-center py-2">
-        <Icon IconComponent={icons.close.icon} className="text-gray-800" />
+        <Icon
+          IconComponent={icons.close.icon}
+          className="text-gray-800"
+          onClick={() => removeFromCart(product)}
+        />
       </td>
     </tr>
   );

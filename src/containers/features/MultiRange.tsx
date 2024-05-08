@@ -14,7 +14,7 @@ export const MultiRange = () => {
         min={MIN}
         max={MAX}
         className="h-1.5 w-full bg-orange-100 rounded"
-        thumbClassName="w-4 h-4 border-2 border-gray-100 -top-1 rounded-full bg-orange-400 focus:bg-orange-500 focus:outline-none"
+        thumbClassName="w-4 h-4 border-2 border-gray-100 -top-1 rounded-full bg-orange-400 focus:bg-orange-500 focus:outline-none cursor-grab"
         pearling
       />
       <div className="flex justify-between text-gray-500 mt-3">
