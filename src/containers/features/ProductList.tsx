@@ -3,17 +3,20 @@ import { Link } from "src/components/Link";
 import { icons } from "src/constants";
 import { cn } from "src/utils";
 import { useProductStore } from "src/hooks/ProductStore";
-import { useEffect } from "react";
-import { TDish } from "src/types";
+import { TDishCount } from "src/types";
 
 interface ProductListProps {
   itemStyles?: string;
   listStyles?: string;
+  products: TDishCount[];
 }
 
-export const ProductList = ({ itemStyles, listStyles }: ProductListProps) => {
+export const ProductList = ({
+  itemStyles,
+  listStyles,
+  products,
+}: ProductListProps) => {
   const [
-    products,
     cart,
     wishList,
     addToCart,
@@ -21,7 +24,6 @@ export const ProductList = ({ itemStyles, listStyles }: ProductListProps) => {
     removeFromCart,
     removeFromWishList,
   ] = useProductStore((state) => [
-    state.products,
     state.cart,
     state.wishList,
     state.addToCart,
@@ -91,9 +93,13 @@ export const ProductList = ({ itemStyles, listStyles }: ProductListProps) => {
     );
   });
 
-  return (
+  return products.length ? (
     <ul className={cn("grid grid-cols-3 gap-5 h-fit mr-5", listStyles)}>
       {shopItems}
     </ul>
+  ) : (
+    <div className="h-48 mr-5 flex justify-center text-2xl font-semibold items-center w-full">
+      <p>There are no dishes</p>
+    </div>
   );
 };

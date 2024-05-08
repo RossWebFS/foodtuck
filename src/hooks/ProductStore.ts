@@ -6,12 +6,12 @@ import { createJSONStorage, persist } from "zustand/middleware";
 interface TProductStore {
   products: TDishCount[];
   cart: TDishCount[];
-  wishList: TDish[];
+  wishList: TDishCount[];
   bill: number;
   addToCart: (value: TDishCount) => void;
-  addToWishList: (value: TDish) => void;
+  addToWishList: (value: TDishCount) => void;
   removeFromCart: (value: TDishCount) => void;
-  removeFromWishList: (value: TDish) => void;
+  removeFromWishList: (value: TDishCount) => void;
   increaseCartDish: (dish: TDishCount) => void;
   decreaseCartDish: (dish: TDishCount) => void;
   addBill: (price: TDishCount) => void;

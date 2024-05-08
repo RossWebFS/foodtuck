@@ -22,7 +22,7 @@ export interface TDish {
 }
 
 export interface TDishCount extends TDish {
-  count: number
+  count: number;
 }
 
 export interface TFoodCategoryCard {
@@ -65,6 +65,29 @@ export interface TLatestDish {
   title: string;
   price: number;
   ref: string;
+}
+
+export interface TFilterObject {
+  preferred: ("cart" | "wishList")[];
+  calories: ("low" | "middle" | "high")[];
+  search: string;
+  // category: (
+  //   | "Breakfast"
+  //   | "Lunch"
+  //   | "Dinner"
+  //   | "Dessert"
+  //   | "Drink"
+  //   | "Suops"
+  //   | "Starter Menu"
+  //   | "Main Course"
+  //   | "Salad"
+  //   | "Vegetarian"
+  //   | "Fast food"
+  // )[];
+  categories: string[];
+  price: number[];
+  tag: string;
+  pagination: number;
 }
 
 // Posts

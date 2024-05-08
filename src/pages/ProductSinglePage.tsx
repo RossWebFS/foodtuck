@@ -20,10 +20,11 @@ import { PiTote } from "react-icons/pi";
 import { IconList } from "src/containers/features/IconList";
 import { ProductList } from "src/containers/features/ProductList";
 import { Counter } from "src/containers/features/Counter";
+import { useProductStore } from "src/hooks/ProductStore";
 
 export const ProductSinglePage = () => {
   const links = [routes.HOME, routes.SHOP_DETAILS];
-
+  const products = useProductStore(state => state.products)
   const [counter, setCounter] = useState(0);
 
   return (
@@ -170,7 +171,7 @@ export const ProductSinglePage = () => {
 
         <section className="mt-20 mb-10">
           <h2 className="text-3xl font-semibold mb-4">Similar Products</h2>
-          <ProductList listStyles="grid-cols-4" />
+          <ProductList listStyles="grid-cols-4" products={products}/>
         </section>
       </Wrapper>
     </main>
