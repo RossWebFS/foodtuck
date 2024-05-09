@@ -9,12 +9,16 @@ interface ProductListProps {
   itemStyles?: string;
   listStyles?: string;
   products: TDishCount[];
+  limit?: number;
+  page?: number;
 }
 
 export const ProductList = ({
   itemStyles,
   listStyles,
   products,
+  limit,
+  page,
 }: ProductListProps) => {
   const [
     cart,
@@ -44,7 +48,11 @@ export const ProductList = ({
           itemStyles
         )}
       >
-        <img className="" src={dish.img} alt={dish.title} />
+        <img
+          className="object-cover aspect-square"
+          src={dish.img}
+          alt={dish.title}
+        />
         <div className="p-2">
           <h5 className="text-lg font-semibold my-1">
             <Link to="/cart" className="hover:text-orange-500">
@@ -94,8 +102,15 @@ export const ProductList = ({
   });
 
   return products.length ? (
-    <ul className={cn("grid grid-cols-3 gap-5 h-fit mr-5", listStyles)}>
-      {shopItems}
+    <ul
+      className={cn(
+        "grid grid-cols-3 gap-5 min-h-[42rem] items-start mr-5",
+        listStyles
+      )}
+    >
+      {limit && page
+        ? shopItems.slice(limit * (page - 1), limit * page)
+        : shopItems}
     </ul>
   ) : (
     <div className="h-48 mr-5 flex justify-center text-2xl font-semibold items-center w-full">

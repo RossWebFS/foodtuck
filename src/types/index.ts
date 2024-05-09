@@ -71,19 +71,6 @@ export interface TFilterObject {
   preferred: ("cart" | "wishList")[];
   calories: ("low" | "middle" | "high")[];
   search: string;
-  // category: (
-  //   | "Breakfast"
-  //   | "Lunch"
-  //   | "Dinner"
-  //   | "Dessert"
-  //   | "Drink"
-  //   | "Suops"
-  //   | "Starter Menu"
-  //   | "Main Course"
-  //   | "Salad"
-  //   | "Vegetarian"
-  //   | "Fast food"
-  // )[];
   categories: string[];
   price: number[];
   tag: string;
