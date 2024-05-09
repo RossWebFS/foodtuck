@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Slider from "react-slider";
+import { TFilterObject } from "src/types";
 
-export const MultiRange = () => {
+interface MultiRangeProps {
+  filter: TFilterObject;
+  filterHandler: (value: TFilterObject) => void;
+}
+
+export const MultiRange = ({filter, filterHandler}: MultiRangeProps) => {
   const MIN = 0;
-  const MAX = 200;
+  const MAX = 50;
   const [values, setValues] = useState([MIN, MAX]);
+
+  useEffect(() => {
+    filterHandler({...filter, price: values})
+  }, [values])
 
   return (
     <div>

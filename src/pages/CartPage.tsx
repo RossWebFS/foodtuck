@@ -6,7 +6,7 @@ import { WishProductItem } from "src/containers/features/WishProductItem";
 import { useProductStore } from "src/hooks/ProductStore";
 import { Link } from "src/components/Link";
 import { ShopBill } from "src/containers/features/ShopBill";
-import { TDish } from "src/types";
+import { TDishCount } from "src/types";
 
 export const CartPage = () => {
   const [cart, wishList] = useProductStore((state) => [
@@ -16,7 +16,7 @@ export const CartPage = () => {
 
   const links = [routes.HOME, routes.CART];
   const cartProducts = cart.map((dish) => <ProductCartItem product={dish} />);
-  const wishProducts = wishList.map((dish: TDish) => (
+  const wishProducts = wishList.map((dish: TDishCount) => (
     <WishProductItem product={dish} />
   ));
 

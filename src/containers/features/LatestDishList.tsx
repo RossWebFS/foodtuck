@@ -1,20 +1,19 @@
 import { Link } from "src/components/Link";
-import { linkVariants } from "src/styles/LinkStyles";
-import { TLatestDish } from "src/types";
+import { TDish } from "src/types";
 import { formPrice } from "src/utils";
 
 interface LatestDishListProps {
-  dishes: TLatestDish[];
+  dishes: TDish[];
 }
 
 export const LatestDishList = ({ dishes }: LatestDishListProps) => {
   const latestDishItems = dishes.map((dish) => {
     return (
       <li className="py-3 flex">
-        <img src={dish.img} alt={dish.title} />
+        <img className="w-16 h-16" src={dish.img} alt={dish.title} />
         <div className="pl-2">
           <h5 className="text-lg font-semibold">
-            <Link variant="colored" to={dish.ref}>
+            <Link variant="colored" to="/">
               {dish.title}
             </Link>
           </h5>

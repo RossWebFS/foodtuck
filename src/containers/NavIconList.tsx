@@ -15,7 +15,6 @@ export const NavIconList = () => {
           IconComponent={icons.search.icon}
           type="text"
           placeholder="Search..."
-          theme="dark"
           activeModal={activeModal}
           setActiveModal={setActiveModal}
         />

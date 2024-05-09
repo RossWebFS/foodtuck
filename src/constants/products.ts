@@ -12,7 +12,7 @@ import HomeStatisticsIcon4 from "src/assets/products/HomeStatisticsIcon4.png";
 
 import LatestDish from "src/assets/menu/LatestDish.png";
 
-import { TDishes, TMenuDishInfo } from "src/types";
+import { TMenuDishInfo } from "src/types";
 
 
 export const foodCategoryCards: TFoodCategoryCard[] = [
@@ -99,25 +99,28 @@ export const latestDishes: TLatestDish[] = [
 ];
 
 export const productTags = [
-  "Services",
-  "Our Menu",
-  "Pizza",
-  "Cupcake",
+  "Select All",
   "Burger",
-  "Cookies",
-  "Our Shop",
-  "Tandoori Chicken",
+  "Salad",
+  "Pancakes",
+  "Lemonade",
+  "Muffin",
+  "Pasta",
+  "Soup",
 ];
 
 export const foodCategories: string[] = [
-  "Sandwiches",
-  "Burgers",
-  "Chicken Chups",
-  "Drinks",
-  "Pizza",
-  "Thi",
-  "Non Veg",
-  "Uncategorized",
+  "Breakfast",
+  "Lunch",
+  "Dinner",
+  "Dessert",
+  "Drink",
+  "Soup",
+  "Starter menu",
+  "Main course",
+  "Salad",
+  "Vegetarian",
+  "Fast food"
 ];
 
 export const starterMenu: TMenuDishInfo[] = [
@@ -182,37 +185,6 @@ export const mainMenu: TMenuDishInfo[] = [
   },
 ];
 
-export const dishes1: TDishes[] = [
-  {
-    img: "https://nowcookthis.com/wp-content/uploads/2019/05/easy-homemade-lime-lemonade-thumbnail.jpg",
-    title: "Fresh Lime",
-    saledPrice: 38,
-    basicPrice: 45,
-    ref: "/",
-  },
-  {
-    img: "https://sweetsbyelise.com/wp-content/uploads/2022/08/muffins.jpg",
-    title: "Chocolate Muffin",
-    saledPrice: null,
-    basicPrice: 28,
-    ref: "/",
-  },
-  {
-    img: "https://recipes.net/wp-content/uploads/2023/05/hardees-double-cheeseburger-recipe_d48b79ef43b714e98a3ad95a7ab9e12e.jpeg",
-    title: "Fresh Lime",
-    saledPrice: 21,
-    basicPrice: 45,
-    ref: "/",
-  },
-  {
-    img: "https://penes.md/wp-content/uploads/2020/10/1-COUNTRY-BURGER.jpg",
-    title: "Fresh Lime",
-    saledPrice: null,
-    basicPrice: 45,
-    ref: "/",
-  },
-];
-
 // Products data
 
 export const dishes: TDishCount[] = [
@@ -220,8 +192,8 @@ export const dishes: TDishCount[] = [
     img: "https://nowcookthis.com/wp-content/uploads/2019/05/easy-homemade-lime-lemonade-thumbnail.jpg",
     title: "Lime Lemonade",
     calories: 150,
-    category: ["Drink", "Vegeterian"],
-    tags: ["lemonade"],
+    category: ["Drink", "Vegetarian"],
+    tags: ["Lemonade"],
     rating: 4,
     price: 5.99,
     receipe: ["Lemon juice", "Lime juice", "Sugar", "Water"],
@@ -239,7 +211,7 @@ export const dishes: TDishCount[] = [
     title: "Chocolate Muffin",
     calories: 320,
     category: ["Dessert"],
-    tags: ["muffin"],
+    tags: ["Muffin"],
     rating: 5,
     price: 6.55,
     receipe: ["Chocolate", "Milk", "Sugar", "Eggs", "Flour"],
@@ -257,7 +229,7 @@ export const dishes: TDishCount[] = [
     title: "Cheeseburger",
     calories: 540,
     category: ["Fast food", "Starter menu"],
-    tags: ["burger"],
+    tags: ["Burger"],
     rating: 5,
     price: 10.99,
     receipe: ["Cheese", "Buns", "Beef", "Tomatoes", "Salad"],
@@ -267,6 +239,82 @@ export const dishes: TDishCount[] = [
     of two or more patties follows the same basic pattern as hamburgers: with two 
     patties will be called a double cheeseburger; a triple cheeseburger has three, 
     and while much less common, a quadruple has four.`,
+    count: 0
+  },
+  {
+    img: "https://assets.epicurious.com/photos/61f7fdd2913eaa0e66bd989a/1:1/w_3966,h_3966,c_limit/SourCreamPancakes_RECIPE_012622_26344%20(1).jpg",
+    title: "Pancakes",
+    calories: 600,
+    category: ["Dessert", "Breakfast"],
+    tags: ["Pancakes"],
+    rating: 5,
+    price: 12.00,
+    receipe: ["Milk", "Eggs", "Flour", "Honey"],
+    description: `Every single Sunday begins with pancakes… and ends with leftover 
+    pancakes from the morning. These are everything you want in a pancake. They’re 
+    soft and so fluffy… each mouthful melts in your mouth… you’ll be reaching for 
+    more than one. Stack. Possibly.`,
+    count: 0
+  },
+  {
+    img: "https://meatandco.co.uk/cdn/shop/files/TheSteaksareHigh.jpg?v=1688629953",
+    title: "Beef Steak",
+    calories: 900,
+    category: ["Lunch", "Main course"],
+    tags: ["Steak"],
+    rating: 5,
+    price: 25.99,
+    receipe: ["Milk", "Eggs", "Flour", "Honey"],
+    description: `Every single Sunday begins with pancakes… and ends with leftover 
+    pancakes from the morning. These are everything you want in a pancake. They’re 
+    soft and so fluffy… each mouthful melts in your mouth… you’ll be reaching for 
+    more than one. Stack. Possibly.`,
+    count: 0
+  },
+  {
+    img: "https://assets.tmecosys.cn/image/upload/t_web767x639/img/recipe/ras/Assets/36C4D0A8-A26C-438B-9871-27ABEABB2E66/Derivates/A94C5717-A483-4ADF-B8AE-6D170994FEA1.jpg",
+    title: "Carborara",
+    calories: 750,
+    category: ["Dinner", "Vegetarian", "Main course"],
+    tags: ["Pasta"],
+    rating: 5,
+    price: 14.70,
+    receipe: ["Pasta", "Mozzarella", "Tomatoes"],
+    description: `Spaghetti (Italian: [spaˈɡetti]) is a long, thin, solid, cylindrical 
+    pasta. It is a staple food of traditional Italian cuisine. Like other pasta, 
+    spaghetti is made of milled wheat, water, and sometimes enriched with vitamins 
+    and minerals. Italian spaghetti is typically made from durum-wheat semolina.`,
+    count: 0
+  },
+  {
+    img: "https://kristineskitchenblog.com/wp-content/uploads/2022/02/minestrone-soup-recipe-22.jpg",
+    title: "Chicken Soup",
+    calories: 300,
+    category: ["Soup", "Lunch"],
+    tags: ["Soup"],
+    rating: 2,
+    price: 9.99,
+    receipe: ["Chiken", "Potatoes", "Carrot", "Pasta"],
+    description: `A simple vegetable soup like this is my absolute favorite. It’s 
+    nourishing, comforting, fresh, and light, yet filling enough to be a full 
+    vegetarian meal. But truth be told, I was never a fan of vegetable soup 
+    until I started making it myself at home, with this recipe. Because other 
+    versions I had tried were always been a bit bland and boring.`,
+    count: 0
+  },
+  {
+    img: "https://assets.bonappetit.com/photos/624215f8a76f02a99b29518f/1:1/w_2800,h_2800,c_limit/0328-ceasar-salad-lede.jpg",
+    title: "Greek Salad",
+    calories: 200,
+    category: ["Salad", "Vegetarian", "Lunch"],
+    tags: ["Salad"],
+    rating: 3,
+    price: 12.30,
+    receipe: ["Cucumber", "Salad", "Mozzarrela", "Tomatoes"],
+    description: `I’m a huge fan of making your own dressings; especially since 
+    store-bought salad dressings can be pretty pricey. You don’t even have to 
+    use a bowl and a whisk! My favorite way is to add the ingredients to a 
+    mason jar or other jar with a tight fitting lid, and give it a good shaking.`,
     count: 0
   },
 ];
