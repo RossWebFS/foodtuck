@@ -23,6 +23,7 @@ export interface TDish {
 
 export interface TDishCount extends TDish {
   count: number;
+  id: string
 }
 
 export interface TFoodCategoryCard {

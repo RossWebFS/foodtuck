@@ -61,14 +61,14 @@ export const SearchInputModal = ({
       .join(" ")
       .split(new RegExp(`(${searchValue})`, "gi"));
     return (
-      <li className="my-2 flex text-gray-200 hover:bg-gray-100/10">
-        <img className="w-12 h-12 mr-2" src={data.img} alt={data.title} />
-        <div>
-          <Link to="/">
+      <li className="my-2 text-gray-200 hover:bg-gray-100/10">
+        <Link to={`/shop-details/${data.id}`} className="flex">
+          <img className="w-12 h-12 mr-2" src={data.img} alt={data.title} />
+          <div>
             <h4 className="text-lg">{highlightText(highlightedTitle)}</h4>
-          </Link>
-          <p>{highlightText(highlightedTags)}</p>
-        </div>
+            <p>{highlightText(highlightedTags)}</p>
+          </div>
+        </Link>
       </li>
     );
   });

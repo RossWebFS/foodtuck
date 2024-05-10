@@ -9,6 +9,7 @@ import StarterMenuImg from "src/assets/menu/StarterMenuImg.png";
 import MainMenuImg from "src/assets/menu/MainMenuImg.png";
 import DessertMenuImg from "src/assets/menu/DessertMenuImg.png";
 import DrinkMenuImg from "src/assets/menu/DrinkMenuImg.png";
+import { useProductStore } from "src/hooks/ProductStore";
 
 export const MenuPage = () => {
   const links = [routes.HOME, routes.MENU];
@@ -21,29 +22,35 @@ export const MenuPage = () => {
     );
   });
 
+  const products = useProductStore((state) => state.products);
+
+  const filterDishes = (category: string) => {
+    return products.filter((dish) => dish.category.includes(category));
+  };
+
   return (
     <main className="pt-20">
       <PageIntro title="Our Menu" links={links} />
 
       <MenuCategoryList
-        dishes={starterMenu}
+        dishes={filterDishes("Starter menu")}
         img={StarterMenuImg}
         title="Starter Menu"
       />
       <MenuCategoryList
-        dishes={mainMenu}
+        dishes={filterDishes("Main course")}
         img={MainMenuImg}
         title="Main course"
         direction="flex-row-reverse"
       />
       <StatisticList />
       <MenuCategoryList
-        dishes={starterMenu}
+        dishes={filterDishes("Dessert")}
         img={DessertMenuImg}
         title="Desserts"
       />
       <MenuCategoryList
-        dishes={mainMenu}
+        dishes={filterDishes("Drink")}
         img={DrinkMenuImg}
         title="Drinks"
         direction="flex-row-reverse"

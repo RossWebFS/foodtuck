@@ -100,6 +100,7 @@ export const ShopPage = () => {
         <section className="flex h-full">
           <section className="w-[70%] h-full">
             <ProductList
+            listStyles="grid grid-cols-3"
               products={filteredProducts}
               page={filters.pagination}
               limit={6}

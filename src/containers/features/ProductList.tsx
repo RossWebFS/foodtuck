@@ -55,7 +55,10 @@ export const ProductList = ({
         />
         <div className="p-2">
           <h5 className="text-lg font-semibold my-1">
-            <Link to="/cart" className="hover:text-orange-500">
+            <Link
+              to={`/shop-details/${dish.id}`}
+              className="hover:text-orange-500"
+            >
               {dish.title}
             </Link>
           </h5>
@@ -104,12 +107,14 @@ export const ProductList = ({
   return products.length ? (
     <ul
       className={cn(
-        "grid grid-cols-3 gap-5 min-h-[42rem] items-start mr-5",
+        "gap-5 min-h-[42rem] items-start mr-5",
         listStyles
       )}
     >
-      {limit && page
-        ? shopItems.slice(limit * (page - 1), limit * page)
+      {limit
+        ? page
+          ? shopItems.slice(limit * (page - 1), limit * page)
+          : shopItems.slice(0, limit)
         : shopItems}
     </ul>
   ) : (

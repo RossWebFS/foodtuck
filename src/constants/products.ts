@@ -204,7 +204,8 @@ export const dishes: TDishCount[] = [
     Please take a moment to remember and honor all the courageous souls who died while 
     serving this country and made the ultimate sacrifice to protect our freedoms – and 
     also to thank and honor all the brave men and women who are serving today.`,
-    count: 0
+    count: 0,
+    id: "vgcxkyuhfjgd"
   },
   {
     img: "https://sweetsbyelise.com/wp-content/uploads/2022/08/muffins.jpg",
@@ -222,7 +223,8 @@ export const dishes: TDishCount[] = [
     The muffins are incredibly rich, mega chocolate-y, and loaded with chocolate chips 
     in every single bite. Sour cream helps guarantee a soft and moist muffin that has 
     a denser texture than chocolate cupcakes.`,
-    count: 0
+    count: 0,
+    id: "vgcxkyuhfrgh"
   },
   {
     img: "https://recipes.net/wp-content/uploads/2023/05/hardees-double-cheeseburger-recipe_d48b79ef43b714e98a3ad95a7ab9e12e.jpeg",
@@ -239,7 +241,8 @@ export const dishes: TDishCount[] = [
     of two or more patties follows the same basic pattern as hamburgers: with two 
     patties will be called a double cheeseburger; a triple cheeseburger has three, 
     and while much less common, a quadruple has four.`,
-    count: 0
+    count: 0,
+    id: "rjhgurkjghrjrglj"
   },
   {
     img: "https://assets.epicurious.com/photos/61f7fdd2913eaa0e66bd989a/1:1/w_3966,h_3966,c_limit/SourCreamPancakes_RECIPE_012622_26344%20(1).jpg",
@@ -254,7 +257,8 @@ export const dishes: TDishCount[] = [
     pancakes from the morning. These are everything you want in a pancake. They’re 
     soft and so fluffy… each mouthful melts in your mouth… you’ll be reaching for 
     more than one. Stack. Possibly.`,
-    count: 0
+    count: 0,
+    id: "bwihrbgirkjvh"
   },
   {
     img: "https://meatandco.co.uk/cdn/shop/files/TheSteaksareHigh.jpg?v=1688629953",
@@ -269,7 +273,8 @@ export const dishes: TDishCount[] = [
     pancakes from the morning. These are everything you want in a pancake. They’re 
     soft and so fluffy… each mouthful melts in your mouth… you’ll be reaching for 
     more than one. Stack. Possibly.`,
-    count: 0
+    count: 0,
+    id: "rjlgnrjhgor"
   },
   {
     img: "https://assets.tmecosys.cn/image/upload/t_web767x639/img/recipe/ras/Assets/36C4D0A8-A26C-438B-9871-27ABEABB2E66/Derivates/A94C5717-A483-4ADF-B8AE-6D170994FEA1.jpg",
@@ -284,7 +289,8 @@ export const dishes: TDishCount[] = [
     pasta. It is a staple food of traditional Italian cuisine. Like other pasta, 
     spaghetti is made of milled wheat, water, and sometimes enriched with vitamins 
     and minerals. Italian spaghetti is typically made from durum-wheat semolina.`,
-    count: 0
+    count: 0,
+    id: "tughrkjgnkf"
   },
   {
     img: "https://kristineskitchenblog.com/wp-content/uploads/2022/02/minestrone-soup-recipe-22.jpg",
@@ -300,7 +306,8 @@ export const dishes: TDishCount[] = [
     vegetarian meal. But truth be told, I was never a fan of vegetable soup 
     until I started making it myself at home, with this recipe. Because other 
     versions I had tried were always been a bit bland and boring.`,
-    count: 0
+    count: 0,
+    id: "iuighdubgnfi"
   },
   {
     img: "https://assets.bonappetit.com/photos/624215f8a76f02a99b29518f/1:1/w_2800,h_2800,c_limit/0328-ceasar-salad-lede.jpg",
@@ -315,6 +322,7 @@ export const dishes: TDishCount[] = [
     store-bought salad dressings can be pretty pricey. You don’t even have to 
     use a bowl and a whisk! My favorite way is to add the ingredients to a 
     mason jar or other jar with a tight fitting lid, and give it a good shaking.`,
-    count: 0
+    count: 0,
+    id: "rgroibnoibj"
   },
 ];

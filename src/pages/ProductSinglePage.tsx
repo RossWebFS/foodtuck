@@ -1,19 +1,10 @@
 import { Button } from "src/components/Button";
-import { dishes, routes, singlePageLinks } from "src/constants";
+import { icons, routes, singlePageLinks } from "src/constants";
 import { PageIntro } from "src/containers/features/PageIntro";
 
-import { IoIosArrowRoundForward } from "react-icons/io";
-import { IoIosArrowRoundBack } from "react-icons/io";
-import { Icon } from "src/components/Icon";
-import { Link } from "react-router-dom";
-import { formPrice } from "src/utils";
-import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { cn } from "src/utils";
 
-import SinglePageDish1 from "src/assets/menu/SinglePageDish1.png";
-import SinglePageDish2 from "src/assets/menu/SinglePageDish2.png";
-import SinglePageDish3 from "src/assets/menu/SinglePageDish3.png";
-import SinglePageDish4 from "src/assets/menu/SinglePageDish4.png";
-import SinglePageDish5 from "src/assets/menu/SinglePageDish5.png";
 import { Wrapper } from "src/containers/layouts/Wrapper";
 
 import { PiTote } from "react-icons/pi";
@@ -21,159 +12,240 @@ import { IconList } from "src/containers/features/IconList";
 import { ProductList } from "src/containers/features/ProductList";
 import { Counter } from "src/containers/features/Counter";
 import { useProductStore } from "src/hooks/ProductStore";
+import { Rating } from "src/components/Rating";
+import { Icon } from "src/components/Icon";
 
 export const ProductSinglePage = () => {
   const links = [routes.HOME, routes.SHOP_DETAILS];
-  const products = useProductStore(state => state.products)
-  const [counter, setCounter] = useState(0);
+  const [
+    products,
+    increaseDishCount,
+    decreaseDishCount,
+    cart,
+    wishList,
+    addToCart,
+    removeFromCart,
+    addToWishList,
+    removeFromWishList,
+  ] = useProductStore((state) => [
+    state.products,
+    state.increaseDishCount,
+    state.decreaseDishCount,
+    state.cart,
+    state.wishList,
+    state.addToCart,
+    state.removeFromCart,
+    state.addToWishList,
+    state.removeFromWishList,
+  ]);
+
+  const { id } = useParams();
+
+  const product = products.find((dish) => dish.id === id);
+
+  const onAdd = () => {
+    product && increaseDishCount(product);
+  };
+  const onSubract = () => {
+    product && decreaseDishCount(product);
+  };
+
+  const sameDishes = products.filter((dish) => {
+    return (
+      dish.category.some((category) => product?.category.includes(category)) &&
+      dish.id !== id
+    );
+  });
+
+  const otherDishes = products.filter((dish) => {
+    return (
+      !dish.category.some((category) => product?.category.includes(category)) &&
+      dish.id !== id
+    );
+  });
+
+  console.log(sameDishes)
 
   return (
     <main className="py-20">
       <PageIntro links={links} title="Shop Details" />
       <Wrapper>
-        <section className="flex justify-around mb-10">
-          <section className="w-[45%] grid grid-cols-[auto_minmax(auto,_auto)] grid-rows-4 gap-5">
-            <img src={SinglePageDish2} alt="dish-2" />
-            <img
-              className="row-span-4 h-full object-cover"
-              src={SinglePageDish1}
-              alt="dish-1"
-            />
-            <img src={SinglePageDish3} alt="dish-3" />
-            <img src={SinglePageDish4} alt="dish-4" />
-            <img src={SinglePageDish5} alt="dish-5" />
-          </section>
+        {product && (
+          <section className="flex justify-around mb-10 mt-20">
+            <section className="w-[45%] grid grid-cols-[auto_minmax(auto,_auto)] grid-rows-4 gap-5">
+              {sameDishes[0] && (
+                <ImageLink
+                  src={sameDishes[0].img}
+                  path={`/shop-details/${sameDishes[0].id}`}
+                  alt={sameDishes[0].title}
+                />
+              )}
+              <img
+                className="row-span-4 h-full object-cover"
+                src={product.img}
+                alt={product.title}
+              />
+              {sameDishes[1] && (
+                <ImageLink
+                  src={sameDishes[1].img}
+                  path={`/shop-details/${sameDishes[1].id}`}
+                  alt={sameDishes[1].title}
+                />
+              )}
+              {sameDishes[2] && (
+                <ImageLink
+                  src={sameDishes[2].img}
+                  path={`/shop-details/${sameDishes[2].id}`}
+                  alt={sameDishes[2].title}
+                />
+              )}
+              {sameDishes[3] && (
+                <ImageLink
+                  src={sameDishes[3].img}
+                  path={`/shop-details/${sameDishes[3].id}`}
+                  alt={sameDishes[3].title}
+                />
+              )}
+            </section>
 
-          <section className="w-[45%]">
-            <div className="flex justify-between">
-              <Button size="sm" rounded="default">
-                In Stock
-              </Button>
-
-              <div className="text-gray-500 gap-4 flex">
-                <Link to="/" className="hover:text-orange-400">
-                  <Icon
-                    IconComponent={IoIosArrowRoundBack}
-                    className="mr-1 text-gray-500 w-6 h-6"
-                  />
-                  Prev
-                </Link>
-                <Link to="/" className="hover:text-orange-400">
-                  Next
-                  <Icon
-                    IconComponent={IoIosArrowRoundForward}
-                    className="ml-1 text-gray-500 w-6 h-6"
-                  />
-                </Link>
+            <section className="w-[45%]">
+              <div className="border-b border-b-gray-200 pb-4 mt-2 mb-6">
+                <h1 className="text-4xl font-semibold mb-4">{product.title}</h1>
+                <ul className="list-disc">
+                  {product.receipe.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
               </div>
-            </div>
 
-            <div className="border-b border-b-gray-200 pb-4 mt-2 mb-6">
-              <h1 className="text-4xl font-semibold mb-4">
-                Yummi Chicken Chup
-              </h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
-                optio! Sed ut vero et, inventore quae sunt at corrupti sint odit
-                enim officia reiciendis cupiditate optio quos ratione! Quod,
-                voluptatibus.
-              </p>
-            </div>
+              <div>
+                <span className="text-2xl font-semibold">${product.price}</span>
 
-            <div>
-              <span className="text-2xl font-semibold">${formPrice(54)}</span>
-              <ul className="flex py-3">
-                <li>Dictum/</li>
-                <li>Cursus/</li>
-                <li>Risus</li>
-              </ul>
-
-              <div className="flex items-center gap-5 border-b border-b-gray-200 pb-4">
-                <div className="text-xl">
-                  <Counter counter={counter}/>
+                <div className="flex items-center gap-3 mt-3">
+                  <Rating rating={product.rating} />
+                  <span className="border-l border-l-black pl-3">
+                    {product.rating.toFixed(1)} Rating
+                  </span>
                 </div>
 
-                <Button className="px-5 py-2 h-auto">
-                  <Icon
-                    className="mr-2 hover:text-gray-100"
-                    IconComponent={PiTote}
-                  />
-                  Add to cart
-                </Button>
-              </div>
+                <p className="flex py-3">{product.calories} cal</p>
 
-              <div className="mt-3">
-                <p>Category: Pizza</p>
-                <p>Tag: Our Shop</p>
+                <div className="flex items-center gap-5 border-b border-b-gray-200 pb-4">
+                  <div className="text-xl">
+                    <Counter
+                      counter={product.count}
+                      onAdd={onAdd}
+                      onSubract={onSubract}
+                    />
+                  </div>
 
-                <div className="flex mt-3 pb-4 border-b border-b-gray-200">
-                  <p>Share:</p>
-                  <IconList
-                    icons={singlePageLinks}
-                    iconStyles="hover:text-gray-200"
-                    listItemStyles="px-[5px] pb-0.5 bg-gray-700 rounded-full"
-                  />
+                  {cart.some((dish) => dish.id === id) ? (
+                    <Button
+                      className="px-5 py-2 h-auto group"
+                      variant="outlined"
+                      onClick={() => removeFromCart(product)}
+                    >
+                      <Icon
+                        className="mr-2 text-orange-400 group-hover:text-gray-100"
+                        IconComponent={PiTote}
+                      />
+                      Remove from cart
+                    </Button>
+                  ) : (
+                    <Button
+                      className="px-5 py-2 h-auto"
+                      onClick={() => addToCart(product)}
+                    >
+                      <Icon
+                        className="mr-2 hover:text-gray-100"
+                        IconComponent={PiTote}
+                      />
+                      Add to cart
+                    </Button>
+                  )}
+                </div>
+
+                <div className="mt-3">
+                  {wishList.some((dish) => dish.id === id) ? (
+                    <div>
+                      <Icon
+                        IconComponent={icons.heart.icon}
+                        className="text-orange-400 w-6 h-6"
+                        onClick={() => removeFromWishList(product)}
+                      />
+                      <span className="ml-3">Remove from wish list</span>
+                    </div>
+                  ) : (
+                    <div>
+                      <Icon
+                        IconComponent={icons.outlinedHeart.icon}
+                        className="text-orange-400 w-6 h-6"
+                        onClick={() => addToWishList(product)}
+                      />
+                      <span className="ml-3">Add to wish list</span>
+                    </div>
+                  )}
+                  <p>Category: {product.category.join(", ")}</p>
+                  <p>Tag: {product.tags.join(", ")}</p>
+
+                  <div className="flex mt-3 pb-4 border-b border-b-gray-200">
+                    <p>Share:</p>
+                    <IconList
+                      icons={singlePageLinks}
+                      iconStyles="hover:text-gray-200"
+                      listItemStyles="px-[5px] pb-0.5 bg-gray-700 rounded-full"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
+            </section>
           </section>
-        </section>
+        )}
 
         <article>
-          <div className="mb-6">
-            <Button size="lg">Description</Button>
-            <Link to="/" className="ml-4">
-              Reviews (24)
-            </Link>
+          <div className="mb-6 bg-orange-400 px-7 py-2 w-fit text-gray-100">
+            Description
           </div>
 
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-            eaque hic obcaecati adipisci placeat dicta quia officia ipsa, quae
-            dolor id. Consectetur velit odit doloribus delectus est ut
-            perferendis laboriosam veniam. Rem culpa sint laborum possimus
-            omnis, aspernatur non reprehenderit reiciendis quo maiores dolorem
-            adipisci accusamus quae error recusandae vel ratione ut excepturi
-            illum libero maxime laboriosam magni provident deserunt.
-          </p>
-          <p className="my-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-            eaque hic obcaecati adipisci placeat dicta quia officia ipsa, quae
-            dolor id. Consectetur velit odit doloribus delectus est ut
-            perferendis laboriosam veniam. Rem culpa sint laborum possimus
-            omnis, aspernatur non reprehenderit reiciendis quo maiores dolorem
-            adipisci accusamus quae error recusandae vel ratione ut excepturi
-            illum libero maxime laboriosam magni provident deserunt.
-          </p>
-
-          <div>
-            <h3 className="text-xl">Key Benefits</h3>
-            <ul className="list-disc pl-5">
-              <li className="my-2">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi,
-                repellat.
-              </li>
-              <li className="my-2">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi,
-                repellat.
-              </li>
-              <li className="my-2">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi,
-                repellat.
-              </li>
-              <li className="my-2">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi,
-                repellat.
-              </li>
-            </ul>
-          </div>
+          <p className="my-6">{product?.description}</p>
         </article>
 
         <section className="mt-20 mb-10">
-          <h2 className="text-3xl font-semibold mb-4">Similar Products</h2>
-          <ProductList listStyles="grid-cols-4" products={products}/>
+          <h2 className="text-3xl font-semibold mb-4">Other Products</h2>
+          <ProductList
+            listStyles={cn(
+              "flex justify-center min-h-0 overflow-x-auto coloredScrollbar pb-8",
+              {
+                "justify-start": otherDishes.length > 4,
+              }
+            )}
+            itemStyles="flex-shrink-0 w-[23.75%]"
+            products={otherDishes}
+          />
         </section>
       </Wrapper>
     </main>
+  );
+};
+
+interface ImageLinkProps {
+  src: string;
+  alt?: string;
+  path: string;
+  styles?: string;
+}
+
+const ImageLink = ({ src, alt, path, styles }: ImageLinkProps) => {
+  return (
+    <Link to={path}>
+      <img
+        className={cn(
+          "object-cover aspect-square w-32 transition-all duration-300 rounded-lg hover:border-2 hover:border-orange-400",
+          styles
+        )}
+        src={src}
+        alt={alt}
+      />
+    </Link>
   );
 };

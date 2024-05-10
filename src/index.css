@@ -21,6 +21,7 @@
 
 .coloredScrollbar::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
 }
 
 .coloredScrollbar::-webkit-scrollbar-track {
