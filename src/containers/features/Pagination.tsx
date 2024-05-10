@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Button } from "src/components/Button";
-import { Link } from "src/components/Link";
 import { TDishCount, TFilterObject } from "src/types";
 import { cn } from "src/utils";
 

@@ -114,7 +114,7 @@ export const ShopPage = () => {
             />
           </section>
           <section className="w-[30%] border border-gray-200 p-6 rounded-lg">
-            <FilterInput filter={filters} filterHandler={setFilters} />
+            <FilterInput filter={filters} filterHandler={setFilters} data={products} />
 
             <div className="my-6">
               <h4 className="font-semibold text-xl mb-4">Category</h4>
@@ -147,8 +147,8 @@ export const ShopPage = () => {
             </div>
 
             <div className="mb-4">
-              <h4 className="font-semibold text-xl mb-4">Latest Products</h4>
-              <LatestDishList dishes={products.slice(0, 4)} />
+              <h4 className="font-semibold text-xl mb-4">Popular Dishes</h4>
+              <LatestDishList dishes={products.filter(dish => dish.rating === 5).slice(0, 4)} />
             </div>
 
             <div>

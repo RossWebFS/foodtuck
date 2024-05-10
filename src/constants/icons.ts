@@ -17,11 +17,12 @@ import {
   PiTote,
   PiToteSimpleFill,
   PiCheckSquareOffset,
+  PiArrowLineUpRight,
 } from "react-icons/pi";
-import { GoShareAndroid } from "react-icons/go";
+import { GoShareAndroid, GoCommentDiscussion } from "react-icons/go";
 import { BsYoutube, BsPinterest, BsCheck } from "react-icons/bs";
 import { RiSearchLine } from "react-icons/ri";
-import { IoClose } from "react-icons/io5";
+import { IoClose, IoCalendarNumberOutline } from "react-icons/io5";
 import { CiPlay1, CiHeart } from "react-icons/ci";
 import { FaPlay, FaStar } from "react-icons/fa";
 import { FaPause } from "react-icons/fa6";
@@ -70,6 +71,9 @@ export const icons: TIcons = {
   star: { icon: FaStar },
   outlinedHeart: { icon: CiHeart },
   heart: { icon: IoMdHeart },
+  outlinedCalendar: { icon: IoCalendarNumberOutline },
+  outlinedComments: { icon: GoCommentDiscussion },
+  readMoreArrow: { icon: PiArrowLineUpRight },
 };
 
 export const footerIcons: TIcon[] = [

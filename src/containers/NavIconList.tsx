@@ -1,17 +1,21 @@
 import { SearchInputModal } from "./features/SearchInputModal";
 
-import { icons } from "src/constants";
+import { blogs, icons } from "src/constants";
 import { UserModal } from "./features/UserModal";
 import { CartModal } from "./features/CartModal";
 import { useState } from "react";
+import { useProductStore } from "src/hooks/ProductStore";
 
 export const NavIconList = () => {
   const [activeModal, setActiveModal] = useState<null | string>(null);
+  const products = useProductStore(state => state.products)
 
   return (
     <ul className="flex">
       <li className="bg-black flex items-center mx-2 border border-orange-400 rounded-full">
         <SearchInputModal
+        // link="/shop-details"
+        data={[...products, ...blogs]}
           IconComponent={icons.search.icon}
           type="text"
           placeholder="Search..."

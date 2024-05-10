@@ -14,9 +14,9 @@ import { Counter } from "src/containers/features/Counter";
 import { useProductStore } from "src/hooks/ProductStore";
 import { Rating } from "src/components/Rating";
 import { Icon } from "src/components/Icon";
+import path from "path";
 
 export const ProductSinglePage = () => {
-  const links = [routes.HOME, routes.SHOP_DETAILS];
   const [
     products,
     increaseDishCount,
@@ -40,6 +40,8 @@ export const ProductSinglePage = () => {
   ]);
 
   const { id } = useParams();
+
+  const links = [routes.HOME, {...routes.SHOP_DETAILS, path: `${routes.SHOP_DETAILS.path}/${id}`}];
 
   const product = products.find((dish) => dish.id === id);
 

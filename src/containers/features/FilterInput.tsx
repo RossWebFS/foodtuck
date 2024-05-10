@@ -1,21 +1,31 @@
-import { useState } from "react";
+import { InputHTMLAttributes, useState } from "react";
 import { Icon } from "src/components/Icon";
 import { Input } from "src/components/Input";
 import { Link } from "src/components/Link";
 import { icons } from "src/constants";
-import { useProductStore } from "src/hooks/ProductStore";
-import { TFilterObject } from "src/types";
+import { TBlog, TDishCount, TFilterObject } from "src/types";
 import { cn } from "src/utils";
 
-interface FilterInputProps {
-  filter: TFilterObject;
-  filterHandler: (value: TFilterObject) => void;
+interface FilterInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  data: TBlog[] | TDishCount[]
+  filter?: TFilterObject;
+  filterHandler?: (value: TFilterObject) => void;
 }
 
-export const FilterInput = ({ filter, filterHandler }: FilterInputProps) => {
+interface TData {
+  tags: string[];
+  title: string;
+  img: string;
+  id: string;
+}
+
+export const FilterInput = ({ filter, filterHandler, data, ...props }: FilterInputProps) => {
   const [isActiveModal, setIsActiveModal] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
-  const products = useProductStore((state) => state.products);
+
+  const commonData: TData[] = data.map(({title, id, tags, img}) => {
+    return {title, id, tags, img}
+  })
 
   const highlightText = (text: string[]) => {
     return text.map((part: string) => {
@@ -31,29 +41,31 @@ export const FilterInput = ({ filter, filterHandler }: FilterInputProps) => {
     setSearchValue(e.target.value);
     e.target.value && setIsActiveModal(true);
 
-    filterHandler({ ...filter, search: e.target.value });
+    filter && filterHandler && filterHandler({ ...filter, search: e.target.value });
   };
 
-  const searchResult = products.filter((data) => {
+  const searchResult = commonData.filter((item) => {
+    const {title, tags} = item
     const value = searchValue.toLowerCase();
     return (
-      data.title.toLowerCase().includes(value) ||
-      data.tags.join(" ").toLowerCase().includes(value)
+      title.toLowerCase().includes(value) ||
+      tags.join(" ").toLowerCase().includes(value)
     );
   });
 
   const searchListItems = searchResult.map((data) => {
-    const highlightedTitle = data.title.split(
+    const {title, img, id, tags} = data
+    const highlightedTitle = title.split(
       new RegExp(`(${searchValue})`, "gi")
     );
 
-    const highlightedTags = data.tags
+    const highlightedTags = tags
       .join(" ")
       .split(new RegExp(`(${searchValue})`, "gi"));
     return (
       <li className="my-2 text-black hover:bg-gray-200 cursor-pointer">
-        <Link className="text-lg hover:text-black flex" to={`/shop-details/${data.id}`}>
-          <img className="w-12 h-12 mr-2" src={data.img} alt={data.title} />
+        <Link className="text-lg hover:text-black flex" to={`/shop-details/${id}`}>
+          <img className="w-12 h-12 mr-2" src={img} alt={title} />
           <div>
             <h4>{highlightText(highlightedTitle)}</h4>
             <p>{highlightText(highlightedTags)}</p>
@@ -80,6 +92,7 @@ export const FilterInput = ({ filter, filterHandler }: FilterInputProps) => {
         focus:px-[15.5px]`}
         onChange={onSearchInputChange}
         onClick={() => setIsActiveModal(!isActiveModal)}
+        {...props}
       />
       <Icon
         IconComponent={icons.search.icon}
