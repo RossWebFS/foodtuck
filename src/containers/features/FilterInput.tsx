@@ -51,14 +51,14 @@ export const FilterInput = ({ filter, filterHandler }: FilterInputProps) => {
       .join(" ")
       .split(new RegExp(`(${searchValue})`, "gi"));
     return (
-      <li className="my-2 flex text-black hover:bg-gray-200 cursor-pointer">
-        <img className="w-12 h-12 mr-2" src={data.img} alt={data.title} />
-        <div>
-          <Link className="text-lg hover:text-black/70" to="/">
+      <li className="my-2 text-black hover:bg-gray-200 cursor-pointer">
+        <Link className="text-lg hover:text-black flex" to={`/shop-details/${data.id}`}>
+          <img className="w-12 h-12 mr-2" src={data.img} alt={data.title} />
+          <div>
             <h4>{highlightText(highlightedTitle)}</h4>
-          </Link>
-          <p>{highlightText(highlightedTags)}</p>
-        </div>
+            <p>{highlightText(highlightedTags)}</p>
+          </div>
+        </Link>
       </li>
     );
   });

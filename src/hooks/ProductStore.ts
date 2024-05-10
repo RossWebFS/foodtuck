@@ -12,8 +12,8 @@ interface TProductStore {
   addToWishList: (value: TDishCount) => void;
   removeFromCart: (value: TDishCount) => void;
   removeFromWishList: (value: TDishCount) => void;
-  increaseCartDish: (dish: TDishCount) => void;
-  decreaseCartDish: (dish: TDishCount) => void;
+  increaseDishCount: (dish: TDishCount) => void;
+  decreaseDishCount: (dish: TDishCount) => void;
   addBill: (price: TDishCount) => void;
   subtractBill: (price: TDishCount) => void;
 }
@@ -54,21 +54,21 @@ export const useProductStore = create(
           wishList: wishList.filter((item) => item.title !== dish.title),
         });
       },
-      increaseCartDish: (dish) => {
-        const { cart } = get();
+      increaseDishCount: (dish) => {
+        const { products } = get();
 
         set({
-          cart: cart.map((item) => {
+          products: products.map((item) => {
             if (item.title === dish.title) item.count++;
             return item;
           }),
         });
       },
-      decreaseCartDish: (dish) => {
-        const { cart } = get();
+      decreaseDishCount: (dish) => {
+        const { products } = get();
 
         set({
-          cart: cart.map((item) => {
+          products: products.map((item) => {
             if (item.title === dish.title) item.count--;
             return item;
           }),

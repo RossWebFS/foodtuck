@@ -22,7 +22,7 @@ export const FoodCategoryList = ({ foodCards }: FoodCategoryListProps) => {
             rounded="default"
             variant="button"
             size="lg"
-            to="/"
+            to="/menu"
             className="duration-500 absolute top-44 z-20 -left-48 group-hover:left-4"
           >
             {category.buttonText}

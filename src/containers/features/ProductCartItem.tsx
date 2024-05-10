@@ -11,11 +11,11 @@ interface ProductCartItemProps {
 }
 
 export const ProductCartItem = ({ product }: ProductCartItemProps) => {
-  const [removeFromCart, increaseCartDish, decreaseCartDish] = useProductStore(
+  const [removeFromCart, increaseDishCount, decreaseDishCount] = useProductStore(
     (state) => [
       state.removeFromCart,
-      state.increaseCartDish,
-      state.decreaseCartDish,
+      state.increaseDishCount,
+      state.decreaseDishCount,
     ]
   );
   const [addBill, subtractBill] = useProductStore((state) => [
@@ -25,11 +25,11 @@ export const ProductCartItem = ({ product }: ProductCartItemProps) => {
 
   const onAdd = () => {
     addBill(product);
-    increaseCartDish(product);
+    increaseDishCount(product);
   };
   const onSubtract = () => {
     subtractBill(product);
-    decreaseCartDish(product);
+    decreaseDishCount(product);
   };
 
   return (

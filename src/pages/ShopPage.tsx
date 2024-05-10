@@ -97,11 +97,21 @@ export const ShopPage = () => {
       <Wrapper wrapStyles="pt-20 max-w-[1100px]">
         <SelectProductFilter filter={filters} filterHandler={setFilters} />
 
-        <section className="flex">
-          <section className="w-[70%]">
-            <ProductList products={filteredProducts} />
+        <section className="flex h-full">
+          <section className="w-[70%] h-full">
+            <ProductList
+            listStyles="grid grid-cols-3"
+              products={filteredProducts}
+              page={filters.pagination}
+              limit={6}
+            />
 
-            {/* <Pagination products={filteredProducts} /> */}
+            <Pagination
+              products={filteredProducts}
+              filter={filters}
+              filterHandler={setFilters}
+              limit={6}
+            />
           </section>
           <section className="w-[30%] border border-gray-200 p-6 rounded-lg">
             <FilterInput filter={filters} filterHandler={setFilters} />

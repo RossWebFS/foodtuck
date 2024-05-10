@@ -16,7 +16,7 @@ export const FoodCategoryFilter = () => {
   });
 
   const filteredListItems = filterDishes.map((dish) => (
-    <li className="flex m-4 gap-2">
+    <li className="flex m-4 gap-2 self-start">
       <img
         className="object-cover w-20 h-20 rounded-md"
         src={dish.img}
@@ -24,7 +24,7 @@ export const FoodCategoryFilter = () => {
       />
       <div>
         <h5 className="font-semibold text-xl">
-          <Link to="/">{dish.title}</Link>
+          <Link to={`/shop-details/${dish.id}`}>{dish.title}</Link>
         </h5>
         <p className="text-gray-300 text-sm my-1">{dish.receipe.join(", ")}</p>
         <span className="text-lg text-orange-400 font-semibold">
@@ -47,7 +47,7 @@ export const FoodCategoryFilter = () => {
         <Tabs tabList={categoryTabs} setCategory={setCategory} />
       </section>
 
-      <section className="flex items-center h-[30rem]">
+      <section className="flex h-[30rem] items-center">
         <div className="relative w-2/5 h-full">
           <img src={menuCategoryDill} alt="decoration dill" />
           <img
