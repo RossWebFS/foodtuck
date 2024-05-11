@@ -3,16 +3,22 @@ import { cn } from "src/utils";
 
 interface RecentPropsType {
   recentPosts: TRecentPost[];
-  listTitle?: string;
-  imgRadius?: string;
+  imgStyles?: string;
+  itemStyles?: string;
+  listStyles?: string;
 }
 
-export const RecentPosts = ({ recentPosts, imgRadius, listTitle }: RecentPropsType) => {
+export const RecentPosts = ({
+  recentPosts,
+  imgStyles,
+  itemStyles,
+  listStyles,
+}: RecentPropsType) => {
   const posts = recentPosts.map((post) => {
     return (
-      <li key={post.id} className="flex my-2">
+      <li key={post.id} className={cn("flex my-4", itemStyles)}>
         <img
-          className={cn("object-contain", imgRadius)}
+          className={cn("object-cover aspect-square w-20 rounded", imgStyles)}
           src={post.img}
           alt={post.title}
         />
@@ -25,9 +31,6 @@ export const RecentPosts = ({ recentPosts, imgRadius, listTitle }: RecentPropsTy
   });
 
   return (
-    <nav>
-      {listTitle && <h3 className="text-lg font-bold">{listTitle}</h3>}
-      <ul>{posts}</ul>
-    </nav>
+      <ul className={listStyles}>{posts}</ul>
   );
 };

@@ -4,9 +4,9 @@ import { TDishCount, TFilterObject } from "src/types";
 import { cn } from "src/utils";
 
 interface PaginationProps {
-  products: TDishCount[];
-  filter: TFilterObject;
-  filterHandler: (value: TFilterObject) => void;
+  products: number;
+  filter?: TFilterObject;
+  filterHandler?: (value: TFilterObject) => void;
   limit: number
 }
 
@@ -18,10 +18,10 @@ export const Pagination = ({
 }: PaginationProps) => {
   const [activePage, setActivePage] = useState<number>(0);
 
-  const pageCount = Math.ceil(products.length / limit);
+  const pageCount = Math.ceil(products / limit);
 
   useEffect(() => {
-    filterHandler({ ...filter, pagination: activePage + 1 });
+    filterHandler && filter && filterHandler({ ...filter, pagination: activePage + 1 });
   }, [activePage]);
 
   const paginationItems = [...Array(pageCount)].map((page, index) => {

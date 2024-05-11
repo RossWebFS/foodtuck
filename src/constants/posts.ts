@@ -11,19 +11,19 @@ import BlogIntro3 from "src/assets/posts/BlogIntro3.png";
 
 export const recentPosts: TRecentPost[] = [
   {
-    img: RecentPost1,
+    img: "https://i.imgur.com/WSkTUzi.jpg",
     date: formDate(),
     title: "Recent post 1",
     id: 1,
   },
   {
-    img: RecentPost2,
+    img: "https://i.imgur.com/WSkTUzi.jpg",
     date: formDate(),
     title: "Recent post 2",
     id: 2,
   },
   {
-    img: RecentPost3,
+    img: "https://i.imgur.com/WSkTUzi.jpg",
     date: formDate(),
     title: "Recent post 3",
     id: 3,

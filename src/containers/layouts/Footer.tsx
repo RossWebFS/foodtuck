@@ -2,7 +2,7 @@ import { Wrapper } from "src/containers/layouts/Wrapper";
 import { SupportEmail } from "src/containers/features/SupportEmail";
 import { FooterInfo } from "src/containers/FooterInfo";
 import { FooterLinkList } from "src/containers/features/FooterLinkList";
-import { RecentPosts } from "src/containers/features/RecentPostList";
+import { RecentPosts } from "src/containers/features/RecentPosts";
 import { IconList } from "src/containers/features/IconList";
 
 import {
@@ -16,7 +16,6 @@ import { PiClockClockwiseLight } from "react-icons/pi";
 import footerLeaves from "src/assets/decorations/footerLeaves.png";
 
 export const Footer = () => {
-
   return (
     <footer className="bg-black text-gray-100 relative">
       <Wrapper>
@@ -55,16 +54,18 @@ export const Footer = () => {
             listItemStyles="my-5"
             links={usefulLinkRoutes}
             listTitle="Useful Links"
-            // linkStyles="hover:text-orange-400"
           />
 
           <FooterLinkList
             listItemStyles="my-5"
             links={helpRoutes}
             listTitle="Help?"
-            // linkStyles="hover:text-orange-400"
           />
-          <RecentPosts listTitle="Recent Post" recentPosts={recentPosts} />
+
+          <div>
+            <h3 className="text-lg font-bold">Recent Post</h3>
+            <RecentPosts recentPosts={recentPosts} />
+          </div>
         </section>
       </Wrapper>
 

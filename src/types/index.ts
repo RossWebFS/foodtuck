@@ -124,3 +124,11 @@ export interface TComments {
   comment: string;
   userName: string;
 }
+
+export interface TData {
+  tags: string[];
+  title: string;
+  img: string;
+  id: string;
+  baseUrl: string
+}
