@@ -68,7 +68,15 @@ export const routes: TRoutes = {
     CART: {
       routeName: "Cart",
       path: "/cart"
-    }
+    },
+    SIGN_UP: {
+      routeName: "Sign Up",
+      path: "/sign-up"
+    },
+    SIGN_IN: {
+      routeName: "Sign In",
+      path: "/sign-in"
+    },
 };
   
 export const usefulLinkRoutes: TRoute[] = [

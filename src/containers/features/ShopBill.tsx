@@ -1,6 +1,4 @@
-import { Button } from "src/components/Button";
 import { Icon } from "src/components/Icon";
-import { Input } from "src/components/Input";
 import { Link } from "src/components/Link";
 import { icons } from "src/constants";
 import { useProductStore } from "src/hooks/ProductStore";
@@ -18,13 +16,13 @@ export const ShopBill = () => {
             <p>Shipping:</p>
           </div>
           <div className="text-end">
-            <p>{`$${bill.toFixed(2)}`}</p>
-            <p>free</p>
+            <p>${Math.abs(+bill.toFixed(2))}</p>
+            <p>${Math.abs(+(bill * 0.25).toFixed(2))}</p>
           </div>
         </div>
         <div className="font-semibold text-lg border border-gray-300 rounded-b flex justify-between p-4">
           <p>Total Amount:</p>
-          <p>{`$${bill.toFixed(2)}`}</p>
+          <p>${Math.abs(+(bill * 1.25).toFixed(2))}</p>
         </div>
         <Link
           to="/checkout"

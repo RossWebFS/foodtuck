@@ -86,6 +86,17 @@ export interface TRecentPost {
   id?: number;
 }
 
+export interface TBlog {
+  title: string;
+  date: string;
+  description: string;
+  id: string;
+  img: string;
+  comments: string[];
+  user: string;
+  tags: string[];
+}
+
 // Icons & Images
 export interface TIcon {
   icon: React.ElementType;
@@ -112,4 +123,12 @@ export interface TComments {
   avatar: string;
   comment: string;
   userName: string;
+}
+
+export interface TData {
+  tags: string[];
+  title: string;
+  img: string;
+  id: string;
+  baseUrl: string
 }

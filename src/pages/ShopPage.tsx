@@ -17,7 +17,7 @@ import { FilterInput } from "src/containers/features/FilterInput";
 import { useProductStore } from "src/hooks/ProductStore";
 import { SelectProductFilter } from "src/containers/features/SelectProductFilter";
 import { useEffect, useState } from "react";
-import { TFilterObject } from "src/types";
+import { TData, TFilterObject } from "src/types";
 
 export const ShopPage = () => {
   const links = [routes.HOME, routes.SHOP];
@@ -36,6 +36,10 @@ export const ShopPage = () => {
     tag: "Select All",
     pagination: 1,
   });
+
+  const dishes: TData[] = products.map(({title, id, tags, img}) => {
+    return {title, id, tags, img, baseUrl: "/blog"}
+  })
 
   useEffect(() => {
     filterProducts(filters);
@@ -107,14 +111,14 @@ export const ShopPage = () => {
             />
 
             <Pagination
-              products={filteredProducts}
+              products={filteredProducts.length}
               filter={filters}
               filterHandler={setFilters}
               limit={6}
             />
           </section>
           <section className="w-[30%] border border-gray-200 p-6 rounded-lg">
-            <FilterInput filter={filters} filterHandler={setFilters} />
+            <FilterInput filter={filters} filterHandler={setFilters} data={dishes} />
 
             <div className="my-6">
               <h4 className="font-semibold text-xl mb-4">Category</h4>
@@ -147,8 +151,8 @@ export const ShopPage = () => {
             </div>
 
             <div className="mb-4">
-              <h4 className="font-semibold text-xl mb-4">Latest Products</h4>
-              <LatestDishList dishes={products.slice(0, 4)} />
+              <h4 className="font-semibold text-xl mb-4">Popular Dishes</h4>
+              <LatestDishList dishes={products.filter(dish => dish.rating === 5).slice(0, 4)} />
             </div>
 
             <div>

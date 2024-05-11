@@ -1,5 +1,5 @@
 import { dishes } from "src/constants";
-import { TDish, TDishCount } from "src/types";
+import { TDishCount } from "src/types";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
@@ -55,20 +55,22 @@ export const useProductStore = create(
         });
       },
       increaseDishCount: (dish) => {
-        const { products } = get();
+        const { cart } = get();
 
         set({
-          products: products.map((item) => {
-            if (item.title === dish.title) item.count++;
+          cart: cart.map((item) => {
+            if (item.title === dish.title) {
+              item.count++
+            };
             return item;
           }),
         });
       },
       decreaseDishCount: (dish) => {
-        const { products } = get();
+        const { cart } = get();
 
         set({
-          products: products.map((item) => {
+          cart: cart.map((item) => {
             if (item.title === dish.title) item.count--;
             return item;
           }),

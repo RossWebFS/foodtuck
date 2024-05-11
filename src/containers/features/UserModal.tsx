@@ -40,7 +40,7 @@ export const UserModal = ({
       >
         { activeModal === "user" && !hasUser ? (<div className="text-center w-full">
           <p className="mb-2">You don't have an account</p>
-          <Link to="/" variant="button" rounded="default">
+          <Link to="/sign-up" variant="button" rounded="default">
             Sign Up
           </Link>
         </div>) :

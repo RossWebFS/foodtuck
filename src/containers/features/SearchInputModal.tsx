@@ -6,9 +6,10 @@ import { Icon } from "src/components/Icon";
 
 import { cn } from "src/utils";
 import { Link } from "src/components/Link";
-import { useProductStore } from "src/hooks/ProductStore";
+import { TData } from "src/types";
 
 interface SearchInputProps {
+  data: TData[];
   IconComponent?: React.ElementType;
   iconStyles?: string;
   inputStyles?: string;
@@ -19,6 +20,7 @@ interface SearchInputProps {
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
 export const SearchInputModal = ({
+  data,
   IconComponent,
   iconStyles,
   inputStyles,
@@ -27,7 +29,6 @@ export const SearchInputModal = ({
   ...inputProps
 }: SearchInputProps) => {
   const [searchValue, setSearchValue] = useState<string>("");
-  const products = useProductStore((state) => state.products);
 
   const highlightText = (text: string[]) => {
     return text.map((part: string) => {
@@ -44,7 +45,7 @@ export const SearchInputModal = ({
     e.target.value && setActiveModal("search");
   };
 
-  const searchResult = products.filter((data) => {
+  const searchResult = data.filter((data) => {
     const value = searchValue.toLowerCase();
     return (
       data.title.toLowerCase().includes(value) ||
@@ -62,7 +63,7 @@ export const SearchInputModal = ({
       .split(new RegExp(`(${searchValue})`, "gi"));
     return (
       <li className="my-2 text-gray-200 hover:bg-gray-100/10">
-        <Link to={`/shop-details/${data.id}`} className="flex">
+        <Link to={`${data.baseUrl}/${data.id}`} className="flex">
           <img className="w-12 h-12 mr-2" src={data.img} alt={data.title} />
           <div>
             <h4 className="text-lg">{highlightText(highlightedTitle)}</h4>

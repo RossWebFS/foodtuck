@@ -3,7 +3,7 @@ import { MenuCategoryList } from "src/containers/features/MenuCategoryList";
 import { StatisticList } from "src/containers/StatisticList";
 import { Wrapper } from "src/containers/layouts/Wrapper";
 
-import { routes, partnersLogos, starterMenu, mainMenu } from "src/constants";
+import { routes, partnersLogos } from "src/constants";
 
 import StarterMenuImg from "src/assets/menu/StarterMenuImg.png";
 import MainMenuImg from "src/assets/menu/MainMenuImg.png";

@@ -9,6 +9,7 @@ import {
   AiOutlineTwitter,
   AiOutlineInstagram,
   AiOutlineUser,
+  AiOutlineMail
 } from "react-icons/ai";
 import {
   PiHamburgerLight,
@@ -17,15 +18,17 @@ import {
   PiTote,
   PiToteSimpleFill,
   PiCheckSquareOffset,
+  PiArrowLineUpRight,
 } from "react-icons/pi";
-import { GoShareAndroid } from "react-icons/go";
+import { GoShareAndroid, GoCommentDiscussion } from "react-icons/go";
 import { BsYoutube, BsPinterest, BsCheck } from "react-icons/bs";
 import { RiSearchLine } from "react-icons/ri";
-import { IoClose } from "react-icons/io5";
-import { CiPlay1, CiHeart } from "react-icons/ci";
+import { IoClose, IoCalendarNumberOutline } from "react-icons/io5";
+import { CiPlay1, CiHeart, CiLock } from "react-icons/ci";
 import { FaPlay, FaStar } from "react-icons/fa";
 import { FaPause } from "react-icons/fa6";
 import { IoMdHeart } from "react-icons/io";
+import { TfiLock } from "react-icons/tfi";
 
 export const icons: TIcons = {
   facebook: {
@@ -53,7 +56,7 @@ export const icons: TIcons = {
     src: "https://youtube.com",
   },
   search: { icon: RiSearchLine },
-  user: { icon: AiOutlineUser },
+  outlinedUser: { icon: AiOutlineUser },
   outlinedCart: { icon: PiTote },
   cart: { icon: PiToteSimpleFill },
   comment: { icon: BiCommentDots },
@@ -70,6 +73,11 @@ export const icons: TIcons = {
   star: { icon: FaStar },
   outlinedHeart: { icon: CiHeart },
   heart: { icon: IoMdHeart },
+  outlinedCalendar: { icon: IoCalendarNumberOutline },
+  outlinedComments: { icon: GoCommentDiscussion },
+  readMoreArrow: { icon: PiArrowLineUpRight },
+  mail: { icon: AiOutlineMail },
+  lock: {icon : TfiLock}
 };
 
 export const footerIcons: TIcon[] = [
