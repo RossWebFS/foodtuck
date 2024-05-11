@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Icon } from "src/components/Icon";
 import { Rating } from "src/components/Rating";
 import { icons } from "src/constants";

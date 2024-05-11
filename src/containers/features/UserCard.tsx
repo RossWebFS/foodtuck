@@ -31,7 +31,7 @@ export const UserCard = ({
           <p className="text-gray-500 text-lg mb-3">
             You don't have an account yet
           </p>
-          <Link to="/" variant="button" rounded="default" className="text-gray-100">
+          <Link to="/sign-up" variant="button" rounded="default" className="text-gray-100">
             Sign Up
           </Link>
         </div>

@@ -32,7 +32,7 @@ export const NavIconList = () => {
       </li>
       <li className="mx-2 my-auto">
         <UserModal
-          icon={icons.user.icon}
+          icon={icons.outlinedUser.icon}
           activeModal={activeModal}
           setActiveModal={setActiveModal}
         />
