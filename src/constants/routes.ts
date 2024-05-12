@@ -77,6 +77,10 @@ export const routes: TRoutes = {
       routeName: "Sign In",
       path: "/sign-in"
     },
+    ERROR: {
+      routeName: "404",
+      path: "/*"
+    }
 };
   
 export const usefulLinkRoutes: TRoute[] = [
