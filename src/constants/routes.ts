@@ -33,9 +33,9 @@ export const routes: TRoutes = {
       routeName: "Partners",
       path: "/partners",
     },
-    TEAM:{
-      routeName: "Team",
-      path: "/team",
+    CHEFS:{
+      routeName: "Chefs",
+      path: "/chefs",
     },
     FAQ:{
       routeName: "FAQ",
@@ -80,6 +80,10 @@ export const routes: TRoutes = {
     ERROR: {
       routeName: "404",
       path: "/*"
+    },
+    CHECKOUT: {
+      routeName: "Checkout",
+      path: "/checkout"
     }
 };
   
@@ -87,7 +91,7 @@ export const usefulLinkRoutes: TRoute[] = [
   routes.ABOUT,
   routes.NEWS,
   routes.PARTNERS,
-  routes.TEAM,
+  routes.CHEFS,
   routes.MENU,
   routes.CONTACTS,
 ];

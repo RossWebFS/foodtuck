@@ -12,6 +12,8 @@ import { SignUpPage } from "src/pages/SignUpPage";
 import { SignInPage } from "src/pages/SignInPage";
 import { ErrorPage } from "src/pages/ErrorPage";
 import { FAQPage } from "./pages/FAQPage";
+import { ChefPage } from "./pages/ChefPage";
+import { CheckoutPage } from "./pages/CheckoutPage";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/sign-up" element={<SignUpPage />}/>
         <Route path="/sign-in" element={<SignInPage />}/>
         <Route path="/faq" element={<FAQPage />}/>
+        <Route path="/chefs" element={<ChefPage />}/>
+        <Route path="/checkout" element={<CheckoutPage />}/>
         <Route path="/*" element={<ErrorPage />}/>
       </Routes>
       <Footer />
