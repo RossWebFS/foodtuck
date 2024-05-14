@@ -7,8 +7,13 @@ import { MenuPage } from "src/pages/MenuPage";
 import { ShopPage } from "src/pages/ShopPage";
 import { ProductSinglePage } from "src/pages/ProductSinglePage";
 import { CartPage } from "src/pages/CartPage";
-import { BlogPage } from "./pages/BlogPage";
-import { SignUpPage } from "./pages/SignUpPage";
+import { BlogPage } from "src/pages/BlogPage";
+import { SignUpPage } from "src/pages/SignUpPage";
+import { SignInPage } from "src/pages/SignInPage";
+import { ErrorPage } from "src/pages/ErrorPage";
+import { FAQPage } from "./pages/FAQPage";
+import { ChefPage } from "./pages/ChefPage";
+import { CheckoutPage } from "./pages/CheckoutPage";
 
 function App() {
   return (
@@ -22,6 +27,11 @@ function App() {
         <Route path="/cart" element={<CartPage />}/>
         <Route path="/blog" element={<BlogPage />}/>
         <Route path="/sign-up" element={<SignUpPage />}/>
+        <Route path="/sign-in" element={<SignInPage />}/>
+        <Route path="/faq" element={<FAQPage />}/>
+        <Route path="/chefs" element={<ChefPage />}/>
+        <Route path="/checkout" element={<CheckoutPage />}/>
+        <Route path="/*" element={<ErrorPage />}/>
       </Routes>
       <Footer />
     </BrowserRouter>
