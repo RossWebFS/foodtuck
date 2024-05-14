@@ -15,7 +15,7 @@ export const Tabs = ({ tabList, tabStyles, setCategory }: TabsProps) => {
       <li
         key={tab}
         className={cn(
-          "hover:text-gray-300 mx-9 transition-all duration-200 cursor-pointer text-lg",
+          "hover:text-gray-400 mx-9 transition-all duration-200 cursor-pointer text-lg",
           tabStyles,
           {
             "text-orange-400": activeTab === tab,

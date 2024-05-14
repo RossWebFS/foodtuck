@@ -9,6 +9,8 @@ import { FeedBackSlider } from "src/containers/FeedBackSlider";
 import { Activity } from "src/containers/Activity";
 import { RecentBlogList } from "src/containers/RecentBlogList";
 
+import BreakfastCategory from "src/assets/products/BreackfastCategory.png";
+
 export const HomePage = () => {  
   return (
     <main className="text-gray-100 bg-black">
@@ -17,7 +19,7 @@ export const HomePage = () => {
       <HomeFoodCategorySection />
       <HomeWhyUsSection />
       <StatisticList />
-      <FoodCategoryFilter />
+      <FoodCategoryFilter img={BreakfastCategory} />
       <ChefsSlider />
       <FeedBackSlider />
       <Activity />
