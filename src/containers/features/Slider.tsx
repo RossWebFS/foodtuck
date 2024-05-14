@@ -12,11 +12,13 @@ interface SliderProps {
   isDotted?: boolean;
   arrows?: boolean;
   listStyles?: string;
+  arrowStyles?: string;
 }
 
 interface CustomArrowProps {
   className?: string;
   onClick?: () => void;
+  arrowStyles?: string;
 }
 
 export const Slider = ({
@@ -25,6 +27,7 @@ export const Slider = ({
   isDotted = false,
   arrows = false,
   listStyles,
+  arrowStyles,
 }: SliderProps) => {
   const sliderOptions = {
     infinite: true,
@@ -45,8 +48,8 @@ export const Slider = ({
           </div>
         )
       : undefined,
-    nextArrow: arrows ? <CustomArrowR /> : undefined,
-    prevArrow: arrows ? <CustomArrowL /> : undefined,
+    nextArrow: arrows ? <CustomArrowR arrowStyles={arrowStyles} /> : undefined,
+    prevArrow: arrows ? <CustomArrowL arrowStyles={arrowStyles} /> : undefined,
   };
 
   return (
@@ -56,21 +59,27 @@ export const Slider = ({
   );
 };
 
-const CustomArrowL = ({ onClick }: CustomArrowProps) => {
+const CustomArrowL = ({ onClick, arrowStyles }: CustomArrowProps) => {
   return (
     <Icon
       IconComponent={FaChevronLeft}
-      className="absolute -left-16 top-[45%] w-7 h-7 text-gray-100/40 hover:text-gray-100"
+      className={cn(
+        "absolute -left-16 top-[45%] w-7 h-7 text-gray-100/40 hover:text-gray-100",
+        arrowStyles
+      )}
       onClick={onClick}
     />
   );
 };
 
-const CustomArrowR = ({ onClick }: CustomArrowProps) => {
+const CustomArrowR = ({ onClick, arrowStyles }: CustomArrowProps) => {
   return (
     <Icon
       IconComponent={FaChevronRight}
-      className="absolute -right-16 top-[45%] w-7 h-7 text-gray-100/40 hover:text-gray-100"
+      className={cn(
+        "absolute -right-16 top-[45%] w-7 h-7 text-gray-100/40 hover:text-gray-100",
+        arrowStyles
+      )}
       onClick={onClick}
     />
   );

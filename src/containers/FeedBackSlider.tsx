@@ -6,7 +6,11 @@ import { comments } from "src/constants";
 
 import FeedBackSliderFlower from "src/assets/decorations/feedBackSliderFlowers.png";
 
-export const FeedBackSlider = () => {
+interface FeedBackSliderProps {
+  themeStyles?: string
+}
+
+export const FeedBackSlider = ({themeStyles}: FeedBackSliderProps) => {
   const feedbackCards = comments.map((feedback) => {
     return (
       <FeedBackCard
@@ -30,6 +34,7 @@ export const FeedBackSlider = () => {
         list={feedbackCards}
         isDotted={true}
         arrows={true}
+        arrowStyles={themeStyles}
       />
 
       <img
