@@ -35,7 +35,7 @@ export const Activity = () => {
               variant="outlined"
               rounded="full"
               size="lg"
-              to="/activity"
+              to="/about"
             >
               Read More
             </Link>

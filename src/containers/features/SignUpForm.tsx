@@ -1,50 +1,142 @@
 import { Button } from "src/components/Button";
 import { Icon } from "src/components/Icon";
 import { icons } from "src/constants";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { cn } from "src/utils";
+import { Modal } from "src/containers/features/Modal";
+import { useState } from "react";
+import { z } from "zod";
+import {zodResolver} from "@hookform/resolvers/zod"
+
+// const schema = z.object({
+//   name: z.string(),
+//   email: z.string().email(),
+//   password: z.string().min(8)
+// })
+
+// type SignUpFields = z.infer<typeof schema>
+
+interface SignUpFields {
+  name: string;
+  email: string;
+  password: string
+}
 
 export const SignUpForm = () => {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors, isSubmitting },
+  } = useForm<SignUpFields>();
+  const [isSent, setIsSent] = useState<boolean>(false)
+  const [isActiveSendingModal, setIsActiveSendingModal] = useState<boolean>(false)
+
+  const onSubmit: SubmitHandler<SignUpFields> = async (data) => {
+    try {
+      // there will be requst to the backend
+      setIsSent(true);
+      console.log(data);
+    } catch(err) {
+          setIsSent(false);
+      setError("root", {
+        message: "This email ia slready taken"
+      })
+    } finally {
+          setIsActiveSendingModal(true);
+          setTimeout(() => {
+            setIsActiveSendingModal(false);
+          }, 2000);
+        }
+  };
+
   return (
     <section className="px-4 py-8 shadow-2xl shadow-orange-300/40 w-96 mx-auto">
       <h2 className="text-xl font-semibold mb-6">Sign Up</h2>
 
-      <form action="">
+      <form onSubmit={handleSubmit(onSubmit)} action="">
+        {errors.name && (
+          <div className="text-red-500">{errors.name?.message}</div>
+        )}
+
         <div className="relative my-3">
           <Icon
             IconComponent={icons.outlinedUser.icon}
             className="z-10 absolute w-6 h-6 text-gray-700 hover:text-gray-500 top-2 left-2"
           />
           <input
-            className="pl-10 pr-5 py-2 w-full border border-gray-300 focus:outline-orange-400"
+            className={cn(
+              "pl-10 pr-5 py-2 w-full border border-gray-300 focus:outline-orange-400",
+              {
+                "focus:outline-red-500": errors.name,
+              }
+            )}
             type="text"
-            name="userName"
             id=""
             placeholder="Name"
+            {...register("name", {
+              required: "The name is required",
+            })}
           />
         </div>
+        {errors.email && (
+          <div className="text-red-500">{errors.email?.message}</div>
+        )}
+
         <div className="relative my-3">
           <Icon
             IconComponent={icons.mail.icon}
             className="z-10 absolute w-6 h-6 text-gray-700 hover:text-gray-500 top-2 left-2"
           />
           <input
-            className="pl-10 pr-5 py-2 w-full border border-gray-300 focus:outline-orange-400"
+            className={cn(
+              "pl-10 pr-5 py-2 w-full border border-gray-300 focus:outline-orange-400",
+              {
+                "focus:outline-red-500": errors.email,
+              }
+            )}
             type="email"
-            name="userName"
             id=""
             placeholder="Email"
+            {...register("email", {
+              required: "The email is required",
+              validate: (value) => {
+                return /^[\w-]+(\.[\w-]+)*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/.test(
+                  value
+                )
+                  ? true
+                  : "Invalid email";
+              },
+            })}
           />
         </div>
+        {errors.password && (
+          <div className="text-red-500">{errors.password?.message}</div>
+        )}
+
         <div className="relative my-3">
           <Icon
             IconComponent={icons.lock.icon}
             className="z-10 absolute w-6 h-6 text-gray-700 hover:text-gray-500 top-2 left-2 font-semibold"
           />
           <input
-            className="pl-10 pr-5 py-2 w-full border border-gray-300 focus:outline-orange-400"
+            className={cn(
+              "pl-10 pr-5 py-2 w-full border border-gray-300 focus:outline-orange-400",
+              {
+                "focus:outline-red-500": errors.password,
+              }
+            )}
             type="password"
-            name="userName"
             id=""
             placeholder="Password"
+            {...register("password", {
+              required: "The password is required",
+              validate: (value) => {
+                return /^[^\s\t]{8,}$/.test(value)
+                  ? true
+                  : "Password must be at least 8 characters long and cannot contain spaces or tabs.";
+              },
+            })}
           />
         </div>
 
@@ -65,10 +157,6 @@ export const SignUpForm = () => {
         <p className="text-end text-gray-500 mt-3">Forgot password?</p>
 
         <div className="border-t border-t-gray-300 pt-5 relative mt-10">
-          <span className="border border-gray-300 py-0.5 px-1 absolute -top-4 left-[46%] bg-white">
-            OR
-          </span>
-
           <button className="flex justify-center py-2 w-full bg-transparent border border-gray-300 my-2 relative">
             <svg
               enable-background="new 0 0 48 48"
@@ -112,6 +200,13 @@ export const SignUpForm = () => {
           </button>
         </div>
       </form>
+
+      <Modal
+        succesfulMes="Sign up Succesfully"
+        errorMes="Something went wrong. Try again"
+        isActive={isActiveSendingModal}
+        isSuccesful={!isSent}
+      />
     </section>
   );
 };
