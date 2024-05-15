@@ -11,7 +11,6 @@ const links = [
   routes.BLOG,
   routes.ABOUT,
   routes.SHOP,
-  routes.CONTACTS,
 ];
 
 export const Header = () => {
