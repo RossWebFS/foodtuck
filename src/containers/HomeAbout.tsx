@@ -8,24 +8,33 @@ import HomeAbout1 from "src/assets/products/HomeAbout1.png";
 import HomeAbout2 from "src/assets/products/HomeAbout2.png";
 import HomeAbout3 from "src/assets/products/HomeAbout3.png";
 import { useEffect } from "react";
-import { dishService } from "src/services/DishService";
 import { TDish } from "src/types";
+import { dishService } from "src/services/DishService";
 
 export const HomeAboutSection = () => {
   useEffect(() => {
-    // getDishes()
     // postDishes()
+    // getDishes()
   }, []);
 
   const getDishes = async () => {
-    const data = await dishService.getDishes()
-    console.log(data)
-  }
+    const dishes = await dishService.getDishes();
+    console.log(dishes);
+  };
+
+  const getDishById = async () => {
+    const dish = await dishService.getDishById("6644a72a4f4b95cdc794c566");
+    console.log(dish);
+  };
+
+  const deleteDish = async () => {
+    const res = await dishService.deleteDish("6644a72a4f4b95cdc794c566");
+  };
 
   const postDishes = async () => {
     fetch("https://foodtuck-api-3023b9355fd1.herokuapp.com/dishes", {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         img: "https://nowcookthis.com/wp-content/uploads/2019/05/easy-homemade-lime-lemonade-thumbnail.jpg",
         title: "Lime Lemonade",
@@ -42,9 +51,9 @@ export const HomeAboutSection = () => {
         Please take a moment to remember and honor all the courageous souls who died while 
         serving this country and made the ultimate sacrifice to protect our freedoms – and 
         also to thank and honor all the brave men and women who are serving today.`,
-      })
-    })
-  }
+      }),
+    });
+  };
 
   const listItemContent = [
     "Lorem ipsum dolor sit amet consectetur adipisicing elit.",

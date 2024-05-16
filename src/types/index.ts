@@ -23,7 +23,7 @@ export interface TDish {
 
 export interface TDishCount extends TDish {
   count: number;
-  id: string
+  id: string;
 }
 
 export interface TFoodCategoryCard {
@@ -97,6 +97,16 @@ export interface TBlog {
   tags: string[];
 }
 
+export interface TPost {
+  img: string;
+  date: string;
+  title: string;
+  description: string;
+  text: string;
+  comments: string[];
+  tags: string[];
+}
+
 // Icons & Images
 export interface TIcon {
   icon: React.ElementType;
@@ -107,9 +117,14 @@ export interface TIcons {
   [key: string]: TIcon;
 }
 
-export interface TTeamMember {
+export interface TTeamMember1 {
   name: string;
   img: string;
+  status: string;
+}
+export interface TTeamMember {
+  name: string;
+  avatar: string;
   status: string;
 }
 
@@ -130,5 +145,5 @@ export interface TData {
   title: string;
   img: string;
   id: string;
-  baseUrl: string
+  baseUrl: string;
 }

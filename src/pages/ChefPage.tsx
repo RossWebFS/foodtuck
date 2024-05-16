@@ -9,7 +9,7 @@ export const ChefPage = () => {
   const chefs = team.map((member) => {
     return (
       <li className="w-[24%] shrink-0 shadow-lg">
-        <img src={member.img} alt={member.status} />
+        <img src={member.avatar} alt={member.status} />
         <div>
           <h2 className="text-center text-xl font-semibold mt-3">
             {member.name}
