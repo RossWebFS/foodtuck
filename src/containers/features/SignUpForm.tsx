@@ -5,21 +5,12 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { cn } from "src/utils";
 import { Modal } from "src/containers/features/Modal";
 import { useState } from "react";
-import { z } from "zod";
-import {zodResolver} from "@hookform/resolvers/zod"
-
-// const schema = z.object({
-//   name: z.string(),
-//   email: z.string().email(),
-//   password: z.string().min(8)
-// })
-
-// type SignUpFields = z.infer<typeof schema>
+import { useUserStore } from "src/store/UserStore";
 
 interface SignUpFields {
   name: string;
   email: string;
-  password: string
+  password: string;
 }
 
 export const SignUpForm = () => {
@@ -27,34 +18,36 @@ export const SignUpForm = () => {
     register,
     handleSubmit,
     setError,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<SignUpFields>();
-  const [isSent, setIsSent] = useState<boolean>(false)
-  const [isActiveSendingModal, setIsActiveSendingModal] = useState<boolean>(false)
+  const [isActiveSendingModal, setIsActiveSendingModal] =
+    useState<boolean>(false);
+  const [isAuth, signUp] = useUserStore((state) => [
+    state.isAuth,
+    state.signUp,
+  ]);
 
   const onSubmit: SubmitHandler<SignUpFields> = async (data) => {
+    const { name, email, password } = data;
     try {
-      // there will be requst to the backend
-      setIsSent(true);
-      console.log(data);
-    } catch(err) {
-          setIsSent(false);
+      signUp(name, email, password);
+    } catch (err) {
       setError("root", {
-        message: "This email ia slready taken"
-      })
+        message: "This email ia slready taken",
+      });
     } finally {
-          setIsActiveSendingModal(true);
-          setTimeout(() => {
-            setIsActiveSendingModal(false);
-          }, 2000);
-        }
+      setIsActiveSendingModal(true);
+      setTimeout(() => {
+        setIsActiveSendingModal(false);
+      }, 2000);
+    }
   };
 
   return (
     <section className="px-4 py-8 shadow-2xl shadow-orange-300/40 w-96 mx-auto">
       <h2 className="text-xl font-semibold mb-6">Sign Up</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)} action="">
+      <form onSubmit={handleSubmit(onSubmit)}>
         {errors.name && (
           <div className="text-red-500">{errors.name?.message}</div>
         )}
@@ -72,7 +65,6 @@ export const SignUpForm = () => {
               }
             )}
             type="text"
-            id=""
             placeholder="Name"
             {...register("name", {
               required: "The name is required",
@@ -96,7 +88,6 @@ export const SignUpForm = () => {
               }
             )}
             type="email"
-            id=""
             placeholder="Email"
             {...register("email", {
               required: "The email is required",
@@ -127,7 +118,6 @@ export const SignUpForm = () => {
               }
             )}
             type="password"
-            id=""
             placeholder="Password"
             {...register("password", {
               required: "The password is required",
@@ -205,7 +195,7 @@ export const SignUpForm = () => {
         succesfulMes="Sign up Succesfully"
         errorMes="Something went wrong. Try again"
         isActive={isActiveSendingModal}
-        isSuccesful={!isSent}
+        isSuccesful={isAuth}
       />
     </section>
   );

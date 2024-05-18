@@ -3,20 +3,19 @@ import { Rating } from "src/components/Rating";
 import { icons } from "src/constants";
 import { TDishCount } from "src/types";
 import { Counter } from "./Counter";
-import { useProductStore } from "src/hooks/ProductStore";
+import { useProductStore } from "src/store/ProductStore";
 
 interface ProductCartItemProps {
   product: TDishCount;
 }
 
 export const ProductCartItem = ({ product }: ProductCartItemProps) => {
-  const [removeFromCart, increaseDishCount, decreaseDishCount] = useProductStore(
-    (state) => [
+  const [removeFromCart, increaseDishCount, decreaseDishCount] =
+    useProductStore((state) => [
       state.removeFromCart,
       state.increaseDishCount,
       state.decreaseDishCount,
-    ]
-  );
+    ]);
   const [addBill, subtractBill] = useProductStore((state) => [
     state.addBill,
     state.subtractBill,

@@ -9,7 +9,7 @@ import HomeAbout2 from "src/assets/products/HomeAbout2.png";
 import HomeAbout3 from "src/assets/products/HomeAbout3.png";
 import { useEffect } from "react";
 import { TDish } from "src/types";
-import { dishService } from "src/services/DishService";
+import { dishService } from "src/services/Dishes";
 
 export const HomeAboutSection = () => {
   useEffect(() => {

@@ -4,7 +4,7 @@ import { TTeamMember } from "src/types";
 const baseUrl = "https://foodtuck-api-3023b9355fd1.herokuapp.com/dishes";
 
 export const dishService = {
-  getDishes: async () => {
+  getTeamMembers: async () => {
     try {
       const res = await axios(baseUrl);
       return res.data;
@@ -13,7 +13,7 @@ export const dishService = {
       return [];
     }
   },
-  getDishById: async (memberId: string) => {
+  getTeamMemberById: async (memberId: string) => {
     try {
       const res = await axios(`${baseUrl}/${memberId}`);
       return res.data;
@@ -22,7 +22,7 @@ export const dishService = {
       return [];
     }
   },
-  postDish: async (member: TTeamMember) => {
+  postTeamMember: async (member: TTeamMember) => {
     try {
       const res = await axios.post(baseUrl, member);
       return res.data;
@@ -31,7 +31,7 @@ export const dishService = {
       return null;
     }
   },
-  deleteDish: async (memberId: string) => {
+  deleteTeamMember: async (memberId: string) => {
     try {
       const res = await axios.delete(`${baseUrl}/${memberId}`);
       return res.status === 204;

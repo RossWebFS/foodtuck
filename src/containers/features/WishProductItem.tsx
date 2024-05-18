@@ -1,7 +1,7 @@
 import { Icon } from "src/components/Icon";
 import { Rating } from "src/components/Rating";
 import { icons } from "src/constants";
-import { useProductStore } from "src/hooks/ProductStore";
+import { useProductStore } from "src/store/ProductStore";
 import { TDishCount } from "src/types";
 
 interface WishProductItemProps {
