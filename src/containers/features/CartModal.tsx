@@ -1,6 +1,6 @@
 import { Icon } from "src/components/Icon";
 import { Link } from "src/components/Link";
-import { useProductStore } from "src/hooks/ProductStore";
+import { useProductStore } from "src/store/ProductStore";
 import { cn } from "src/utils";
 
 interface CartModalProps {

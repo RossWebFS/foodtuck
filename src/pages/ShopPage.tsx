@@ -14,7 +14,7 @@ import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import { foodCategories, routes } from "src/constants";
 import { formPrice } from "src/utils";
 import { FilterInput } from "src/containers/features/FilterInput";
-import { useProductStore } from "src/hooks/ProductStore";
+import { useProductStore } from "src/store/ProductStore";
 import { SelectProductFilter } from "src/containers/features/SelectProductFilter";
 import { useEffect, useState } from "react";
 import { TData, TFilterObject } from "src/types";
@@ -37,9 +37,9 @@ export const ShopPage = () => {
     pagination: 1,
   });
 
-  const dishes: TData[] = products.map(({title, id, tags, img}) => {
-    return {title, id, tags, img, baseUrl: "/blog"}
-  })
+  const dishes: TData[] = products.map(({ title, id, tags, img }) => {
+    return { title, id, tags, img, baseUrl: "/blog" };
+  });
 
   useEffect(() => {
     filterProducts(filters);
@@ -104,7 +104,7 @@ export const ShopPage = () => {
         <section className="flex h-full">
           <section className="w-[70%] h-full">
             <ProductList
-            listStyles="grid grid-cols-3"
+              listStyles="grid grid-cols-3"
               products={filteredProducts}
               page={filters.pagination}
               limit={6}
@@ -118,7 +118,11 @@ export const ShopPage = () => {
             />
           </section>
           <section className="w-[30%] border border-gray-200 p-6 rounded-lg">
-            <FilterInput filter={filters} filterHandler={setFilters} data={dishes} />
+            <FilterInput
+              filter={filters}
+              filterHandler={setFilters}
+              data={dishes}
+            />
 
             <div className="my-6">
               <h4 className="font-semibold text-xl mb-4">Category</h4>
@@ -152,7 +156,11 @@ export const ShopPage = () => {
 
             <div className="mb-4">
               <h4 className="font-semibold text-xl mb-4">Popular Dishes</h4>
-              <LatestDishList dishes={products.filter(dish => dish.rating === 5).slice(0, 4)} />
+              <LatestDishList
+                dishes={products
+                  .filter((dish) => dish.rating === 5)
+                  .slice(0, 4)}
+              />
             </div>
 
             <div>

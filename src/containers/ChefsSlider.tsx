@@ -10,7 +10,7 @@ export const ChefsSlider = () => {
   const slides = chefs.map((item) => {
     return (
       <li className="w-60" key={item.name}>
-        <img className="w-60 mx-auto" src={item.img} alt={item.status} />
+        <img className="w-60 mx-auto" src={item.avatar} alt={item.status} />
         <div className="bg-gray-100 text-black p-3 rounded-b w-60 mx-auto">
           <p className="font-semibold text-lg">{item.name}</p>
           <p>{item.status}</p>

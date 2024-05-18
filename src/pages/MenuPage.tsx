@@ -9,7 +9,7 @@ import StarterMenuImg from "src/assets/menu/StarterMenuImg.png";
 import MainMenuImg from "src/assets/menu/MainMenuImg.png";
 import DessertMenuImg from "src/assets/menu/DessertMenuImg.png";
 import DrinkMenuImg from "src/assets/menu/DrinkMenuImg.png";
-import { useProductStore } from "src/hooks/ProductStore";
+import { useProductStore } from "src/store/ProductStore";
 
 export const MenuPage = () => {
   const links = [routes.HOME, routes.MENU];

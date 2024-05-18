@@ -10,7 +10,7 @@ interface ModalProps {
 
 export const Modal = ({
   isSuccesful,
-  isActive = false,
+  isActive = false, 
   succesfulMes,
   errorMes,
 }: ModalProps) => {

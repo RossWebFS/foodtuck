@@ -2,7 +2,7 @@ import { Icon } from "src/components/Icon";
 import { Link } from "src/components/Link";
 import { icons } from "src/constants";
 import { cn } from "src/utils";
-import { useProductStore } from "src/hooks/ProductStore";
+import { useProductStore } from "src/store/ProductStore";
 import { TDishCount } from "src/types";
 
 interface ProductListProps {
@@ -105,12 +105,7 @@ export const ProductList = ({
   });
 
   return products.length ? (
-    <ul
-      className={cn(
-        "gap-5 min-h-[42rem] items-start mr-5",
-        listStyles
-      )}
-    >
+    <ul className={cn("gap-5 min-h-[42rem] items-start mr-5", listStyles)}>
       {limit
         ? page
           ? shopItems.slice(limit * (page - 1), limit * page)

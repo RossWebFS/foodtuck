@@ -1,7 +1,7 @@
 import { Icon } from "src/components/Icon";
 import { Link } from "src/components/Link";
 import { icons } from "src/constants";
-import { useProductStore } from "src/hooks/ProductStore";
+import { useProductStore } from "src/store/ProductStore";
 
 export const ShopBill = () => {
   const bill = useProductStore((state) => state.bill);

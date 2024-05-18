@@ -3,7 +3,7 @@ import { PageIntro } from "src/containers/features/PageIntro";
 import { ProductCartItem } from "src/containers/features/ProductCartItem";
 import { Wrapper } from "src/containers/layouts/Wrapper";
 import { WishProductItem } from "src/containers/features/WishProductItem";
-import { useProductStore } from "src/hooks/ProductStore";
+import { useProductStore } from "src/store/ProductStore";
 import { Link } from "src/components/Link";
 import { ShopBill } from "src/containers/features/ShopBill";
 import { TDishCount } from "src/types";

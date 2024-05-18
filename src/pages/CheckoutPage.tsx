@@ -4,7 +4,7 @@ import { Input } from "src/components/Input";
 import { routes } from "src/constants";
 import { PageIntro } from "src/containers/features/PageIntro";
 import { Wrapper } from "src/containers/layouts/Wrapper";
-import { useProductStore } from "src/hooks/ProductStore";
+import { useProductStore } from "src/store/ProductStore";
 import { TESelect } from "tw-elements-react";
 
 export const CheckoutPage = () => {
@@ -81,11 +81,13 @@ export const CheckoutPage = () => {
               </label>
               <TESelect
                 id="request-filter"
-                data={[
-                //   { text: "Below 300", value: "low" },
-                //   { text: "Between 300 and 600", value: "middle" },
-                //   { text: "Over 600", value: "high" },
-                ]}
+                data={
+                  [
+                    //   { text: "Below 300", value: "low" },
+                    //   { text: "Between 300 and 600", value: "middle" },
+                    //   { text: "Over 600", value: "high" },
+                  ]
+                }
                 className="h-12 w-96 rounded-none"
                 placeholder="Choose country"
                 onValueChange={(e) => {}}
@@ -97,11 +99,13 @@ export const CheckoutPage = () => {
               </label>
               <TESelect
                 id="request-filter"
-                data={[
-                //   { text: "Below 300", value: "low" },
-                //   { text: "Between 300 and 600", value: "middle" },
-                //   { text: "Over 600", value: "high" },
-                ]}
+                data={
+                  [
+                    //   { text: "Below 300", value: "low" },
+                    //   { text: "Between 300 and 600", value: "middle" },
+                    //   { text: "Over 600", value: "high" },
+                  ]
+                }
                 className="h-12 w-96 rounded-none"
                 placeholder="Choose city"
                 onValueChange={(e) => {}}

@@ -6,17 +6,17 @@ import { TTeamMember } from "src/types";
 export const chefs: TTeamMember[] = [
   {
     name: "D.Estwood",
-    img: chef1,
+    avatar: chef1,
     status: "Chef",
   },
   {
     name: "D.Estwood",
-    img: chef2,
+    avatar: chef2,
     status: "Assistant Chef",
   },
   {
     name: "D.Estwood",
-    img: chef3,
+    avatar: chef3,
     status: "Advertizing Chef",
   },
 ];
@@ -24,62 +24,62 @@ export const chefs: TTeamMember[] = [
 export const team = [
   {
     name: "Vlad",
-    img: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
+    avatar: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
     status: "chef",
   },
   {
     name: "Vlad",
-    img: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
+    avatar: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
     status: "chef",
   },
   {
     name: "Vlad",
-    img: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
+    avatar: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
     status: "chef",
   },
   {
     name: "Vlad",
-    img: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
+    avatar: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
     status: "chef",
   },
   {
     name: "Vlad",
-    img: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
+    avatar: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
     status: "chef",
   },
   {
     name: "Vlad",
-    img: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
+    avatar: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
     status: "chef",
   },
   {
     name: "Vlad",
-    img: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
+    avatar: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
     status: "chef",
   },
   {
     name: "Vlad",
-    img: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
+    avatar: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
     status: "chef",
   },
   {
     name: "Vlad",
-    img: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
+    avatar: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
     status: "chef",
   },
   {
     name: "Vlad",
-    img: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
+    avatar: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
     status: "chef",
   },
   {
     name: "Vlad",
-    img: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
+    avatar: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
     status: "chef",
   },
   {
     name: "Vlad",
-    img: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
+    avatar: "https://kusinagrillhouse.com/wp-content/uploads/2021/02/febrian-zakaria-SiQgni-cqFg-unsplash.png",
     status: "chef",
   },
 ];
