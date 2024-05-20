@@ -147,3 +147,11 @@ export interface TData {
   id: string;
   baseUrl: string;
 }
+
+export interface TUser {
+  avatar?: string;
+  name: string;
+  email: string;
+  password: string;
+  id: string
+}

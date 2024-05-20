@@ -6,6 +6,8 @@ import { CartModal } from "./features/CartModal";
 import { useState } from "react";
 import { useProductStore } from "src/store/ProductStore";
 import { TData } from "src/types";
+import { Link } from "src/components/Link";
+import { Icon } from "src/components/Icon";
 
 export const NavIconList = () => {
   const [activeModal, setActiveModal] = useState<null | string>(null);
@@ -31,11 +33,14 @@ export const NavIconList = () => {
         />
       </li>
       <li className="mx-2 my-auto">
-        <UserModal
+        {/* <UserModal
           icon={icons.outlinedUser.icon}
           activeModal={activeModal}
           setActiveModal={setActiveModal}
-        />
+        /> */}
+        <Link variant="colored" to="/profile">
+          <Icon IconComponent={icons.outlinedUser.icon} className="w-5 h-5" />
+        </Link>
       </li>
       <li className="mx-2 my-auto">
         <CartModal
