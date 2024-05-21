@@ -21,16 +21,9 @@ export const BlogPage = () => {
     );
   });
 
-  const blogArr: TData[] = blogs.map(({ title, id, tags, img }) => {
-    return { title, id, tags, img, baseUrl: "/blog" };
+  const blogArr: TData[] = blogs.map(({ title, _id, tags, img }) => {
+    return { title, _id, tags, img, baseUrl: "/blog" };
   });
-
-  //   const media = [
-  //     icons.facebook,
-  //     icons.twitter,
-  //     icons.instagram,
-  //     icons.outlinedPinterest,
-  //   ];
 
   return (
     <main className="py-20">
@@ -51,7 +44,7 @@ export const BlogPage = () => {
             placeholder="Search Blog.."
           />
 
-          <UserCard />
+          {/* <UserCard /> */}
 
           <div className="my-10 p-6 border border-gray-200">
             <h3 className="text-2xl font-semibold">Recent Post</h3>

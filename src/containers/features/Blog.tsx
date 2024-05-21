@@ -40,7 +40,7 @@ export const Blog = ({ blog }: BlogProps) => {
       </ul>
       <h2 className="pb-6 w-3/4 border-b border-b-gray-200 text-2xl font-semibold"></h2>
       <p className="my-6 w-3/4">{blog.description}</p>
-      <Link to={`/blog/${blog.id}`} size="lg" variant="outlined" className="group">
+      <Link to={`/blog/${blog._id}`} size="lg" variant="outlined" className="group">
         Read More
         <Icon
           IconComponent={icons.readMoreArrow.icon}

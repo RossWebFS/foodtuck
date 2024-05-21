@@ -10,8 +10,14 @@ import { Activity } from "src/containers/Activity";
 import { RecentBlogList } from "src/containers/RecentBlogList";
 
 import BreakfastCategory from "src/assets/products/BreackfastCategory.png";
+import { useProductStore } from "src/store/ProductStore";
+import { useEffect } from "react";
 
-export const HomePage = () => {  
+export const HomePage = () => {
+  const fetchProducts = useProductStore((state) => state.fetchProducts);
+  useEffect(() => {
+    fetchProducts();
+  }, []);
   return (
     <main className="text-gray-100 bg-black">
       <HomeIntroSection />

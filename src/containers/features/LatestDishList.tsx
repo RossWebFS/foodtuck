@@ -13,7 +13,7 @@ export const LatestDishList = ({ dishes }: LatestDishListProps) => {
         <img className="w-16 h-16" src={dish.img} alt={dish.title} />
         <div className="pl-2">
           <h5 className="text-lg font-semibold">
-            <Link variant="colored" to={`/shop-details/${dish.id}`}>
+            <Link variant="colored" to={`/shop-details/${dish._id}`}>
               {dish.title}
             </Link>
           </h5>

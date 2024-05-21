@@ -1,10 +1,6 @@
 import { TBlog, TRecentPost } from "src/types";
 import { formDate } from "src/utils";
 
-import RecentPost1 from "src/assets/posts/RecentPost1.png";
-import RecentPost2 from "src/assets/posts/RecentPost2.png";
-import RecentPost3 from "src/assets/posts/RecentPost3.png";
-
 import BlogIntro1 from "src/assets/posts/BlogIntro1.png";
 import BlogIntro2 from "src/assets/posts/BlogIntro2.png";
 import BlogIntro3 from "src/assets/posts/BlogIntro3.png";
@@ -63,7 +59,7 @@ export const blogs: TBlog[] = [
     tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
     impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
     consequatur`,
-    id: "brhfbgoi",
+    _id: "brhfbgoi",
     img: "https://i.imgur.com/WSkTUzi.jpg",
     comments: [],
     user: "",
@@ -77,7 +73,7 @@ export const blogs: TBlog[] = [
     tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
     impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
     consequatur`,
-    id: "brhfbgoi",
+    _id: "brhfbgoi",
     img: "https://i.imgur.com/WSkTUzi.jpg",
     comments: [],
     user: "",
@@ -91,7 +87,7 @@ export const blogs: TBlog[] = [
     tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
     impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
     consequatur`,
-    id: "brhfbgoi",
+    _id: "brhfbgoi",
     img: "https://i.imgur.com/WSkTUzi.jpg",
     comments: [],
     user: "",

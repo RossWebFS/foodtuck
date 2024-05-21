@@ -18,14 +18,17 @@ import { useProductStore } from "src/store/ProductStore";
 import { SelectProductFilter } from "src/containers/features/SelectProductFilter";
 import { useEffect, useState } from "react";
 import { TData, TFilterObject } from "src/types";
+import { dishService } from "src/services/Dishes";
 
 export const ShopPage = () => {
   const links = [routes.HOME, routes.SHOP];
-  const [products, cart, wishList] = useProductStore((state) => [
+  const [products, cart, wishList, fetchProducts] = useProductStore((state) => [
     state.products,
     state.cart,
     state.wishList,
+    state.fetchProducts,
   ]);
+
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [filters, setFilters] = useState<TFilterObject>({
     preferred: [],
@@ -37,13 +40,17 @@ export const ShopPage = () => {
     pagination: 1,
   });
 
-  const dishes: TData[] = products.map(({ title, id, tags, img }) => {
-    return { title, id, tags, img, baseUrl: "/blog" };
+  const dishes: TData[] = products.map(({ title, _id, tags, img }) => {
+    return { title, _id, tags, img, baseUrl: "/blog" };
   });
 
   useEffect(() => {
     filterProducts(filters);
   }, [filters]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   const filterProducts = (filter: TFilterObject) => {
     const filteredData = products.filter((item) => {

@@ -13,11 +13,11 @@ export const NavIconList = () => {
   const [activeModal, setActiveModal] = useState<null | string>(null);
   const products = useProductStore((state) => state.products);
 
-  const dishes: TData[] = products.map(({ title, id, tags, img }) => {
-    return { title, id, tags, img, baseUrl: "/shop-details" };
+  const dishes: TData[] = products.map(({ title, _id, tags, img }) => {
+    return { title, _id, tags, img, baseUrl: "/shop-details" };
   });
-  const blogArr: TData[] = blogs.map(({ title, id, tags, img }) => {
-    return { title, id, tags, img, baseUrl: "/blog" };
+  const blogArr: TData[] = blogs.map(({ title, _id, tags, img }) => {
+    return { title, _id, tags, img, baseUrl: "/blog" };
   });
 
   return (
@@ -39,7 +39,11 @@ export const NavIconList = () => {
           setActiveModal={setActiveModal}
         /> */}
         <Link variant="colored" to="/profile">
-          <Icon IconComponent={icons.outlinedUser.icon} className="w-5 h-5" />
+          <Icon
+            onClick={() => setActiveModal(null)}
+            IconComponent={icons.outlinedUser.icon}
+            className="w-5 h-5"
+          />
         </Link>
       </li>
       <li className="mx-2 my-auto">
