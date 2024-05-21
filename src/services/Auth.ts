@@ -34,7 +34,7 @@ export const AuthService = {
     email: string,
     password: string
   ): Promise<AxiosResponse> => {
-    return api.post("/use/sign-up", {
+    return api.post("/users/sign-up", {
       name,
       email,
       password,

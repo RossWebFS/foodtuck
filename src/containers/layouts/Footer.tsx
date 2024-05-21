@@ -6,8 +6,8 @@ import { RecentPosts } from "src/containers/features/RecentPosts";
 import { IconList } from "src/containers/features/IconList";
 
 import {
-  usefulLinkRoutes,
-  helpRoutes,
+  usefulLinks,
+  helpLinks,
   recentPosts,
   footerIcons,
 } from "src/constants";
@@ -52,13 +52,13 @@ export const Footer = () => {
 
           <FooterLinkList
             listItemStyles="my-5"
-            links={usefulLinkRoutes}
+            links={usefulLinks}
             listTitle="Useful Links"
           />
 
           <FooterLinkList
             listItemStyles="my-5"
-            links={helpRoutes}
+            links={helpLinks}
             listTitle="Help?"
           />
 

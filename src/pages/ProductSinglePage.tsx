@@ -14,7 +14,7 @@ import { Counter } from "src/containers/features/Counter";
 import { useProductStore } from "src/store/ProductStore";
 import { Rating } from "src/components/Rating";
 import { Icon } from "src/components/Icon";
-import path from "path";
+import { useEffect } from "react";
 
 export const ProductSinglePage = () => {
   const [
@@ -27,6 +27,7 @@ export const ProductSinglePage = () => {
     removeFromCart,
     addToWishList,
     removeFromWishList,
+    fetchProducts,
   ] = useProductStore((state) => [
     state.products,
     state.increaseDishCount,
@@ -37,16 +38,21 @@ export const ProductSinglePage = () => {
     state.removeFromCart,
     state.addToWishList,
     state.removeFromWishList,
+    state.fetchProducts,
   ]);
 
   const { id } = useParams();
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   const links = [
     routes.HOME,
     { ...routes.SHOP_DETAILS, path: `${routes.SHOP_DETAILS.path}/${id}` },
   ];
 
-  const product = products.find((dish) => dish.id === id);
+  const product = products.find((dish) => dish._id === id);
 
   const onAdd = () => {
     product && increaseDishCount(product);
@@ -58,18 +64,16 @@ export const ProductSinglePage = () => {
   const sameDishes = products.filter((dish) => {
     return (
       dish.category.some((category) => product?.category.includes(category)) &&
-      dish.id !== id
+      dish._id !== id
     );
   });
 
   const otherDishes = products.filter((dish) => {
     return (
       !dish.category.some((category) => product?.category.includes(category)) &&
-      dish.id !== id
+      dish._id !== id
     );
   });
-
-  console.log(sameDishes);
 
   return (
     <main className="py-20">
@@ -81,7 +85,7 @@ export const ProductSinglePage = () => {
               {sameDishes[0] && (
                 <ImageLink
                   src={sameDishes[0].img}
-                  path={`/shop-details/${sameDishes[0].id}`}
+                  path={`/shop-details/${sameDishes[0]._id}`}
                   alt={sameDishes[0].title}
                 />
               )}
@@ -93,21 +97,21 @@ export const ProductSinglePage = () => {
               {sameDishes[1] && (
                 <ImageLink
                   src={sameDishes[1].img}
-                  path={`/shop-details/${sameDishes[1].id}`}
+                  path={`/shop-details/${sameDishes[1]._id}`}
                   alt={sameDishes[1].title}
                 />
               )}
               {sameDishes[2] && (
                 <ImageLink
                   src={sameDishes[2].img}
-                  path={`/shop-details/${sameDishes[2].id}`}
+                  path={`/shop-details/${sameDishes[2]._id}`}
                   alt={sameDishes[2].title}
                 />
               )}
               {sameDishes[3] && (
                 <ImageLink
                   src={sameDishes[3].img}
-                  path={`/shop-details/${sameDishes[3].id}`}
+                  path={`/shop-details/${sameDishes[3]._id}`}
                   alt={sameDishes[3].title}
                 />
               )}
@@ -138,13 +142,25 @@ export const ProductSinglePage = () => {
                 <div className="flex items-center gap-5 border-b border-b-gray-200 pb-4">
                   <div className="text-xl">
                     <Counter
-                      counter={product.count}
+                      counter={cart.find((dish) => dish._id === id)?.count || 0}
                       onAdd={onAdd}
                       onSubract={onSubract}
+                      upStyles={cn({
+                        "text-gray-400 cursor-default hover:bg-transparent":
+                          !cart.some((dish) => dish._id === id),
+                      })}
+                      downStyles={cn({
+                        "text-gray-400 cursor-default hover:bg-transparent":
+                          !cart.some((dish) => dish._id === id),
+                      })}
+                      counterStyle={cn({
+                        "text-gray-400 cursor-default hover:bg-transparent":
+                          !cart.some((dish) => dish._id === id),
+                      })}
                     />
                   </div>
 
-                  {cart.some((dish) => dish.id === id) ? (
+                  {cart.some((dish) => dish._id === id) ? (
                     <Button
                       className="px-5 py-2 h-auto group"
                       variant="outlined"
@@ -171,7 +187,7 @@ export const ProductSinglePage = () => {
                 </div>
 
                 <div className="mt-3">
-                  {wishList.some((dish) => dish.id === id) ? (
+                  {wishList.some((dish) => dish._id === id) ? (
                     <div>
                       <Icon
                         IconComponent={icons.heart.icon}

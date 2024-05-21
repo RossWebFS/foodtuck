@@ -63,7 +63,7 @@ export const SearchInputModal = ({
       .split(new RegExp(`(${searchValue})`, "gi"));
     return (
       <li className="my-2 text-gray-200 hover:bg-gray-100/10">
-        <Link to={`${data.baseUrl}/${data.id}`} className="flex">
+        <Link to={`${data.baseUrl}/${data._id}`} className="flex">
           <img className="w-12 h-12 mr-2" src={data.img} alt={data.title} />
           <div>
             <h4 className="text-lg">{highlightText(highlightedTitle)}</h4>

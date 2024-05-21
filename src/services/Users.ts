@@ -10,9 +10,9 @@ export const usersService = {
       return [];
     }
   },
-  getUserById: async () => {
+  getUserById: async (userId: string) => {
     try {
-      const res = await api("/users");
+      const res = await api(`/users/${userId}`);
       return res.data;
     } catch (error) {
       console.error("Error fetching user by id:", error);

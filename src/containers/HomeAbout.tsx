@@ -8,52 +8,9 @@ import HomeAbout1 from "src/assets/products/HomeAbout1.png";
 import HomeAbout2 from "src/assets/products/HomeAbout2.png";
 import HomeAbout3 from "src/assets/products/HomeAbout3.png";
 import { useEffect } from "react";
-import { TDish } from "src/types";
-import { dishService } from "src/services/Dishes";
+import { useProductStore } from "src/store/ProductStore";
 
 export const HomeAboutSection = () => {
-  useEffect(() => {
-    // postDishes()
-    // getDishes()
-  }, []);
-
-  const getDishes = async () => {
-    const dishes = await dishService.getDishes();
-    console.log(dishes);
-  };
-
-  const getDishById = async () => {
-    const dish = await dishService.getDishById("6644a72a4f4b95cdc794c566");
-    console.log(dish);
-  };
-
-  const deleteDish = async () => {
-    const res = await dishService.deleteDish("6644a72a4f4b95cdc794c566");
-  };
-
-  const postDishes = async () => {
-    fetch("https://foodtuck-api-3023b9355fd1.herokuapp.com/dishes", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        img: "https://nowcookthis.com/wp-content/uploads/2019/05/easy-homemade-lime-lemonade-thumbnail.jpg",
-        title: "Lime Lemonade",
-        calories: 150,
-        category: ["Drink", "Vegetarian"],
-        tags: ["Lemonade"],
-        rating: 4,
-        price: 5.99,
-        receipe: ["Lemon juice", "Lime juice", "Sugar", "Water"],
-        description: `Over at my gram’s house, summer meant limeade – 
-        which sounded totally weird to me at the time – but once I tried it, 
-        I was in love! I think it came from the freezer section (it even had pulp in it). 
-        It tasted so fresh and delicious. Let’s not forget the true meaning of the holiday. 
-        Please take a moment to remember and honor all the courageous souls who died while 
-        serving this country and made the ultimate sacrifice to protect our freedoms – and 
-        also to thank and honor all the brave men and women who are serving today.`,
-      }),
-    });
-  };
 
   const listItemContent = [
     "Lorem ipsum dolor sit amet consectetur adipisicing elit.",

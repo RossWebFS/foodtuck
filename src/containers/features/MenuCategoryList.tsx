@@ -22,7 +22,7 @@ export const MenuCategoryList = ({
       <li className="flex justify-between my-8">
         <div>
           <h3 className="text-xl font-semibold">
-            <Link variant="colored" to={`/shop-details/${dish.id}`}>
+            <Link variant="colored" to={`/shop-details/${dish._id}`}>
               {dish.title}
             </Link>
           </h3>

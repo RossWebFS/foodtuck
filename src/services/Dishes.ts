@@ -13,7 +13,7 @@ export const dishService = {
       return [];
     }
   },
-  getDishById: async (dishId: string) => {
+  getDishById: async (dishId: string | undefined) => {
     try {
       const res = await axios(`${baseUrl}/${dishId}`);
       return res.data;

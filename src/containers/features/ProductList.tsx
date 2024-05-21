@@ -41,6 +41,7 @@ export const ProductList = ({
     const hasDishInWishList = wishList.some(
       (item) => item.title === dish.title
     );
+    console.log(dish._id)
     return (
       <li
         className={cn(
@@ -56,7 +57,7 @@ export const ProductList = ({
         <div className="p-2">
           <h5 className="text-lg font-semibold my-1">
             <Link
-              to={`/shop-details/${dish.id}`}
+              to={`/shop-details/${dish._id}`}
               className="hover:text-orange-500"
             >
               {dish.title}

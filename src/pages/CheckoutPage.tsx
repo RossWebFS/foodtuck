@@ -15,7 +15,7 @@ export const CheckoutPage = () => {
       <li className="my-3 hover:bg-gray-200">
         <Link
           className="flex gap-3 hover:text-black"
-          to={`/shop-details/${dish.id}`}
+          to={`/shop-details/${dish._id}`}
         >
           <img className="w-20 h-20" src={dish.img} alt={dish.title} />
           <div>

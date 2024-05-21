@@ -19,11 +19,12 @@ export interface TDish {
   description: string;
   title: string;
   price: number;
+  _id: string;
 }
 
 export interface TDishCount extends TDish {
   count: number;
-  id: string;
+  // id: string;
 }
 
 export interface TFoodCategoryCard {
@@ -90,7 +91,7 @@ export interface TBlog {
   title: string;
   date: string;
   description: string;
-  id: string;
+  _id: string;
   img: string;
   comments: string[];
   user: string;
@@ -144,6 +145,14 @@ export interface TData {
   tags: string[];
   title: string;
   img: string;
-  id: string;
+  _id: string;
   baseUrl: string;
+}
+
+export interface TUser {
+  avatar?: string;
+  name: string;
+  email: string;
+  password: string;
+  id: string
 }

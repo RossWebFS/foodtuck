@@ -6,6 +6,7 @@ import { cn } from "src/utils";
 import { Modal } from "src/containers/features/Modal";
 import { useState } from "react";
 import { useUserStore } from "src/store/UserStore";
+import { Link } from "src/components/Link";
 
 interface SignUpFields {
   name: string;
@@ -189,6 +190,12 @@ export const SignUpForm = () => {
             Sign up with Apple
           </button>
         </div>
+        <p className="text-center mt-2">
+          Already have an account?{" "}
+          <Link className="hover:text-gray-500" to="/sign-in">
+            Sign in
+          </Link>
+        </p>
       </form>
 
       <Modal

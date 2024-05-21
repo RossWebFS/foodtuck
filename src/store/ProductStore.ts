@@ -1,13 +1,14 @@
-import { dishes } from "src/constants";
+import { dishService } from "src/services/Dishes";
 import { TDishCount } from "src/types";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 interface TProductStore {
-  products: TDishCount[];
+  products: TDishCount[] | [];
   cart: TDishCount[];
   wishList: TDishCount[];
   bill: number;
+  fetchProducts: () => void;
   addToCart: (value: TDishCount) => void;
   addToWishList: (value: TDishCount) => void;
   removeFromCart: (value: TDishCount) => void;
@@ -22,12 +23,20 @@ export const useProductStore = create(
   persist<TProductStore>(
     (set, get) => ({
       bill: 0,
-      products: dishes,
+      products: [],
+      fetchProducts: async () => {
+        const data = await dishService.getDishes();
+        set({
+          products: data.map((dish: TDishCount) => {
+            return { ...dish, count: 0 };
+          }),
+        });
+      },
       cart: [],
       wishList: [],
       addToCart: (dish) => {
         const { cart } = get();
-        dish.count = 0
+        dish.count = 0;
         set({
           cart: [...cart, dish],
         });
@@ -44,7 +53,11 @@ export const useProductStore = create(
 
         set({
           bill: bill - dish.price * dish.count,
-          cart: cart.filter((item) => item.title !== dish.title),
+          cart: cart
+            .filter((item) => item.title !== dish.title)
+            .map((item) => {
+              return { ...item, count: 0};
+            }),
         });
       },
       removeFromWishList: (dish) => {
@@ -60,8 +73,8 @@ export const useProductStore = create(
         set({
           cart: cart.map((item) => {
             if (item.title === dish.title) {
-              item.count++
-            };
+              item.count++;
+            }
             return item;
           }),
         });

@@ -54,7 +54,7 @@ export const FilterInput = ({
   });
 
   const searchListItems = searchResult.map((data) => {
-    const { title, img, id, tags } = data;
+    const { title, img, _id, tags } = data;
     const highlightedTitle = title.split(new RegExp(`(${searchValue})`, "gi"));
 
     const highlightedTags = tags
@@ -64,7 +64,7 @@ export const FilterInput = ({
       <li className="my-2 text-black hover:bg-gray-200 cursor-pointer">
         <Link
           className="text-lg hover:text-black flex"
-          to={`/shop-details/${id}`}
+          to={`/shop-details/${_id}`}
         >
           <img className="w-12 h-12 mr-2" src={img} alt={title} />
           <div>
