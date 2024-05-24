@@ -23,19 +23,22 @@ export const SignInForm = () => {
 
   const [isActiveSendingModal, setIsActiveSendingModal] =
     useState<boolean>(false);
-  const [isAuth, signIn] = useUserStore((state) => [
+  const [isAuth, signIn, setAuth] = useUserStore((state) => [
     state.isAuth,
     state.signIn,
+    state.setAuth
   ]);
 
   const onSubmit: SubmitHandler<SignInFields> = async (data) => {
     const { email, password } = data;
     try {
       signIn(email, password);
+      setAuth(true)
     } catch (err) {
       setError("root", {
         message: "This email ia slready taken",
       });
+      setAuth(false)
     } finally {
       setIsActiveSendingModal(true);
       setTimeout(() => {

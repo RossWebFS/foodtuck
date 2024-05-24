@@ -23,19 +23,22 @@ export const SignUpForm = () => {
   } = useForm<SignUpFields>();
   const [isActiveSendingModal, setIsActiveSendingModal] =
     useState<boolean>(false);
-  const [isAuth, signUp] = useUserStore((state) => [
+  const [isAuth, signUp, setAuth] = useUserStore((state) => [
     state.isAuth,
     state.signUp,
+    state.setAuth
   ]);
 
   const onSubmit: SubmitHandler<SignUpFields> = async (data) => {
     const { name, email, password } = data;
     try {
       signUp(name, email, password);
+      setAuth(true)
     } catch (err) {
       setError("root", {
         message: "This email ia slready taken",
       });
+      setAuth(false)
     } finally {
       setIsActiveSendingModal(true);
       setTimeout(() => {
@@ -47,7 +50,6 @@ export const SignUpForm = () => {
   return (
     <section className="px-4 py-8 shadow-2xl shadow-orange-300/40 w-96 mx-auto">
       <h2 className="text-xl font-semibold mb-6">Sign Up</h2>
-
       <form onSubmit={handleSubmit(onSubmit)}>
         {errors.name && (
           <div className="text-red-500">{errors.name?.message}</div>

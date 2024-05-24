@@ -3,19 +3,15 @@ import { AuthService } from "src/services/Auth";
 import { usersService } from "src/services/Users";
 import { TUser } from "src/types";
 import { create } from "zustand";
+import defaultUser from "src/assets/users/defaultUser.png"
 
 interface TUseUserStore {
-  user: TUser | {};
+  user: TUser;
   isAuth: boolean;
   setAuth: (bool: boolean) => void;
   signIn: (email: string, password: string) => void;
   signUp: (email: string, password: string, userName: string) => void;
 }
-
-// interface TUser {
-//   email: string;
-//   password: string;
-// }
 
 interface TPayload {
   id: string;
@@ -24,7 +20,13 @@ interface TPayload {
 }
 
 export const useUserStore = create<TUseUserStore>((set) => ({
-  user: {},
+  user: {
+    avatar: defaultUser,
+    name: "",
+    email: "",
+    _id: "1",
+    password: ""
+  },
   isAuth: false,
   setAuth: (bool: boolean) => {
     set({
@@ -39,12 +41,12 @@ export const useUserStore = create<TUseUserStore>((set) => ({
       const user: TUser = await usersService.getUserById(payload.id);
       console.log(user)
       set({
-        isAuth: true,
+        // isAuth: true,
         user: user,
       });
     } catch (err) {
       set({
-        isAuth: false,
+        // isAuth: false,
       });
     }
   },
@@ -56,12 +58,12 @@ export const useUserStore = create<TUseUserStore>((set) => ({
       const user: TUser = await usersService.getUserById(payload.id);
       console.log(user)
       set({
-        isAuth: true,
+        // isAuth: true,
         user: user,
       });
     } catch (err) {
       set({
-        isAuth: false,
+        // isAuth: false,
       });
     }
   },
