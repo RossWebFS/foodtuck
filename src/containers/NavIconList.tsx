@@ -12,7 +12,7 @@ import { useUserStore } from "src/store/UserStore";
 export const NavIconList = () => {
   const [activeModal, setActiveModal] = useState<null | string>(null);
   const products = useProductStore((state) => state.products);
-  const isAuth = useUserStore(state => state.isAuth)
+  const [isAuth, user] = useUserStore(state => [state.isAuth, state.user])
 
   const dishes: TData[] = products.map(({ title, _id, tags, img }) => {
     return { title, _id, tags, img, baseUrl: "/shop-details" };
@@ -39,7 +39,7 @@ export const NavIconList = () => {
           activeModal={activeModal}
           setActiveModal={setActiveModal}
         /> */}
-        <Link variant="colored" to={isAuth ? "/profile" : "/sign-up"}>
+        <Link variant="colored" to={isAuth ? `/profile/${user?.id}` : "/sign-up"}>
           <Icon
             onClick={() => setActiveModal(null)}
             IconComponent={icons.outlinedUser.icon}

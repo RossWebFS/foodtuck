@@ -1,12 +1,12 @@
-import axios from "axios";
+import api from "src/http";
 import { TTeamMember } from "src/types";
 
-const baseUrl = "https://foodtuck-api-3023b9355fd1.herokuapp.com/dishes";
+const url = "/team-members";
 
 export const dishService = {
   getTeamMembers: async () => {
     try {
-      const res = await axios(baseUrl);
+      const res = await api(url);
       return res.data;
     } catch (error) {
       console.error("Error fetching members:", error);
@@ -15,7 +15,7 @@ export const dishService = {
   },
   getTeamMemberById: async (memberId: string) => {
     try {
-      const res = await axios(`${baseUrl}/${memberId}`);
+      const res = await api(`${url}/${memberId}`);
       return res.data;
     } catch (error) {
       console.error("Error fetching member by id:", error);
@@ -24,7 +24,7 @@ export const dishService = {
   },
   postTeamMember: async (member: TTeamMember) => {
     try {
-      const res = await axios.post(baseUrl, member);
+      const res = await api.post(url, member);
       return res.data;
     } catch (error) {
       console.error("Error creating member:", error);
@@ -33,7 +33,7 @@ export const dishService = {
   },
   deleteTeamMember: async (memberId: string) => {
     try {
-      const res = await axios.delete(`${baseUrl}/${memberId}`);
+      const res = await api.delete(`${url}/${memberId}`);
       return res.status === 204;
     } catch (error) {
       console.error("Error deleting member:", error);

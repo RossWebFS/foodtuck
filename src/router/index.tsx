@@ -80,7 +80,7 @@ export const router = createBrowserRouter([
         element: <AboutPage />,
       },
       {
-        path: "/profile",
+        path: "/profile/:userId",
         element: <ProfilePage />,
       },
       {

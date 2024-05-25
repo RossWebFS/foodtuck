@@ -150,9 +150,9 @@ export interface TData {
 }
 
 export interface TUser {
-  avatar?: string;
+  avatar: string;
   name: string;
   email: string;
   password: string;
-  _id: string
+  id: string
 }

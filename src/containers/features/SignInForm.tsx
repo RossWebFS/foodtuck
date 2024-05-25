@@ -5,8 +5,9 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from "src/components/Link";
 import { cn } from "src/utils";
 import { useUserStore } from "src/store/UserStore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal } from "./Modal";
+import { useNavigate } from "react-router-dom";
 
 interface SignInFields {
   email: string;
@@ -23,22 +24,27 @@ export const SignInForm = () => {
 
   const [isActiveSendingModal, setIsActiveSendingModal] =
     useState<boolean>(false);
-  const [isAuth, signIn, setAuth] = useUserStore((state) => [
+  const [isAuth, signIn, user] = useUserStore((state) => [
     state.isAuth,
     state.signIn,
-    state.setAuth
+    state.user
   ]);
+
+  const navigateToUser = useNavigate()
+
+  useEffect(() => {
+    console.log(user)
+    user && navigateToUser(`/profile/${user.id}`)
+  }, [navigateToUser, user])
 
   const onSubmit: SubmitHandler<SignInFields> = async (data) => {
     const { email, password } = data;
     try {
-      signIn(email, password);
-      setAuth(true)
+      await signIn(email, password);
     } catch (err) {
       setError("root", {
         message: "This email ia slready taken",
       });
-      setAuth(false)
     } finally {
       setIsActiveSendingModal(true);
       setTimeout(() => {

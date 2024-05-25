@@ -4,9 +4,10 @@ import { icons } from "src/constants";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { cn } from "src/utils";
 import { Modal } from "src/containers/features/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUserStore } from "src/store/UserStore";
 import { Link } from "src/components/Link";
+import { useNavigate } from "react-router-dom";
 
 interface SignUpFields {
   name: string;
@@ -23,22 +24,20 @@ export const SignUpForm = () => {
   } = useForm<SignUpFields>();
   const [isActiveSendingModal, setIsActiveSendingModal] =
     useState<boolean>(false);
-  const [isAuth, signUp, setAuth] = useUserStore((state) => [
+  const [isAuth, signUp, user] = useUserStore((state) => [
     state.isAuth,
     state.signUp,
-    state.setAuth
+    state.user
   ]);
 
   const onSubmit: SubmitHandler<SignUpFields> = async (data) => {
     const { name, email, password } = data;
     try {
-      signUp(name, email, password);
-      setAuth(true)
+      await signUp(name, email, password);
     } catch (err) {
       setError("root", {
         message: "This email ia slready taken",
       });
-      setAuth(false)
     } finally {
       setIsActiveSendingModal(true);
       setTimeout(() => {
@@ -46,6 +45,12 @@ export const SignUpForm = () => {
       }, 2000);
     }
   };
+
+  const navigateToUser = useNavigate()
+
+  useEffect(() => {
+    user && navigateToUser(`/profile/${user.id}`)
+  }, [navigateToUser, user])
 
   return (
     <section className="px-4 py-8 shadow-2xl shadow-orange-300/40 w-96 mx-auto">

@@ -1,24 +1,6 @@
 import { AxiosResponse } from "axios";
 import api from "src/http";
 
-interface SignInResponse {
-  accessToken: string;
-  refreshToken: string;
-}
-interface SignUpResponse {
-  accessToken: string;
-  refreshToken: string;
-}
-
-interface SignInForm {
-  email: string;
-  password: string;
-}
-
-interface SignUpForm extends SignInForm {
-  userName: string;
-}
-
 export const AuthService = {
   signIn: async (
     email: string,
