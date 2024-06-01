@@ -83,7 +83,7 @@ export const routes: TRoutes = {
   },
   PROFILE: {
     routeName: "Profile",
-    path: "/profile/*",
+    path: "/profile",
   },
   ERROR: {
     routeName: "404",

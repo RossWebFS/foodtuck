@@ -34,11 +34,6 @@ export const NavIconList = () => {
         />
       </li>
       <li className="mx-2 my-auto">
-        {/* <UserModal
-          icon={icons.outlinedUser.icon}
-          activeModal={activeModal}
-          setActiveModal={setActiveModal}
-        /> */}
         <Link variant="colored" to={isAuth ? `/profile/${user?.id}` : "/sign-up"}>
           <Icon
             onClick={() => setActiveModal(null)}

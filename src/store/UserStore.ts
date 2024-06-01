@@ -55,16 +55,21 @@ export const useUserStore = create<TUseUserStore>((set) => ({
       );
       localStorage.setItem("token", response.data.token);
       const payload: TPayload = jwtDecode(response.data.token);
-      const user: TUser = await usersService.getUserById(payload.id);
-      const { name, email, password } = user;
+      const data: TUser = await usersService.getUserById(payload.id);
+      const { name, email, password } = data;
+      const { _id, ...user } = await usersService.updateUser(payload.id, {
+        id: payload.id,
+        name,
+        email,
+        password,
+        avatar: "https://cdn-icons-png.flaticon.com/512/1144/1144760.png",
+      });
+      console.log(user);
       set({
         isAuth: true,
         user: {
-          name,
-          email,
-          password,
-          id: payload.id,
-          avatar: "https://cdn-icons-png.flaticon.com/512/1144/1144760.png",
+          ...user,
+          id: _id,
         },
       });
     } catch (err) {
@@ -81,8 +86,10 @@ export const useUserStore = create<TUseUserStore>((set) => ({
     });
   },
   update: async (id, userData) => {
+    const { _id, ...data } = await usersService.updateUser(id, userData);
+    console.log(data)
     set({
-      user: await usersService.updateUser(id, userData),
+      user: { id: _id, ...data },
     });
   },
 }));

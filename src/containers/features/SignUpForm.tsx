@@ -30,6 +30,12 @@ export const SignUpForm = () => {
     state.user
   ]);
 
+  const navigateToUser = useNavigate()
+
+  useEffect(() => {
+    user && signUpHandler()
+  }, [user, navigateToUser]);
+
   const onSubmit: SubmitHandler<SignUpFields> = async (data) => {
     const { name, email, password } = data;
     try {
@@ -38,19 +44,25 @@ export const SignUpForm = () => {
       setError("root", {
         message: "This email ia slready taken",
       });
-    } finally {
-      setIsActiveSendingModal(true);
-      setTimeout(() => {
-        setIsActiveSendingModal(false);
-      }, 2000);
+      showModal();
     }
   };
 
-  const navigateToUser = useNavigate()
-
-  useEffect(() => {
+  const signUpHandler = async () => {
+    await showModal();
     user && navigateToUser(`/profile/${user.id}`)
-  }, [navigateToUser, user])
+  }
+
+  const showModal = () => {
+    setIsActiveSendingModal(true);
+
+    return new Promise((resolve) =>
+      setTimeout(() => {
+        setIsActiveSendingModal(false);
+        resolve("");
+      }, 2000)
+    ).then(() => user && navigateToUser(`/profile/${user.id}`));
+  };
 
   return (
     <section className="px-4 py-8 shadow-2xl shadow-orange-300/40 w-96 mx-auto">

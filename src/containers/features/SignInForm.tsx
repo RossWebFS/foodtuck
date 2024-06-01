@@ -27,30 +27,42 @@ export const SignInForm = () => {
   const [isAuth, signIn, user] = useUserStore((state) => [
     state.isAuth,
     state.signIn,
-    state.user
+    state.user,
   ]);
 
-  const navigateToUser = useNavigate()
+  const navigateToUser = useNavigate();
 
   useEffect(() => {
-    console.log(user)
-    user && navigateToUser(`/profile/${user.id}`)
-  }, [navigateToUser, user])
+    user && loginHandler()
+  }, [user, navigateToUser]);
 
   const onSubmit: SubmitHandler<SignInFields> = async (data) => {
     const { email, password } = data;
+
     try {
       await signIn(email, password);
-    } catch (err) {
+    } catch (error) {
       setError("root", {
         message: "This email ia slready taken",
       });
-    } finally {
-      setIsActiveSendingModal(true);
+      showModal();
+    }
+  };
+
+  const loginHandler = async () => {
+    await showModal();
+    user && navigateToUser(`/profile/${user.id}`)
+  }
+
+  const showModal = () => {
+    setIsActiveSendingModal(true);
+
+    return new Promise((resolve, reject) =>
       setTimeout(() => {
         setIsActiveSendingModal(false);
-      }, 2000);
-    }
+        resolve("");
+      }, 2000)
+    );
   };
 
   return (

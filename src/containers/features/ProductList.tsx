@@ -41,7 +41,6 @@ export const ProductList = ({
     const hasDishInWishList = wishList.some(
       (item) => item.title === dish.title
     );
-    console.log(dish._id)
     return (
       <li
         className={cn(

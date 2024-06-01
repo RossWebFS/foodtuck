@@ -22,6 +22,20 @@ export const usersService = {
       return [];
     }
   },
+  checkUser: async (token: string, userId: string) => {
+    try {
+      const res = await api(`${url}/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      console.log(res.data)
+      return res.data
+    } catch(error) {
+      console.log("Error check user", error)
+      return null
+    }
+  } ,
   updateUser: async (userId: string, updatedUser: TUser) => {
     try {
       const res = await api.patch(`${url}/${userId}`, updatedUser);
