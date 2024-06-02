@@ -1,10 +1,8 @@
 import { jwtDecode } from "jwt-decode";
 import { AuthService } from "src/services/Auth";
 import { usersService } from "src/services/Users";
-import { TUser } from "src/types";
+import { TPayload, TUser } from "src/types";
 import { create } from "zustand";
-
-// type UserWithoutId = Omit<TUser, '_id'>;
 
 interface TUseUserStore {
   user: TUser | null;
@@ -14,12 +12,6 @@ interface TUseUserStore {
   signUp: (emailData: string, passwordData: string, userData: string) => void;
   signOut: () => void;
   update: (id: string, userdata: TUser) => void;
-}
-
-interface TPayload {
-  id: string;
-  iat: number;
-  exp: number;
 }
 
 export const useUserStore = create<TUseUserStore>((set) => ({
@@ -64,7 +56,6 @@ export const useUserStore = create<TUseUserStore>((set) => ({
         password,
         avatar: "https://cdn-icons-png.flaticon.com/512/1144/1144760.png",
       });
-      console.log(user);
       set({
         isAuth: true,
         user: {
@@ -87,7 +78,6 @@ export const useUserStore = create<TUseUserStore>((set) => ({
   },
   update: async (id, userData) => {
     const { _id, ...data } = await usersService.updateUser(id, userData);
-    console.log(data)
     set({
       user: { id: _id, ...data },
     });

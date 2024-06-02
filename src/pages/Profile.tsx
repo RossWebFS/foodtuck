@@ -92,7 +92,7 @@ export const ProfilePage = () => {
               <div className="flex gap-8">
                 <p className="text-gray-500 mt-10">Profile photo</p>
                 <img
-                  src={img}
+                  src={img || "https://cdn-icons-png.flaticon.com/512/1144/1144760.png"}
                   alt="avatar"
                   className="rounded-full w-40 h-40 object-cover"
                 />

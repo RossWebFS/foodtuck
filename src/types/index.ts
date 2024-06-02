@@ -156,3 +156,9 @@ export interface TUser {
   password: string;
   id: string
 }
+
+export interface TPayload {
+  id: string;
+  iat: number;
+  exp: number;
+}
