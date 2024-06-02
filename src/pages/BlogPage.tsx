@@ -1,12 +1,22 @@
-import { useCallback, useMemo, useState } from "react";
-import { blogs, routes } from "src/constants";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { routes } from "src/constants";
 import { Blog } from "src/containers/features/Blog";
 import { PageIntro } from "src/containers/features/PageIntro";
 import { Pagination } from "src/containers/features/Pagination";
 import { BlogSidebar } from "src/containers/layouts/BlogSidebar";
 import { Wrapper } from "src/containers/layouts/Wrapper";
+import { useBlogStore } from "src/store/BlogStore";
 
 export const BlogPage = () => {
+  const [blogs, getBlogs] = useBlogStore((state) => [
+    state.blogs,
+    state.getBlogs,
+  ]);
+
+  useEffect(() => {
+    !blogs.length && getBlogs();
+  }, [blogs]);
+
   const links = [routes.HOME, routes.BLOG];
   const limit = 2;
 
@@ -30,7 +40,7 @@ export const BlogPage = () => {
         ? blogCards.slice(limit * (page - 1), limit * page)
         : blogCards.slice(0, limit)
       : blogCards;
-  }, [page]);
+  }, [page, blogs]);
 
   return (
     <main className="py-20">

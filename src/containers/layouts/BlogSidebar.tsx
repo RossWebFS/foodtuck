@@ -1,13 +1,42 @@
-import { footerIcons, blogs } from "src/constants";
+import { footerIcons, foodCategories } from "src/constants";
 import { FilterInput } from "../features/FilterInput";
 import { IconList } from "../features/IconList";
 import { RecentPosts } from "../features/RecentPosts";
 import { TData } from "src/types";
 import { getRecentBlogs } from "src/utils";
+import { useBlogStore } from "src/store/BlogStore";
 
 export const BlogSidebar = () => {
+  const blogs = useBlogStore((state) => state.blogs);
+
   const blogArr: TData[] = blogs.map(({ title, _id, tags, img }) => {
-    return { title, _id, tags, img, baseUrl: "/blog-details" };
+    return { title, _id, tags, img: img[0], baseUrl: "/blog-details" };
+  });
+
+  const tags = blogs
+    .map((blog) => blog.tags.join(", "))
+    .join(", ")
+    .split(", ");
+
+  const filteredCategories = foodCategories.filter((category) =>
+    tags.includes(category)
+  );
+
+  const blogList = filteredCategories.map((category) => {
+    const filteredBlogs = blogs.filter((blog) => blog.tags.includes(category));
+    return (
+      <li className="flex justify-between items-center my-5" onClick={() => {}}>
+        <div className="flex items-center">
+          <img
+            src={filteredBlogs[0].img[0]}
+            alt="post"
+            className="rounded-lg w-16 h-16 object-cover"
+          />
+          <h3 className="text-lg font-semibold ml-4">{category}</h3>
+        </div>
+        <span>{filteredBlogs.length}</span>
+      </li>
+    );
   });
 
   return (
@@ -29,54 +58,15 @@ export const BlogSidebar = () => {
 
       <div className="my-10 p-6 border border-gray-200">
         <h3 className="text-2xl font-semibold mb-6">Filter By Menu</h3>
-        <ul>
-          <li className="flex justify-between items-center my-5">
-            <div className="flex items-center">
-              <img
-                src="https://meatandco.co.uk/cdn/shop/files/TheSteaksareHigh.jpg?v=1688629953"
-                alt="post"
-                className="rounded-lg w-16 object-cover"
-              />
-              <h3 className="text-lg font-semibold ml-4">Dish</h3>
-            </div>
-            <span>0</span>
-          </li>
-          <li className="flex justify-between items-center my-5">
-            <div className="flex items-center">
-              <img
-                src="https://meatandco.co.uk/cdn/shop/files/TheSteaksareHigh.jpg?v=1688629953"
-                alt="post"
-                className="rounded-lg w-16 object-cover"
-              />
-              <h3 className="text-lg font-semibold ml-4">Dish</h3>
-            </div>
-            <span>0</span>
-          </li>
-          <li className="flex justify-between items-center my-5">
-            <div className="flex items-center">
-              <img
-                src="https://meatandco.co.uk/cdn/shop/files/TheSteaksareHigh.jpg?v=1688629953"
-                alt="post"
-                className="rounded-lg w-16 object-cover"
-              />
-              <h3 className="text-lg font-semibold ml-4">Dish</h3>
-            </div>
-            <span>0</span>
-          </li>
-        </ul>
+        <ul>{blogList}</ul>
       </div>
 
       <div className="my-10 p-6 border border-gray-200">
         <h3 className="text-2xl font-semibold mb-6">Popular Tags</h3>
         <ul className="flex gap-4 flex-wrap">
-          <li className="px-4 py-1 border border-gray-200">Tag</li>
-          <li className="px-4 py-1 border border-gray-200">Tag</li>
-          <li className="px-4 py-1 border border-gray-200">Tag</li>
-          <li className="px-4 py-1 border border-gray-200">Tag</li>
-          <li className="px-4 py-1 border border-gray-200">Tag</li>
-          <li className="px-4 py-1 border border-gray-200">Tag</li>
-          <li className="px-4 py-1 border border-gray-200">Tag</li>
-          <li className="px-4 py-1 border border-gray-200">Tag</li>
+          {tags.slice(0, 8).map((tag) => (
+            <li className="px-4 py-1 border border-gray-200">{tag}</li>
+          ))}
         </ul>
       </div>
 

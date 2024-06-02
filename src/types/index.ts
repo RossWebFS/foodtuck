@@ -85,20 +85,10 @@ export interface TBlog {
   date: string;
   description: string;
   _id: string;
-  img: string;
+  img: string[];
   comments: string[];
   tags: string[];
   text: string;
-}
-
-export interface TPost {
-  img: string;
-  date: string;
-  title: string;
-  description: string;
-  text: string;
-  comments: string[];
-  tags: string[];
 }
 
 // Icons & Images

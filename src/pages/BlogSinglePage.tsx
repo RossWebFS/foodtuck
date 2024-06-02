@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Icon } from "src/components/Icon";
-import { blogs, comments, icons, routes } from "src/constants";
+import { comments, icons, routes } from "src/constants";
 import { PageIntro } from "src/containers/features/PageIntro";
 import { BlogSidebar } from "src/containers/layouts/BlogSidebar";
 import { Wrapper } from "src/containers/layouts/Wrapper";
@@ -9,10 +9,17 @@ import { useUserStore } from "src/store/UserStore";
 import { Input } from "src/components/Input";
 import { Button } from "src/components/Button";
 import { formDate } from "src/utils";
+import { useBlogStore } from "src/store/BlogStore";
+import { useEffect } from "react";
 
 export const BlogSinglePage = () => {
   const { blogId } = useParams();
-  const user = useUserStore((state) => state.user);
+  const user = useUserStore((state) => state.user)
+  const [blogs, getBlogs] = useBlogStore(state => [state.blogs, state.getBlogs])
+
+  useEffect(() => {
+    !blogs.length && getBlogs()
+  }, [])
 
   const url = encodeURI(window.location.href);
 
@@ -62,7 +69,7 @@ export const BlogSinglePage = () => {
           <section className="w-2/3">
             <img
               className="object-cover w-full h-[30rem]"
-              src={blog.img}
+              src={blog.img[0]}
               alt={blog.title}
             />
             <ul className="flex gap-2 py-3">
@@ -88,7 +95,7 @@ export const BlogSinglePage = () => {
             <section className="p-5 border border-gray-300 flex justify-between">
               <div className="flex items-center gap-1 text-lg">
                 <h3 className="font-semibold">Tags:</h3>
-                <ul>
+                <ul className="flex">
                   {blog.tags
                     .join(", ")
                     .split(" ")

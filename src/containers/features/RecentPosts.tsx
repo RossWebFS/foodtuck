@@ -21,7 +21,7 @@ export const RecentPosts = ({
         <Link to={`/blog-details/${post._id}`} className={cn("flex", itemStyles)}>
           <img
             className={cn("object-cover aspect-square w-20 rounded", imgStyles)}
-            src={post.img}
+            src={post.img[0]}
             alt={post.title}
           />
           <div className="ml-2">

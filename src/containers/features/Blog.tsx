@@ -16,7 +16,7 @@ export const Blog = ({ blog }: BlogProps) => {
       <div className="relative">
         <img
           className="object-cover w-full h-[30rem]"
-          src={blog.img}
+          src={blog.img[0]}
           alt={blog.title}
         />
         <div className="w-20 h-20 rounded-lg bg-orange-400 text-gray-100 flex flex-col items-center justify-center absolute top-4 left-4">

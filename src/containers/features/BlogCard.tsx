@@ -21,7 +21,7 @@ export const BlogCard = ({ blog }: BlogCardProps) => {
     <li className="border border-white w-1/4">
       <img
         className="w-full h-60 object-cover"
-        src={blog.img}
+        src={blog.img[0]}
         alt={blog.title}
       />
       <section className="p-6">
