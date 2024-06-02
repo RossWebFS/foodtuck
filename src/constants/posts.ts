@@ -58,17 +58,19 @@ export const blogs: TBlog[] = [
     cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
     tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
     impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
-    consequatur`,
-    _id: "brhfbgoi",
-    img: "https://i.imgur.com/WSkTUzi.jpg",
-    comments: [],
-    user: "",
-    tags: ["facts"],
-  },
-  {
-    title: "10 Reasons To Do A Digital Detox Challenge",
-    date: formDate(),
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    consequatur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
     cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
     tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
     impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
@@ -78,11 +80,32 @@ export const blogs: TBlog[] = [
     comments: [],
     user: "",
     tags: ["facts"],
+    text: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur`,
   },
   {
     title: "10 Reasons To Do A Digital Detox Challenge",
     date: formDate(),
     description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
     cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
     tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
     impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
@@ -92,5 +115,45 @@ export const blogs: TBlog[] = [
     comments: [],
     user: "",
     tags: ["facts"],
+    text: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur`,
+  },
+  {
+    title: "10 Reasons To Do A Digital Detox Challenge",
+    date: formDate(),
+    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur`,
+    _id: "brhfbgoi",
+    img: "https://i.imgur.com/WSkTUzi.jpg",
+    comments: [],
+    user: "",
+    tags: ["facts"],
+    text: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste mollitia
+    cum sed ex maiores quidem placeat molestias sapiente enim, quaerat
+    tempore quam optio suscipit sint odit quibusdam non officiis excepturi,
+    impedit, quisquam quo repellat alias assumenda voluptatibus. Facilis
+    consequatur`,
   },
 ];

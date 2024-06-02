@@ -96,6 +96,7 @@ export interface TBlog {
   comments: string[];
   user: string;
   tags: string[];
+  text: string;
 }
 
 export interface TPost {
@@ -135,10 +136,12 @@ export interface TCategoryIcons {
 }
 
 // Comments
-export interface TComments {
-  avatar: string;
-  comment: string;
-  userName: string;
+export interface TComment {
+  id: string;
+  userId: string;
+  content: string;
+  date: string;
+  postId: string;
 }
 
 export interface TData {
@@ -154,7 +157,7 @@ export interface TUser {
   name: string;
   email: string;
   password: string;
-  id: string
+  id: string;
 }
 
 export interface TPayload {
