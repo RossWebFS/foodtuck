@@ -14,10 +14,8 @@ export const FeedBackSlider = ({themeStyles}: FeedBackSliderProps) => {
   const feedbackCards = comments.map((feedback) => {
     return (
       <FeedBackCard
-        key={feedback.userName}
-        avatar={feedback.avatar}
-        comment={feedback.comment}
-        userName={feedback.userName}
+        key={feedback.id}
+        comment={feedback}
       />
     );
   });

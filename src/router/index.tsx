@@ -16,6 +16,7 @@ import { ChefPage } from "src/pages/ChefPage";
 import { CheckoutPage } from "src/pages/CheckoutPage";
 import { AboutPage } from "src/pages/AboutPage";
 import { ProfilePage } from "src/pages/Profile";
+import { BlogSinglePage } from "src/pages/BlogSinglePage";
 
 const Layout = () => {
   return (
@@ -44,12 +45,16 @@ export const router = createBrowserRouter([
         element: <ShopPage />,
       },
       {
-        path: "/shop-details/:id",
+        path: "/shop-details/:dishId",
         element: <ProductSinglePage />,
       },
       {
         path: "/blog",
         element: <BlogPage />,
+      },
+      {
+        path: "/blog-details/:blogId",
+        element: <BlogSinglePage />,
       },
       {
         path: "/cart",

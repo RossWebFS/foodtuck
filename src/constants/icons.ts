@@ -9,7 +9,7 @@ import {
   AiOutlineTwitter,
   AiOutlineInstagram,
   AiOutlineUser,
-  AiOutlineMail
+  AiOutlineMail,
 } from "react-icons/ai";
 import {
   PiHamburgerLight,
@@ -24,11 +24,12 @@ import { GoShareAndroid, GoCommentDiscussion } from "react-icons/go";
 import { BsYoutube, BsPinterest, BsCheck } from "react-icons/bs";
 import { RiSearchLine } from "react-icons/ri";
 import { IoClose, IoCalendarNumberOutline } from "react-icons/io5";
-import { CiPlay1, CiHeart, CiLock } from "react-icons/ci";
+import { CiPlay1, CiHeart } from "react-icons/ci";
 import { FaPlay, FaStar } from "react-icons/fa";
 import { FaPause } from "react-icons/fa6";
 import { IoMdHeart } from "react-icons/io";
 import { TfiLock } from "react-icons/tfi";
+import { MdOutlineDelete } from "react-icons/md";
 
 export const icons: TIcons = {
   facebook: {
@@ -77,7 +78,8 @@ export const icons: TIcons = {
   outlinedComments: { icon: GoCommentDiscussion },
   readMoreArrow: { icon: PiArrowLineUpRight },
   mail: { icon: AiOutlineMail },
-  lock: {icon : TfiLock}
+  lock: { icon: TfiLock },
+  bin: { icon: MdOutlineDelete },
 };
 
 export const footerIcons: TIcon[] = [

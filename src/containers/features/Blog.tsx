@@ -9,6 +9,7 @@ interface BlogProps {
 
 export const Blog = ({ blog }: BlogProps) => {
   const [day, month, year] = blog.date.split(" ");
+
   return (
     <div>
       <div className="relative">
@@ -38,9 +39,16 @@ export const Blog = ({ blog }: BlogProps) => {
           {blog.comments.length}
         </li>
       </ul>
-      <h2 className="pb-6 w-3/4 border-b border-b-gray-200 text-2xl font-semibold"></h2>
-      <p className="my-6 w-3/4">{blog.description}</p>
-      <Link to={`/blog/${blog._id}`} size="lg" variant="outlined" className="group">
+      <h2 className="pb-6 w-3/4 border-b border-b-gray-200 text-2xl font-semibold">
+        {blog.title}
+      </h2>
+      <p className="my-6 w-3/4">{blog.text}</p>
+      <Link
+        to={`/blog-details/${blog._id}`}
+        size="lg"
+        variant="outlined"
+        className="group"
+      >
         Read More
         <Icon
           IconComponent={icons.readMoreArrow.icon}

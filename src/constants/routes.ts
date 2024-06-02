@@ -13,6 +13,10 @@ export const routes: TRoutes = {
     routeName: "Blog",
     path: "/blog",
   },
+  BLOG_DETAILS: {
+    routeName: "Blog Details",
+    path: "/blog-details",
+  },
   ABOUT: {
     routeName: "About",
     path: "/about",

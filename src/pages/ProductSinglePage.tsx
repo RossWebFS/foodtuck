@@ -41,7 +41,7 @@ export const ProductSinglePage = () => {
     state.fetchProducts,
   ]);
 
-  const { id } = useParams();
+  const { dishId } = useParams();
 
   useEffect(() => {
     fetchProducts();
@@ -49,10 +49,10 @@ export const ProductSinglePage = () => {
 
   const links = [
     routes.HOME,
-    { ...routes.SHOP_DETAILS, path: `${routes.SHOP_DETAILS.path}/${id}` },
+    { ...routes.SHOP_DETAILS, path: `${routes.SHOP_DETAILS.path}/${dishId}` },
   ];
 
-  const product = products.find((dish) => dish._id === id);
+  const product = products.find((dish) => dish._id === dishId);
 
   const onAdd = () => {
     product && increaseDishCount(product);
@@ -64,14 +64,14 @@ export const ProductSinglePage = () => {
   const sameDishes = products.filter((dish) => {
     return (
       dish.category.some((category) => product?.category.includes(category)) &&
-      dish._id !== id
+      dish._id !== dishId
     );
   });
 
   const otherDishes = products.filter((dish) => {
     return (
       !dish.category.some((category) => product?.category.includes(category)) &&
-      dish._id !== id
+      dish._id !== dishId
     );
   });
 
@@ -142,25 +142,25 @@ export const ProductSinglePage = () => {
                 <div className="flex items-center gap-5 border-b border-b-gray-200 pb-4">
                   <div className="text-xl">
                     <Counter
-                      counter={cart.find((dish) => dish._id === id)?.count || 0}
+                      counter={cart.find((dish) => dish._id === dishId)?.count || 0}
                       onAdd={onAdd}
                       onSubract={onSubract}
                       upStyles={cn({
                         "text-gray-400 cursor-default hover:bg-transparent":
-                          !cart.some((dish) => dish._id === id),
+                          !cart.some((dish) => dish._id === dishId),
                       })}
                       downStyles={cn({
                         "text-gray-400 cursor-default hover:bg-transparent":
-                          !cart.some((dish) => dish._id === id),
+                          !cart.some((dish) => dish._id === dishId),
                       })}
                       counterStyle={cn({
                         "text-gray-400 cursor-default hover:bg-transparent":
-                          !cart.some((dish) => dish._id === id),
+                          !cart.some((dish) => dish._id === dishId),
                       })}
                     />
                   </div>
 
-                  {cart.some((dish) => dish._id === id) ? (
+                  {cart.some((dish) => dish._id === dishId) ? (
                     <Button
                       className="px-5 py-2 h-auto group"
                       variant="outlined"
@@ -187,7 +187,7 @@ export const ProductSinglePage = () => {
                 </div>
 
                 <div className="mt-3">
-                  {wishList.some((dish) => dish._id === id) ? (
+                  {wishList.some((dish) => dish._id === dishId) ? (
                     <div>
                       <Icon
                         IconComponent={icons.heart.icon}
