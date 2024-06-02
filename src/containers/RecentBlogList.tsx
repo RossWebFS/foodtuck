@@ -1,18 +1,12 @@
 import { Wrapper } from "src/containers/layouts/Wrapper";
 import { BlogCard } from "src/containers/features/BlogCard";
 
-import { blogCards } from "src/constants";
+import { blogs } from "src/constants";
+import { getRecentBlogs } from "src/utils";
 
 export const RecentBlogList = () => {
-  const blogCardListItems = blogCards.map((blog) => {
-    return (
-      <BlogCard
-        key={blog.id}
-        title={blog.title}
-        date={blog.date}
-        img={blog.img}
-      />
-    );
+  const blogCardListItems = getRecentBlogs(blogs, 3).map((blog) => {
+    return <BlogCard key={blog._id} blog={blog} />;
   });
 
   return (

@@ -64,7 +64,7 @@ export const FilterInput = ({
       <li className="my-2 text-black hover:bg-gray-200 cursor-pointer">
         <Link
           className="text-lg hover:text-black flex"
-          to={`/shop-details/${_id}`}
+          to={`${data.baseUrl}/${_id}`}
         >
           <img className="w-12 h-12 mr-2" src={img} alt={title} />
           <div>

@@ -1,12 +1,13 @@
-import { recentPosts, footerIcons, blogs } from "src/constants";
+import { footerIcons, blogs } from "src/constants";
 import { FilterInput } from "../features/FilterInput";
 import { IconList } from "../features/IconList";
 import { RecentPosts } from "../features/RecentPosts";
 import { TData } from "src/types";
+import { getRecentBlogs } from "src/utils";
 
 export const BlogSidebar = () => {
   const blogArr: TData[] = blogs.map(({ title, _id, tags, img }) => {
-    return { title, _id, tags, img, baseUrl: "/blog" };
+    return { title, _id, tags, img, baseUrl: "/blog-details" };
   });
 
   return (
@@ -21,8 +22,8 @@ export const BlogSidebar = () => {
       <div className="my-10 p-6 border border-gray-200">
         <h3 className="text-2xl font-semibold">Recent Post</h3>
         <RecentPosts
-          recentPosts={recentPosts}
-          itemStyles="pb-3 border-b border-b-gray-200"
+          recentPosts={getRecentBlogs(blogs, 4)}
+          itemStyles="pb-3 border-b border-b-gray-200 hover:text-black"
         />
       </div>
 

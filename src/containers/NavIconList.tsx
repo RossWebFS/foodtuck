@@ -18,7 +18,7 @@ export const NavIconList = () => {
     return { title, _id, tags, img, baseUrl: "/shop-details" };
   });
   const blogArr: TData[] = blogs.map(({ title, _id, tags, img }) => {
-    return { title, _id, tags, img, baseUrl: "/blog" };
+    return { title, _id, tags, img, baseUrl: "/blog-details" };
   });
 
   return (

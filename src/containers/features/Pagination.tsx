@@ -5,8 +5,8 @@ import { cn } from "src/utils";
 
 interface PaginationProps {
   products: number;
-  filter?: TFilterObject;
-  filterHandler?: (value: TFilterObject) => void;
+  filter?: number;
+  filterHandler?: (value: number) => void;
   limit: number
 }
 
@@ -21,7 +21,7 @@ export const Pagination = ({
   const pageCount = Math.ceil(products / limit);
 
   useEffect(() => {
-    filterHandler && filter && filterHandler({ ...filter, pagination: activePage + 1 });
+    filterHandler && filterHandler(activePage + 1);
   }, [activePage]);
 
   const paginationItems = [...Array(pageCount)].map((page, index) => {

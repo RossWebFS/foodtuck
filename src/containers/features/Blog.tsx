@@ -2,13 +2,14 @@ import { Icon } from "src/components/Icon";
 import { Link } from "src/components/Link";
 import { icons } from "src/constants";
 import { TBlog } from "src/types";
+import { formDate } from "src/utils";
 
 interface BlogProps {
   blog: TBlog;
 }
 
 export const Blog = ({ blog }: BlogProps) => {
-  const [day, month, year] = blog.date.split(" ");
+  const [day, month, year] = formDate(new Date(blog.date)).split(" ");
 
   return (
     <div>

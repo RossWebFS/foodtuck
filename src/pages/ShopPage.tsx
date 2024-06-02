@@ -18,7 +18,6 @@ import { useProductStore } from "src/store/ProductStore";
 import { SelectProductFilter } from "src/containers/features/SelectProductFilter";
 import { useEffect, useState } from "react";
 import { TData, TFilterObject } from "src/types";
-import { dishService } from "src/services/Dishes";
 
 export const ShopPage = () => {
   const links = [routes.HOME, routes.SHOP];
@@ -37,8 +36,9 @@ export const ShopPage = () => {
     categories: [],
     price: [0, 100],
     tag: "Select All",
-    pagination: 1,
   });
+
+  const [page, setPage] = useState<number>(1)
 
   const dishes: TData[] = products.map(({ title, _id, tags, img }) => {
     return { title, _id, tags, img, baseUrl: "/blog" };
@@ -113,14 +113,14 @@ export const ShopPage = () => {
             <ProductList
               listStyles="grid grid-cols-3"
               products={filteredProducts}
-              page={filters.pagination}
+              page={page}
               limit={6}
             />
 
             <Pagination
               products={filteredProducts.length}
-              filter={filters}
-              filterHandler={setFilters}
+              filter={page}
+              filterHandler={setPage}
               limit={6}
             />
           </section>

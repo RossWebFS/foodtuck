@@ -8,12 +8,13 @@ import { IconList } from "src/containers/features/IconList";
 import {
   usefulLinks,
   helpLinks,
-  recentPosts,
   footerIcons,
+  blogs,
 } from "src/constants";
 
 import { PiClockClockwiseLight } from "react-icons/pi";
 import footerLeaves from "src/assets/decorations/footerLeaves.png";
+import { getRecentBlogs } from "src/utils";
 
 export const Footer = () => {
   return (
@@ -64,7 +65,7 @@ export const Footer = () => {
 
           <div>
             <h3 className="text-lg font-bold">Recent Post</h3>
-            <RecentPosts recentPosts={recentPosts} />
+            <RecentPosts imgStyles="w-16 h-16" itemStyles="hover:bg-gray-100/10" recentPosts={getRecentBlogs(blogs, 3)} />
           </div>
         </section>
       </Wrapper>

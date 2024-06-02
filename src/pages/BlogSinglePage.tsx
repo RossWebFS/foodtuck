@@ -8,13 +8,13 @@ import { Comment } from "src/containers/features/Comment";
 import { useUserStore } from "src/store/UserStore";
 import { Input } from "src/components/Input";
 import { Button } from "src/components/Button";
+import { formDate } from "src/utils";
 
 export const BlogSinglePage = () => {
   const { blogId } = useParams();
   const user = useUserStore((state) => state.user);
 
   const url = encodeURI(window.location.href);
-  const shareMessage = encodeURIComponent("Hey, this the best site ever!");
 
   const links = [
     routes.HOME,
@@ -22,7 +22,7 @@ export const BlogSinglePage = () => {
   ];
 
   const blog = blogs.find((blogItem) => blogItem._id === blogId);
-  const [day, month, year] = blog?.date.split(" ") || "1 Jan 2024";
+  const [day, month, year] = formDate(blog && new Date(blog.date)).split(" ");
   const shareIcons = [
     <a
       href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
@@ -84,7 +84,7 @@ export const BlogSinglePage = () => {
             <h2 className="pb-6 w-3/4 border-b border-b-gray-200 text-2xl font-semibold">
               {blog.title}
             </h2>
-            <article className="mt-6">{blog.description}</article>
+            <article className="my-6">{blog.description}</article>
             <section className="p-5 border border-gray-300 flex justify-between">
               <div className="flex items-center gap-1 text-lg">
                 <h3 className="font-semibold">Tags:</h3>
