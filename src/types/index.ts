@@ -150,9 +150,15 @@ export interface TData {
 }
 
 export interface TUser {
-  avatar?: string;
+  avatar: string;
   name: string;
   email: string;
   password: string;
   id: string
+}
+
+export interface TPayload {
+  id: string;
+  iat: number;
+  exp: number;
 }

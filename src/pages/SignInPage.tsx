@@ -8,7 +8,7 @@ export const SignInPage = () => {
   return (
     <main className="py-20">
       <PageIntro title="Sign in page" links={links} />
-      <SignInForm />
+        <SignInForm />
     </main>
   );
 };
