@@ -18,7 +18,7 @@ export const BlogSinglePage = () => {
   const [blogs, getBlogs] = useBlogStore(state => [state.blogs, state.getBlogs])
 
   useEffect(() => {
-    !blogs.length && getBlogs()
+    !blogs.length && getBlogs && getBlogs()
   }, [])
 
   const url = encodeURI(window.location.href);

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Button } from "src/components/Button";
-import { TDishCount, TFilterObject } from "src/types";
 import { cn } from "src/utils";
 
 interface PaginationProps {
@@ -22,6 +21,7 @@ export const Pagination = ({
 
   useEffect(() => {
     filterHandler && filterHandler(activePage + 1);
+    pageCount === 1 && setActivePage(0)
   }, [activePage]);
 
   const paginationItems = [...Array(pageCount)].map((page, index) => {

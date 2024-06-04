@@ -3,11 +3,25 @@ import { FilterInput } from "../features/FilterInput";
 import { IconList } from "../features/IconList";
 import { RecentPosts } from "../features/RecentPosts";
 import { TData } from "src/types";
-import { getRecentBlogs } from "src/utils";
+import { cn, getRecentBlogs } from "src/utils";
 import { useBlogStore } from "src/store/BlogStore";
+import { useEffect, useState } from "react";
 
 export const BlogSidebar = () => {
-  const blogs = useBlogStore((state) => state.blogs);
+  const [blogs, getBlogs, filterBlogs] = useBlogStore((state) => [
+    state.blogs,
+    state.getBlogs,
+    state.filterBlogs
+  ]);
+  const [activeFilter, setActiveFilter] = useState<null | string>(null);
+
+  useEffect(() => {
+    !blogs.length && getBlogs && getBlogs();
+  }, []);
+
+  useEffect(() => {
+    filterBlogs && filterBlogs(activeFilter)
+  }, [activeFilter])
 
   const blogArr: TData[] = blogs.map(({ title, _id, tags, img }) => {
     return { title, _id, tags, img: img[0], baseUrl: "/blog-details" };
@@ -23,18 +37,32 @@ export const BlogSidebar = () => {
   );
 
   const blogList = filteredCategories.map((category) => {
-    const filteredBlogs = blogs.filter((blog) => blog.tags.includes(category));
+    const filteredBlogItems = blogs.filter((blog) =>
+      blog.tags.includes(category)
+    );
     return (
-      <li className="flex justify-between items-center my-5" onClick={() => {}}>
+      <li
+        className={cn(
+          "flex justify-between items-center py-2 px-4 cursor-pointer hover:bg-gray-100",
+          {
+            "bg-gray-100": activeFilter === category,
+          }
+        )}
+        onClick={() =>
+          activeFilter === category
+            ? setActiveFilter(null)
+            : setActiveFilter(category)
+        }
+      >
         <div className="flex items-center">
           <img
-            src={filteredBlogs[0].img[0]}
+            src={filteredBlogItems[0].img[0]}
             alt="post"
             className="rounded-lg w-16 h-16 object-cover"
           />
           <h3 className="text-lg font-semibold ml-4">{category}</h3>
         </div>
-        <span>{filteredBlogs.length}</span>
+        <span>{filteredBlogItems.length}</span>
       </li>
     );
   });
