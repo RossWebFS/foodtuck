@@ -11,15 +11,19 @@ import { Button } from "src/components/Button";
 import { formDate } from "src/utils";
 import { useBlogStore } from "src/store/BlogStore";
 import { useEffect } from "react";
+import { CommentForm } from "src/containers/features/CommentForm";
 
 export const BlogSinglePage = () => {
   const { blogId } = useParams();
-  const user = useUserStore((state) => state.user)
-  const [blogs, getBlogs] = useBlogStore(state => [state.blogs, state.getBlogs])
+  const user = useUserStore((state) => state.user);
+  const [blogs, getBlogs] = useBlogStore((state) => [
+    state.blogs,
+    state.getBlogs,
+  ]);
 
   useEffect(() => {
-    !blogs.length && getBlogs && getBlogs()
-  }, [])
+    !blogs.length && getBlogs && getBlogs();
+  }, []);
 
   const url = encodeURI(window.location.href);
 
@@ -119,29 +123,17 @@ export const BlogSinglePage = () => {
               </h2>
               <Comment comment={comments[0]} />
             </section>
-            {!user && (
-              <form>
+            {user ? (
+              <>
                 <h2 className="text-3xl font-semibold border-b border-gray-300 my-10 pb-4">
                   Post a comment
                 </h2>
-                <div className="flex gap-[5%]">
-                  <Input
-                    type="text"
-                    className="w-1/2 outline-0 focus:border-gray-400"
-                    placeholder="Name*"
-                  />
-                  <Input
-                    type="email"
-                    className="w-1/2 outline-0 focus:border-gray-400"
-                    placeholder="Email*"
-                  />
-                </div>
-                <textarea
-                  placeholder="Write a comment"
-                  className="w-full h-48 resize-none border-gray-300 border mt-10 p-3 outline-0 focus:border-gray-400"
-                ></textarea>
-                <Button size="lg" className="mt-10">Post a comment</Button>
-              </form>
+                <CommentForm />
+              </>
+            ) : (
+              <div className="text-2xl font-semibold mt-16">
+                Please, make sure you are authenticated to create comment
+              </div>
             )}
           </section>
         )}
