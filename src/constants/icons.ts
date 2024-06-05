@@ -25,7 +25,7 @@ import { BsYoutube, BsPinterest, BsCheck } from "react-icons/bs";
 import { RiSearchLine } from "react-icons/ri";
 import { IoClose, IoCalendarNumberOutline } from "react-icons/io5";
 import { CiPlay1, CiHeart } from "react-icons/ci";
-import { FaPlay, FaStar } from "react-icons/fa";
+import { FaPlay, FaStar, FaRegEye } from "react-icons/fa";
 import { FaPause } from "react-icons/fa6";
 import { IoMdHeart } from "react-icons/io";
 import { TfiLock } from "react-icons/tfi";
@@ -80,6 +80,7 @@ export const icons: TIcons = {
   mail: { icon: AiOutlineMail },
   lock: { icon: TfiLock },
   bin: { icon: MdOutlineDelete },
+  eye: { icon: FaRegEye },
 };
 
 export const footerIcons: TIcon[] = [

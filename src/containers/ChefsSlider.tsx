@@ -1,6 +1,6 @@
 import { Link } from "src/components/Link";
 import { Wrapper } from "src/containers/layouts/Wrapper";
-import { Slider } from "./features/Slider";
+import { SliderComponent } from "./features/SliderComponent";
 
 import { chefs } from "src/constants";
 
@@ -28,7 +28,7 @@ export const ChefsSlider = () => {
         </h2>
       </div>
 
-      <Slider
+      <SliderComponent
         list={slides}
         listStyles="w-[70%] z-20"
         arrows={true}

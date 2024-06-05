@@ -1,18 +1,22 @@
-import SliderSlick from "react-slick";
+import SliderSlick, { Settings } from "react-slick";
 import { Icon } from "src/components/Icon";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { cn } from "src/utils";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { ReactSliderProps } from "react-slider";
 
-interface SliderProps {
+interface SliderProps extends React.RefAttributes<Slider>, Settings {
   list: any[];
   visibleSlideCount?: number;
   isDotted?: boolean;
   arrows?: boolean;
   listStyles?: string;
   arrowStyles?: string;
+  onClickR?: () => void;
+  onClickL?: () => void;
 }
 
 interface CustomArrowProps {
@@ -20,14 +24,21 @@ interface CustomArrowProps {
   onClick?: () => void;
   arrowStyles?: string;
 }
+interface CustomArrowRProps extends CustomArrowProps {
+  onClickR?: () => void;
+}
+interface CustomArrowLProps extends CustomArrowProps {
+  onClickL?: () => void;
+}
 
-export const Slider = ({
+export const SliderComponent = ({
   list,
   visibleSlideCount = 1,
   isDotted = false,
   arrows = false,
   listStyles,
   arrowStyles,
+  ...props
 }: SliderProps) => {
   const sliderOptions = {
     infinite: true,
@@ -54,12 +65,16 @@ export const Slider = ({
 
   return (
     <ul className={cn("mt-6 mb-10", listStyles)}>
-      <SliderSlick {...sliderOptions}>{list}</SliderSlick>
+      <SliderSlick {...props} {...sliderOptions}>{list}</SliderSlick>
     </ul>
   );
 };
 
-const CustomArrowL = ({ onClick, arrowStyles }: CustomArrowProps) => {
+const CustomArrowL = ({
+  onClick,
+  onClickL,
+  arrowStyles,
+}: CustomArrowLProps) => {
   return (
     <Icon
       IconComponent={FaChevronLeft}
@@ -72,7 +87,11 @@ const CustomArrowL = ({ onClick, arrowStyles }: CustomArrowProps) => {
   );
 };
 
-const CustomArrowR = ({ onClick, arrowStyles }: CustomArrowProps) => {
+const CustomArrowR = ({
+  onClick,
+  onClickR,
+  arrowStyles,
+}: CustomArrowRProps) => {
   return (
     <Icon
       IconComponent={FaChevronRight}
