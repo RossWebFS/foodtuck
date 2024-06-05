@@ -13,7 +13,7 @@ export const blogService = {
       return [];
     }
   },
-  getBlogId: async (blogId: string) => {
+  getBlogById: async (blogId: string) => {
     try {
       const res = await api(`${url}/${blogId}`);
       return res.data;
