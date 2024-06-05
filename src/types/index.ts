@@ -76,37 +76,19 @@ export interface TFilterObject {
   categories: string[];
   price: number[];
   tag: string;
-  pagination: number;
 }
 
 // Posts
-export interface TRecentPost {
-  img: string;
-  date: string;
-  title: string;
-  id?: number;
-}
 
 export interface TBlog {
   title: string;
   date: string;
   description: string;
   _id: string;
-  img: string;
-  comments: string[];
-  user: string;
-  tags: string[];
-  text: string;
-}
-
-export interface TPost {
-  img: string;
-  date: string;
-  title: string;
-  description: string;
-  text: string;
+  img: string[];
   comments: string[];
   tags: string[];
+  text: string;
 }
 
 // Icons & Images

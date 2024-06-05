@@ -1,23 +1,18 @@
 import { Wrapper } from "./layouts/Wrapper";
 import { FeedBackCard } from "./features/FeedBackCard";
-import { Slider } from "./features/Slider";
+import { SliderComponent } from "./features/SliderComponent";
 
 import { comments } from "src/constants";
 
 import FeedBackSliderFlower from "src/assets/decorations/feedBackSliderFlowers.png";
 
 interface FeedBackSliderProps {
-  themeStyles?: string
+  themeStyles?: string;
 }
 
-export const FeedBackSlider = ({themeStyles}: FeedBackSliderProps) => {
+export const FeedBackSlider = ({ themeStyles }: FeedBackSliderProps) => {
   const feedbackCards = comments.map((feedback) => {
-    return (
-      <FeedBackCard
-        key={feedback.id}
-        comment={feedback}
-      />
-    );
+    return <FeedBackCard key={feedback.id} comment={feedback} />;
   });
 
   return (
@@ -27,7 +22,7 @@ export const FeedBackSlider = ({themeStyles}: FeedBackSliderProps) => {
         <h2 className="font-semibold text-4xl">What Our Clients are saying</h2>
       </div>
 
-      <Slider
+      <SliderComponent
         listStyles="w-[60%] self-center z-20"
         list={feedbackCards}
         isDotted={true}

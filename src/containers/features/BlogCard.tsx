@@ -1,10 +1,15 @@
 import { Link } from "src/components/Link";
 
-import { TRecentPost } from "src/types";
 import { icons } from "src/constants";
 import { Icon } from "src/components/Icon";
+import { TBlog } from "src/types";
+import { formDate } from "src/utils";
 
-export const BlogCard = ({ img, title, date }: TRecentPost) => {
+interface BlogCardProps {
+  blog: TBlog;
+}
+
+export const BlogCard = ({ blog }: BlogCardProps) => {
   const shareLink = async (link: string) => {
     await navigator.share({
       title: "Share this site link",
@@ -14,14 +19,20 @@ export const BlogCard = ({ img, title, date }: TRecentPost) => {
 
   return (
     <li className="border border-white w-1/4">
-      <img src={img} alt={img} />
+      <img
+        className="w-full h-60 object-cover"
+        src={blog.img[0]}
+        alt={blog.title}
+      />
       <section className="p-6">
         <div>
-          <span className="text-sm text-orange-400">{date}</span>
-          <h5 className="font-semibold text-lg mt-4">{title}</h5>
+          <span className="text-sm text-orange-400">
+            {formDate(new Date(blog.date))}
+          </span>
+          <h5 className="font-semibold text-lg mt-4">{blog.title}</h5>
         </div>
         <div className="flex justify-between items-center mt-4">
-          <Link variant="colored" to="/">
+          <Link variant="colored" to={`/blog-details/${blog._id}`}>
             Learn More
           </Link>
           <ul className="flex gap-2">

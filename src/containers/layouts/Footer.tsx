@@ -5,17 +5,16 @@ import { FooterLinkList } from "src/containers/features/FooterLinkList";
 import { RecentPosts } from "src/containers/features/RecentPosts";
 import { IconList } from "src/containers/features/IconList";
 
-import {
-  usefulLinks,
-  helpLinks,
-  recentPosts,
-  footerIcons,
-} from "src/constants";
+import { usefulLinks, helpLinks, footerIcons } from "src/constants";
 
 import { PiClockClockwiseLight } from "react-icons/pi";
 import footerLeaves from "src/assets/decorations/footerLeaves.png";
+import { getRecentBlogs } from "src/utils";
+import { useBlogStore } from "src/store/BlogStore";
 
 export const Footer = () => {
+  const blogs = useBlogStore(state => state.blogs)
+
   return (
     <footer className="bg-black text-gray-100 relative">
       <Wrapper>
@@ -64,7 +63,11 @@ export const Footer = () => {
 
           <div>
             <h3 className="text-lg font-bold">Recent Post</h3>
-            <RecentPosts recentPosts={recentPosts} />
+            <RecentPosts
+              imgStyles="w-16 h-16"
+              itemStyles="hover:bg-gray-100/10"
+              recentPosts={getRecentBlogs(blogs, 3)}
+            />
           </div>
         </section>
       </Wrapper>

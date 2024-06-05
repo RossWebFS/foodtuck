@@ -106,8 +106,8 @@ export const ProductList = ({
 
   return products.length ? (
     <ul className={cn("gap-5 min-h-[42rem] items-start mr-5", listStyles)}>
-      {limit
-        ? page
+      {limit && page
+        ? page > 1
           ? shopItems.slice(limit * (page - 1), limit * page)
           : shopItems.slice(0, limit)
         : shopItems}

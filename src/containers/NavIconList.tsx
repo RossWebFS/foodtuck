@@ -1,6 +1,6 @@
 import { SearchInputModal } from "./features/SearchInputModal";
 
-import { blogs, icons } from "src/constants";
+import { icons } from "src/constants";
 import { CartModal } from "./features/CartModal";
 import { useState } from "react";
 import { useProductStore } from "src/store/ProductStore";
@@ -8,17 +8,19 @@ import { TData } from "src/types";
 import { Link } from "src/components/Link";
 import { Icon } from "src/components/Icon";
 import { useUserStore } from "src/store/UserStore";
+import { useBlogStore } from "src/store/BlogStore";
 
 export const NavIconList = () => {
   const [activeModal, setActiveModal] = useState<null | string>(null);
   const products = useProductStore((state) => state.products);
   const [isAuth, user] = useUserStore(state => [state.isAuth, state.user])
+  const blogs = useBlogStore(state => state.blogs)
 
   const dishes: TData[] = products.map(({ title, _id, tags, img }) => {
     return { title, _id, tags, img, baseUrl: "/shop-details" };
   });
   const blogArr: TData[] = blogs.map(({ title, _id, tags, img }) => {
-    return { title, _id, tags, img, baseUrl: "/blog" };
+    return { title, _id, tags, img: img[0], baseUrl: "/blog-details" };
   });
 
   return (
